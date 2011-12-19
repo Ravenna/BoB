@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nominee:</b>
+  <%= @recommendation.nominee %>
+</p>
+
+<ul>
+	<% @approvals.each do |approval|%>
+		<li><%= approval.id %></li>
+	<% end %>
+
+</ul>
+
+
+<%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
+<%= link_to 'Back', recommendations_path %>

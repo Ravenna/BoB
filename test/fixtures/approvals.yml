@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  recomendation_id: 1
+  approved: false
+  email: MyString
+
+two:
+  recomendation_id: 1
+  approved: false
+  email: MyString

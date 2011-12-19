@@ -1,0 +1,33 @@
+<%= form_for(@recommendation) do |f| %>
+  <% if @recommendation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recommendation.errors.count, "error") %> prohibited this recommendation from being saved:</h2>
+
+      <ul>
+      <% @recommendation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nominee %><br />
+    <%= f.text_field :nominee %>
+  </div>
+  <div class="field">
+	<%= f.label "Award" %>
+    <%= f.select :award_id, Award.find(:all, :order => 'name').collect { |c| [c.name, c.id] }, :include_blank => true %>
+  </div>
+
+  <div class="field">
+	Email 
+	<%= fields_for :approval do |approval| %>
+		<%= approval.text_field :email %>
+	<% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

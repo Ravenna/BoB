@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Recomendation:</b>
+  <%= @approval.recomendation_id %>
+</p>
+
+<p>
+  <b>Approved:</b>
+  <%= @approval.approved %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @approval.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_approval_path(@approval) %> |
+<%= link_to 'Back', approvals_path %>

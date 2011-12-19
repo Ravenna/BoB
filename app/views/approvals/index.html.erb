@@ -1,0 +1,27 @@
+<h1>Listing approvals</h1>
+
+<table>
+  <tr>
+    <th>Recomendation</th>
+    <th>Approved</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @approvals.each do |approval| %>
+  <tr>
+    <td><%= approval.recomendation_id %></td>
+    <td><%= approval.approved %></td>
+    <td><%= approval.email %></td>
+    <td><%= link_to 'Show', approval %></td>
+    <td><%= link_to 'Edit', edit_approval_path(approval) %></td>
+    <td><%= link_to 'Destroy', approval, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Approval', new_approval_path %>
