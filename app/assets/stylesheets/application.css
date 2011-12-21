@@ -55,12 +55,15 @@ input{font-size:14px; padding:3px; margin-bottom:10px;}
 #utility_nav li a{color:#fff;}
 
 #main_nav{padding-left:22px;}
-#main_nav li{float:left; padding-right:10px; font-weight:bold; }
+#main_nav li{float:left; padding-right:25px; margin-right:10px; font-weight:bold; background:url(menu-dot.png) no-repeat right center; }
 #main_nav li a{color:#fff;}
 
 #limiter{width:800px; height:auto; padding-top:80px; margin:0 auto;}
+#logo{width:185px; margin:0 auto; padding-top:40px;}
+
 #award_info{padding:15px 0;}
 #award_recommendation{padding-top:10px;}
+
 .buttonOrange {
 background: #DD6000;
 box-shadow: 0 3px 10px #333;
@@ -80,47 +83,3 @@ text-decoration: none;
 }
 
 
-
-#flash_notice, #flash_error, #flash_alert {
-  padding: 5px 8px;
-  margin: 10px 0;
-  margin-right: 150px;
-}
-
-#flash_notice {
-  background-color: #CFC;
-  border: solid 1px #6C6;
-}
-
-#flash_error, #flash_alert {
-  background-color: #FCC;
-  border: solid 1px #C66;
-}
-
-.field_with_errors {
-  display: inline;
-}
-
-.error_messages {
-  width: 400px;
-  border: 2px solid #CF0000;
-  padding: 0px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  font-size: 12px;
-}
-
-.error_messages h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 10px;
-  font-size: 12px;
-  margin: 0;
-  background-color: #c00;
-  color: #fff;
-}
-
-.error_messages p {
-  margin: 8px 10px;
-}
