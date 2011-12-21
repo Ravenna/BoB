@@ -1,17 +1,20 @@
 Bob::Application.routes.draw do
   
 
-  resources :recommendations, :has_many => :approvals
+
+  devise_for :users
+
+  resources :pages
+  match 'home' => 'pages#home', :as => :home
+  match 'overview-timeline' => 'pages#overview', :as => :overview
+  match 'prizes' => 'pages#prizes', :as => :prizes
+  match 'award-categories' => 'pages#awards', :as => :awardcat
   
-  resources :recommendations do
+  resources :recommendations, :shallow => true do
     resources :approvals
   end
-  
-  
-
 
   resources :awards
-
 
   root :to => 'recommendations#index'
   # The priority is based upon order of creation:

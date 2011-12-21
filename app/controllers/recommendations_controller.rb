@@ -1,4 +1,6 @@
 class RecommendationsController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /recomendations
   # GET /recomendations.json
   def index
@@ -14,7 +16,7 @@ class RecommendationsController < ApplicationController
   # GET /recomendations/1.json
   def show
     @recommendation = Recommendation.find(params[:id])
-    @approvals = @recomendation.approvals.all
+    @approvals = Approval.find(:all, :order => "id ASC")
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @recommendation }
@@ -25,7 +27,7 @@ class RecommendationsController < ApplicationController
   # GET /recomendations/new.json
   def new
     @recommendation = Recommendation.new
-    
+    @recommendation.approvals.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @recommendation }
@@ -41,7 +43,8 @@ class RecommendationsController < ApplicationController
   # POST /recomendations.json
   def create
     @recommendation = Recommendation.new(params[:recommendation])
-    #@recommendation.approval.new(:approved => false)
+    @recommendation.user_id = current_user.id
+
     respond_to do |format|
       if @recommendation.save
         format.html { redirect_to @recommendation, notice: 'Recommendation was successfully created.' }

@@ -5,3 +5,122 @@
  *= require_self
  *= require_tree . 
 */
+*{margin:0; padding:0;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+body{font-family:Arial; background-color:#E5D9C7; font-size:13px;}
+li{list-style:none;}
+h1{font-size: 30px;
+line-height: 35px;
+color: white;
+margin: 0px 0px 10px 0px;
+text-weight:bold;
+text-transform: uppercase;
+text-shadow: 0px 3px 10px #333;
+-moz-text-shadow: 0px 3px 10px #333;
+-webkit-text-shadow: 0px 3px 10px #333;
+-ms-text-shadow: 0px 3px 10px #333;
+}
+
+h2{color: #DD6000;
+text-transform: uppercase;
+font-size: 15px;
+margin: 0px;}
+
+h3{
+display: block;
+font-size: 1.17em;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+font-weight: bold;}
+h3 a{color: #4C4C4C;
+font-weight: bold;
+text-decoration:underline;
+}
+
+
+
+input{font-size:14px; padding:3px; margin-bottom:10px;}
+
+.clear{clear:both;}
+#container{width:1164px; margin:0 auto;}
+.home{background:url(new_bg.jpg) no-repeat; min-height:1164px;}
+.interior{background:url(new_int_bg.jpg) no-repeat; min-height:1164px;}
+
+#top{padding:15px 0;}
+#utility_nav{float:right;padding-right:22px;}
+#utility_nav li{font-weight:bold;}
+#utility_nav li a{color:#fff;}
+
+#main_nav{padding-left:22px;}
+#main_nav li{float:left; padding-right:10px; font-weight:bold; }
+#main_nav li a{color:#fff;}
+
+#limiter{width:800px; height:auto; padding-top:80px; margin:0 auto;}
+#award_info{padding:15px 0;}
+#award_recommendation{padding-top:10px;}
+.buttonOrange {
+background: #DD6000;
+box-shadow: 0 3px 10px #333;
+-moz-box-shadow: 0 3px 10px #333;
+-webkit-box-shadow: 0 3px 10px #333;
+-ms-box-shadow: 0 3px 10px #333;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-ms-border-radius: 5px;
+padding: 10px;
+color: white;
+text-transform: uppercase;
+font-size: 16px;
+font-weight: bold;
+text-decoration: none;
+}
+
+
+
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+  margin-right: 150px;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+.error_messages {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+.error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.error_messages p {
+  margin: 8px 10px;
+}

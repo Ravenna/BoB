@@ -1,8 +1,7 @@
-<%= form_for(@approval) do |f| %>
+<%= form_for :approval do |f| %>
   <% if @approval.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@approval.errors.count, "error") %> prohibited this approval from being saved:</h2>
-
       <ul>
       <% @approval.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,10 +10,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :recomendation_id %><br />
-    <%= f.number_field :recomendation_id %>
-  </div>
+
   <div class="field">
     <%= f.label :approved %><br />
     <%= f.check_box :approved %>

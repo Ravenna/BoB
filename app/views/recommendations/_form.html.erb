@@ -1,4 +1,4 @@
-<%= form_for(@recommendation) do |f| %>
+<%= form_for @recommendation   do |f| %>
   <% if @recommendation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@recommendation.errors.count, "error") %> prohibited this recommendation from being saved:</h2>
@@ -22,8 +22,8 @@
 
   <div class="field">
 	Email 
-	<%= fields_for :approval do |approval| %>
-		<%= approval.text_field :email %>
+	<%= f.fields_for :approvals do |approval| %>
+		<%= approval.text_field :next_approver_email %>
 	<% end %>
   </div>
 

@@ -1,15 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @award.name %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @award.category %>
-</p>
+<h1><%= @award.name %></h1>
 
 
-<%= link_to 'Edit', edit_award_path(@award) %> |
-<%= link_to 'Back', awards_path %>
+<div id="award_info">
+  <%= @award.info %>
+</div>
+
+<div id="award_recommendation">
+<%= link_to "Recommend A Collegue Now!", new_recommendation_path, :class => "buttonOrange"%>	
+</div>
+<%#= link_to 'Edit', edit_award_path(@award) %> 
+<%#= link_to 'Back', awards_path %>

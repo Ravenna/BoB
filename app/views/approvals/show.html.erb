@@ -1,14 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Recomendation:</b>
-  <%= @approval.recomendation_id %>
-</p>
+<p>You have been asked to review the following recommendation.</p>
+
+Name:<b> <%= @approval.recommendation.nominee %></b><br>
+Award: <%= @approval.recommendation.award.name %>
 
 <p>
-  <b>Approved:</b>
-  <%= @approval.approved %>
-</p>
+	<%= form_for :approval, :url => { :action => "update" }, :method => :put do |f| %>
+	  <% if @approval.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@approval.errors.count, "error") %> prohibited this approval from being saved:</h2>
+	      <ul>
+	      <% @approval.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+
+	  <div class="field">
+	    <%= f.label :approved %><br />
+	    <%= f.check_box :approved %>
+	  </div>
+	  <div class="field">
+	    Supervisor Email Address:<br />
+	    <%= f.text_field :next_approver_email %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>
+	
+	
+	
+	
 
 <p>
   <b>Email:</b>
@@ -17,4 +43,4 @@
 
 
 <%= link_to 'Edit', edit_approval_path(@approval) %> |
-<%= link_to 'Back', approvals_path %>
+<%= link_to 'Back', recommendations_path %>

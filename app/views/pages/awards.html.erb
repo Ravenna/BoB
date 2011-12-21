@@ -1,0 +1,13 @@
+<h1>Award Categories</h1>
+
+<h2>AWARDS THAT ANY ASSOCIATE CAN BE RECOMMENDED FOR</h2>
+
+<% @brand_awards.each do |brand| %>
+	<h3><%= link_to brand.name, brand %></h3>
+<% end %>
+
+<h2>AWARDS SELECTED BY THE SENIOR MANAGEMENT TEAM</h2>
+
+<% @bus_awards.each do |biz_award| %>
+	<h3><%= link_to biz_award.name, biz_award %></h3>
+<% end %>

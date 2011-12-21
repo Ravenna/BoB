@@ -7,6 +7,9 @@ gem 'rails', '3.1.1'
 
 
 gem 'pg'
+gem "friendly_id", "~> 4.0.0.beta14"
+gem 'devise', '1.4.5'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
