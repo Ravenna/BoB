@@ -111,6 +111,6 @@ class PagesController < ApplicationController
   end 
   
   def inbox
-    @approvals = Approval.find(:all, :conditions => ["email = ?", current_user.email])
+    @approvals = Approval.where(:email => current_user.email, :approved => nil)
   end
 end

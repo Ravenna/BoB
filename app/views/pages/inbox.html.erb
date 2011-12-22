@@ -1,8 +1,9 @@
 <h1>Inbox</h1>
 
 <% if @approvals.present? %>
+	<h2>Please review each approval listed</h2>
 	<% @approvals.each do |approval|%>
-		<%= approval.recommendation.nominee %> <%= link_to "View", approval%>
+		<h3>> <%= link_to approval.recommendation.nominee, approval %></h3>
 	<% end %>
 <% else %>
 	No Recommendations need your approval!
