@@ -9,6 +9,7 @@ Bob::Application.routes.draw do
   match 'admin' => 'pages#admin', :as => :admin
   match 'users-list' => 'pages#users_list', :as => :users_list
   match 'inbox' => 'pages#inbox', :as => :inbox
+  match 'award-cat' => 'pages#award_cat', :as => :award_cat
   
   resources :recommendations, :shallow => true do
     resources :approvals

@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   
   before_filter :authenticate_user!, :except => [:home, :prizes, :overview]
-  
+  before_filter :user_is_admin, :only => [:show] 
   # GET /pages
   # GET /pages.json
   def index
@@ -112,5 +112,9 @@ class PagesController < ApplicationController
   
   def inbox
     @approvals = Approval.where(:email => current_user.email, :approved => nil)
+  end
+  
+  def award_cat
+    
   end
 end

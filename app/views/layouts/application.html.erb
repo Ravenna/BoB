@@ -23,18 +23,13 @@
 				  <% else %>
 				    <li id="sign_up_in"><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %></li>
 				  <% end %>
-			<%#= render 'devise/menu/login_items' %>
-			
-			
-			
-		
 				<% if current_user.present? && current_user.admin == true %>
 					<li><%= link_to "Admin", admin_path %></li>
 				<% end %>
-			<li><%= link_to "Inbox", inbox_path%></li>
+			<% if current_user.present? %><li><%= link_to "Inbox", inbox_path%></li><% else %><% end %> 
 		</ul>
 		<ul id="main_nav">
-			<li><%= link_to "Recommend Now!", new_recommendation_path %></li>
+			<li><%= link_to "Recommend Now!", award_cat_path %></li>
 			<li><%= link_to "Overview and Timeline", overview_path%></li>
 			<li><%= link_to "Awards and Categories", awardcat_path%></li>
 		</ul>
@@ -42,6 +37,13 @@
 	</div>
 	
 	<div id="limiter">
+		<% if flash[:notice] %>
+		      <div id="notice"><%= flash[:notice] %></div>
+		    <% end %>
+		    <% if flash[:error] %>
+		      <div id="error"><%= flash[:error] %></div>
+		    <% end %>
+		
 		<%= yield %>
 	</div>
 

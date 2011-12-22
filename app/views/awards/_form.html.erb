@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :category %><br />
-    <%= f.text_field :category %>
+    <%= select_tag(:category, options_for_select([['Brand'], ['Business']])) %>
   </div>
 
 <div class="field">
