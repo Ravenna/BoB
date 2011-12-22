@@ -1,5 +1,6 @@
 class RecommendationsController < ApplicationController
   before_filter :authenticate_user!
+  #before_filter :user_is_admin, :only => [:show] 
   
   # GET /recomendations
   # GET /recomendations.json

@@ -22,7 +22,7 @@ text-shadow: 0px 3px 10px #333;
 -ms-text-shadow: 0px 3px 10px #333;
 }
 
-h2{color: #DD6000;
+h2{color: #384400;
 text-transform: uppercase;
 font-size: 15px;
 margin: 0px;}
@@ -43,7 +43,7 @@ text-decoration:underline;
 
 
 input{font-size:14px; padding:3px; margin-bottom:10px;}
-
+select{margin-bottom:10px;}
 .clear{clear:both;}
 #container{width:1164px; margin:0 auto;}
 .home{background:url(new_bg.jpg) no-repeat; min-height:1164px;}
@@ -51,7 +51,7 @@ input{font-size:14px; padding:3px; margin-bottom:10px;}
 
 #top{padding:15px 0;}
 #utility_nav{float:right;padding-right:22px;}
-#utility_nav li{font-weight:bold;}
+#utility_nav li{font-weight:bold; float:left; padding-left:10px;}
 #utility_nav li a{color:#fff;}
 
 #main_nav{padding-left:22px;}
@@ -81,5 +81,11 @@ font-size: 16px;
 font-weight: bold;
 text-decoration: none;
 }
-
+/* USERS LIST */
+.user_index{width:800px; }
+.user{width:800px; height:20px;}
+.user p{float:left;}
+.user p.name{width: 200px; border-right:1px dashed #384400; margin-right:10px;}
+.user p.email{width: 200px; border-right:1px dashed #384400; margin-right:10px;}
+.user p.admin{width: 40px; border-right:1px dashed #384400; margin-right:10px;}
 

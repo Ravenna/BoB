@@ -1,14 +1,14 @@
 Bob::Application.routes.draw do
-  
-
 
   devise_for :users
-
   resources :pages
   match 'home' => 'pages#home', :as => :home
   match 'overview-timeline' => 'pages#overview', :as => :overview
   match 'prizes' => 'pages#prizes', :as => :prizes
   match 'award-categories' => 'pages#awards', :as => :awardcat
+  match 'admin' => 'pages#admin', :as => :admin
+  match 'users-list' => 'pages#users_list', :as => :users_list
+  match 'inbox' => 'pages#inbox', :as => :inbox
   
   resources :recommendations, :shallow => true do
     resources :approvals

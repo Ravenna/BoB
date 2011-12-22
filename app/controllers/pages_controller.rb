@@ -102,4 +102,15 @@ class PagesController < ApplicationController
     @bus_awards = Award.find(:all, :conditions => ["category=?", "Business Awards"])
   end
   
+  def admin
+    @pages = Page.all
+  end 
+  
+  def users_list
+    @users = User.all
+  end 
+  
+  def inbox
+    @approvals = Approval.find(:all, :conditions => ["email = ?", current_user.email])
+  end
 end

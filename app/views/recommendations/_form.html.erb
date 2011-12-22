@@ -23,7 +23,8 @@
   <div class="field">
 	Email 
 	<%= f.fields_for :approvals do |approval| %>
-		<%= approval.text_field :next_approver_email %>
+		<%= approval.text_field :email %>
+		
 	<% end %>
   </div>
 

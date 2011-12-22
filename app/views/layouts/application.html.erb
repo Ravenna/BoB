@@ -15,8 +15,18 @@
 <% end %>
 
 	<div id="top">	
+		
 		<ul id="utility_nav">
-			  <%= render 'devise/menu/login_items' %>
+				<% if user_signed_in? %>
+				    Signed in as <%= current_user.email %>. Not you?
+				   <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+				  <% else %>
+				    <li><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %></li>
+				  <% end %>
+			<%#= render 'devise/menu/login_items' %>
+			
+			<li><%= link_to "Admin", admin_path %>
+			<li><%= link_to "Inbox", inbox_path%>
 		</ul>
 		<ul id="main_nav">
 			<li><%= link_to "Recommend Now!", new_recommendation_path %></li>

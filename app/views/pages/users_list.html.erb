@@ -1,0 +1,12 @@
+<h1>Employees</h1>
+
+<div id="user_index">
+<% @users.each do |user| %>
+	<div class="user">
+		<p class="name"><%= user.name %></p> 
+		<p class="email"><%= user.email %></p>
+		<p class="admin"><%= user.admin %></p>
+		<p class="smt"><%= user.smt %></p>
+		<p><%= link_to "Edit", edit_user_registration_path %></p>
+	</div>
+<% end %>
