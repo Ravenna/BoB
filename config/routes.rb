@@ -1,6 +1,6 @@
 Bob::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   resources :pages
   match 'home' => 'pages#home', :as => :home
   match 'overview-timeline' => 'pages#overview', :as => :overview
