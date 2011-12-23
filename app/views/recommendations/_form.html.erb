@@ -30,7 +30,17 @@
 
   <div class="field">
 	<%= f.label "Award" %>
-    <%= f.select :award_id, Award.find(:all, :order => 'name').collect { |c| [c.name, c.id] }, :include_blank => true %>
+	
+	<% case params[:category]
+	   when 'Brand' %>
+	  <%= f.select :award_id, Award.find(:all, :conditions => ["category = ?", "Brand"], :order => 'name').collect { |c| [c.name, c.id] }, :include_blank => true %>
+	<% when 'Business' %>
+	   <%= f.select :award_id, Award.find(:all, :conditions => ["category = ?", "Business"], :order => 'name').collect { |c| [c.name, c.id] }, :include_blank => true %>
+	<% else %>
+	   <br>You must select a Award Category From the previous page!
+	<% end %>
+	
+    
   </div>
 
   <div class="field">
