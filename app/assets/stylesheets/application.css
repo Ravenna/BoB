@@ -10,6 +10,7 @@ a{text-decoration:none;}
 a:hover{text-decoration:underline;}
 body{font-family:Arial; background-color:#E5D9C7; font-size:13px;}
 li{list-style:none;}
+td{padding-left:5px;}
 h1{font-size: 30px;
 line-height: 35px;
 color: white;
@@ -41,7 +42,8 @@ text-decoration:underline;
 }
 
 
-
+/* Forms */
+.field{padding-bottom:15px;}
 input{font-size:14px; padding:3px; margin-bottom:10px;}
 select{margin-bottom:10px;}
 .clear{clear:both;}
@@ -89,6 +91,9 @@ text-decoration: none;
 .user p.name{width: 200px; border-right:1px dashed #384400; margin-right:10px;}
 .user p.email{width: 200px; border-right:1px dashed #384400; margin-right:10px;}
 .user p.admin{width: 40px; border-right:1px dashed #384400; margin-right:10px;}
+.user p.smt{width: 40px; border-right:1px dashed #384400; margin-right:10px;}
+
+.user p.edit{padding-left:10px;}
 
 /* Rec Bar */
 #rec_bar{padding-bottom:20px; height:31px;}
