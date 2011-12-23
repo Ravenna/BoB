@@ -58,14 +58,16 @@ input[type=submit]{background-color:#DD6000; padding:7px; color:#fff; border:non
 .interior{background:url(new_int_bg.jpg) no-repeat; min-height:1164px;}
 
 #top{padding:15px 0;}
-#utility_nav{float:right;padding-right:22px;}
+#utility_nav{float:right;padding-right:24px; margin-top:-10px; position:relative;}
 #utility_nav li{font-weight:bold; float:left; padding-left:10px; color:#fff;}
 #utility_nav li a{color:#fff;}
 #sign_up_in a{text-decoration:underline;}
+#utility_nav li#signed_in_as{position:absolute; top:20px; width:300px; right:-28px;}
 
 #main_nav{padding-left:22px;}
-#main_nav li{float:left; padding-right:25px; margin-right:10px; font-weight:bold; background:url(menu-dot.png) no-repeat right center; }
+#main_nav li{float:left; padding-right:20px; margin-right:8px; font-weight:bold; background:url(menu-dot.png) no-repeat right center; }
 #main_nav li a{color:#fff;}
+#main_nav li#last{background:none;}
 
 #limiter{width:800px; height:auto; padding-top:80px; margin:0 auto;}
 #logo{width:185px; margin:0 auto; padding-top:40px;}
