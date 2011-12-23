@@ -17,4 +17,9 @@ class RegistrationsController < Devise::RegistrationsController
       respond_with_navigational(resource){ render_with_scope :edit }
     end
   end
+  
+  protected
+      def after_update_path_for(resource)
+        user_path(resource)
+      end
 end

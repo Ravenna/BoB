@@ -45,7 +45,13 @@ text-decoration:underline;
 /* Forms */
 .field{padding-bottom:15px;}
 input{font-size:14px; padding:3px; margin-bottom:10px;}
+textarea{width:100%;}
 select{margin-bottom:10px;}
+input[type=submit]{background-color:#DD6000; padding:7px; color:#fff; border:none;
+	border-radius: 3px; 
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+	}
 .clear{clear:both;}
 #container{width:1164px; margin:0 auto;}
 .home{background:url(new_bg.jpg) no-repeat; min-height:1164px;}
@@ -111,6 +117,7 @@ text-decoration: none;
 #rec_bar_arrow{}
 .pos1{padding-left:70px;}
 .pos2{padding-left:255px;}
+.pos3{padding-left:425px;}
 .pos4{padding-left:616px;}
 
 /* Flash */
