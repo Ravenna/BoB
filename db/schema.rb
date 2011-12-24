@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111223155855) do
+ActiveRecord::Schema.define(:version => 20111223215547) do
 
   create_table "approvals", :force => true do |t|
     t.integer  "recommendation_id"
@@ -24,10 +24,24 @@ ActiveRecord::Schema.define(:version => 20111223155855) do
 
   create_table "awards", :force => true do |t|
     t.string   "name"
-    t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "info"
+    t.integer  "category_id"
+  end
+
+  create_table "awards_categories", :force => true do |t|
+    t.integer  "award_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "award_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pages", :force => true do |t|

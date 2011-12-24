@@ -1,10 +1,21 @@
 
-<div id="rec_bar_arrow" class="pos3"><%= image_tag 'recommend_nav.png'%></div>
+<div id="rec_bar_arrow" class="pos4"><%= image_tag 'recommend_nav.png'%></div>
 <%= render  'shared/recommend_timeline' %>
 
-<h1>Choose an Award Type<h1>
+<h1>Choose a Award</h1>
 	
 	
-	<% form_tag %>
-	<h3><%= link_to "Brand Awards", new_recommendation_path(:category => "Brand" ) %></h3>
-	<h3><%= link_to "Business Awards", new_recommendation_path(:category => "Business" ) %></h3>
+	<% case params[:category]
+	   when 'store' %>
+		<% @store.each do |store| %>
+			<h3><%= store.id%></h3>
+		<% end %>
+		
+	<% when 'corp' %>
+	
+	  	<% @corp.each do |corp| %>
+			<h3><%= corp.name %></h3>
+		<% end %>
+	<% else %>
+	   <br>You must select a Award Category From the <%= link_to "Locations", location_path %> page!
+	<% end %>

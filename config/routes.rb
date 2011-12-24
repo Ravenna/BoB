@@ -1,4 +1,7 @@
 Bob::Application.routes.draw do
+  
+  resources :accounts
+  resources :categories
 
   devise_for :users, :controllers => { :registrations => "registrations" }
   
@@ -11,6 +14,7 @@ Bob::Application.routes.draw do
   match 'users-list' => 'pages#users_list', :as => :users_list
   match 'inbox' => 'pages#inbox', :as => :inbox
   match 'award-cat' => 'pages#award_cat', :as => :award_cat
+  match 'location' => 'pages#location', :as => :location
   
   resources :recommendations, :shallow => true do
     resources :approvals

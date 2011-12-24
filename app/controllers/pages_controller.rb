@@ -114,7 +114,13 @@ class PagesController < ApplicationController
     @approvals = Approval.where(:email => current_user.email, :approved => nil)
   end
   
+  def location
+
+   end
   def award_cat
-    
+      @cat = Category.find(2)
+      @corp = @cat.awards.all
   end
+  
+ 
 end

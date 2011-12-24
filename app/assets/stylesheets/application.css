@@ -105,31 +105,34 @@ text-decoration: none;
 
 /* Rec Bar */
 #rec_bar{padding-bottom:20px; height:31px;}
-#rec_bar li{float:left; width:180px; height:25px; text-align:center; padding-top:6px; font-size:15px; color:#fff; font-weight:bold;
+#rec_bar li{float:left; width:160px; height:25px; text-align:center; padding-top:6px; font-size:14px; color:#fff; font-weight:bold;
 	-moz-box-shadow:  1px 0px 5px 0px #000;
 	-webkit-box-shadow: 1px 0px 5px 0px #000;
 	-ms-box-shadow:1px 0px 5px 0px #000;
 	}
 #rec_bar li a{color:#fff; font-weight:bold;}
+#rec_bar li a:hover{background:none;}
 #rec_bar #create{background-color:#384400; position:relative; z-index:5;}
-#rec_bar #bar_login{background-color:#536401;position:relative; z-index:4;}
-#rec_bar #award_cat{background-color:#779003;position:relative; z-index:3;}
-#rec_bar #form{background-color:#a0c202;position:relative; z-index:2;}
+#rec_bar #bar_login{background-color:#4f6802;position:relative; z-index:4;}
+#rec_bar #location{background:#658202; position:relative; z-index:3;}
+#rec_bar #award_cat{background-color:#799b02;position:relative; z-index:2;}
+#rec_bar #form{background-color:#90b803;position:relative; z-index:1;}
 
 #rec_bar_arrow{}
 .pos1{padding-left:70px;}
-.pos2{padding-left:255px;}
-.pos3{padding-left:425px;}
-.pos4{padding-left:616px;}
+.pos2{padding-left:220px;}
+.pos3{padding-left:380px;}
+.pos4{padding-left:540px;}
+.pos5{padding-left:700px;}
 
 /* Flash */
-#notice { background-color: #A4E7A0; border: 1px solid #26722D; }
+#notice { background-color: #384400;  }
 #error { background-color: #F0A8A8; border: 1px solid #900; }
 #notice, #error { width: 90%; margin: 0 auto 10px auto; padding: 5px; }
-#notice p, #error p { margin-left: 20px; padding: 0; font-size: .75em; color: #000; }
+#notice p, #error p { margin-left: 20px; padding: 0; font-size: .75em; color: #fff; }
 #notice a, #error a { text-decoration: none; padding: 0 3px; }
 #notice a { border: 1px solid #26722D; color: #26722D; }
-#error a { border: 1px solid #900; color: #900; }
-#notice a:hover, #error a:hover { color: #333; border: 1px solid #333; }
+#error a { border: 1px solid #900; color: #fff; }
+#notice a:hover, #error a:hover { color: #fff; border: 1px solid #333; }
 
 

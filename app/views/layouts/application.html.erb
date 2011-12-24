@@ -19,7 +19,7 @@
 		
 		<ul id="utility_nav">
 				<% if user_signed_in? %>
-				   <li id="signed_in_as">Signed in as <%= current_user.email %>.</li>
+				   <li id="signed_in_as">Signed in as <%= current_user.email %></li>
 				   <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 				  <% else %>
 				    <li id="sign_up_in"><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %></li>
@@ -30,9 +30,9 @@
 			<% if current_user.present? %><li><%= link_to "Inbox", inbox_path%></li><% else %><% end %> 
 		</ul>
 		<ul id="main_nav">
-			<li><%= link_to "Recommend Now!", award_cat_path %></li>
+			<li><%= link_to "Recommend Now!", location_path %></li>
 			<li><%= link_to "Overview and Timeline", overview_path%></li>
-			<li><%= link_to "Awards and Categories", awardcat_path%></li>
+			<li><%= link_to "Award Categories", awardcat_path%></li>
 			<li><%= link_to "Prizes", prizes_path%></li>
 			<li><%= link_to "Questions", awardcat_path%></li>
 			<li id="last"><%= link_to "Photos & Video", awardcat_path%></li>
