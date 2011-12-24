@@ -118,8 +118,12 @@ class PagesController < ApplicationController
 
    end
   def award_cat
-      @cat = Category.find(2)
-      @corp = @cat.awards.all
+      @corpcat = Category.find(2)
+      @corp = @corpcat.awards.all
+      
+      @storecat = Category.find(1)
+      @store = @storecat.awards.all
+      
   end
   
  
