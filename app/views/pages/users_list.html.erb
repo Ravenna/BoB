@@ -1,6 +1,17 @@
 <h1>Employees</h1>
 
+
+
 <div id="user_index">
+	<div class="user_title">
+		<p class="name">Name</p> 
+		<p class="email">Email</p>
+		<p class="admin">Admin</p>
+		<p class="smt">SMT</p>
+		
+	
+	</div>
+	
 <% @users.each do |user| %>
 	<div class="user">
 		<p class="name"><%= user.name %></p> 

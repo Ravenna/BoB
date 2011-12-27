@@ -1,13 +1,14 @@
-<h1>Award Categories</h1>
+<h1>Store/Field Awards</h1>
 
-<h2>AWARDS THAT ANY ASSOCIATE CAN BE RECOMMENDED FOR</h2>
 
-<% @brand_awards.each do |brand| %>
-	<h3><%= link_to brand.name, brand %></h3>
+
+<% @store.each do |store| %>
+	<h3><%= link_to store.name, store, {:title => store.info} %></h3>
 <% end %>
 
-<h2>AWARDS SELECTED BY THE SENIOR MANAGEMENT TEAM</h2>
+<p>&nbsp;</p>
+<h1>Corp/Westmont/Vaugn Awards</h2>
 
-<% @bus_awards.each do |biz_award| %>
-	<h3><%= link_to biz_award.name, biz_award %></h3>
+<% @corp.each do |corp| %>
+	<h3><%= link_to corp.name, corp, {:title => corp.info} %></h3>
 <% end %>

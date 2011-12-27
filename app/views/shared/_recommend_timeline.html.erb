@@ -2,6 +2,15 @@
 	<li id="create"><% if current_user %> Create Profile <% else %><%= link_to "Create Profile", new_user_registration_path %><% end %></li>
 	<li id="bar_login"><% if current_user %> Login <% else %><%= link_to "Login", new_user_session_path %><% end %></li>
 	<li id="location"><%= link_to "Location", location_path %></li>
-	<li id="award_cat"><%= link_to "Award Category", award_cat_path %></li>
+	
+	
+	<li id="award_cat">
+		<% if params[:location] != nil %>
+			<%= link_to "Award Category", award_cat_path %>
+		
+		<% else %>
+				Award Category
+		<% end %></li>
+		
 	<li id="form"><%= link_to "Fill Out Form", new_recommendation_path %></li>
 </ul>

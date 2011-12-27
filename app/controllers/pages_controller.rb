@@ -98,8 +98,11 @@ class PagesController < ApplicationController
   end
   
   def awards
-    @brand_awards = Award.find(:all, :conditions => ["category=?", "Brand Awards"])
-    @bus_awards = Award.find(:all, :conditions => ["category=?", "Business Awards"])
+      @corpcat = Category.find(2)
+      @corp = @corpcat.awards.all
+      
+      @storecat = Category.find(1)
+      @store = @storecat.awards.all
   end
   
   def admin
