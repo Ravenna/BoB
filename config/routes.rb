@@ -1,8 +1,7 @@
 Bob::Application.routes.draw do
   
-  resources :accounts
   resources :categories
-
+  resources :accounts, :as => :user
   devise_for :users, :controllers => { :registrations => "registrations" }
   
   resources :pages
@@ -11,7 +10,7 @@ Bob::Application.routes.draw do
   match 'prizes' => 'pages#prizes', :as => :prizes
   match 'award-categories' => 'pages#awards', :as => :awardcat
   match 'admin' => 'pages#admin', :as => :admin
-  match 'users-list' => 'pages#users_list', :as => :users_list
+  match 'accounts-list' => 'pages#users_list', :as => :accounts_list
   match 'inbox' => 'pages#inbox', :as => :inbox
   match 'award-cat' => 'pages#award_cat', :as => :award_cat
   match 'location' => 'pages#location', :as => :location
