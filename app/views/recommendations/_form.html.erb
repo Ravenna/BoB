@@ -33,9 +33,8 @@
   
   <div class="field">
 	Award you are nominating for: <b><%= params[:award] %></b>
-	<%= hidden_field :award_id, @award.id %>
 	
-	<%#= Award.find(:all, :conditions => ["id = ?", params[:award]])%>
+	<%= f.hidden_field( :award_id, :value => @award.id ) %>
   </div>
 	
   
