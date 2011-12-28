@@ -11,36 +11,42 @@
     </div>
   <% end %>
 
-<% Rails.logger.info("PARAMS: #{params.inspect}") %>
 
-<%= params[:award] %>
+
 
   <div class="field">
-    Associate Name<br />
+    Associate Being Recommended*<br />
     <%= f.text_field :nominee %>
+  </div>
+  <div class="field">
+    Job Title*<br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    Department/Store # *<br />
+    <%= f.text_field :department %>
   </div>
   <div class="field">
     <%= f.label :associate_number %><br />
     <%= f.text_field :associate_number %>
   </div>
+  
   <div class="field">
-    <%= f.label :department %><br />
-    <%= f.text_field :department %>
+	Award you are nominating for: <b><%= params[:award] %></b>
+	<%= hidden_field :award_id, @award.id %>
+	
+	<%#= Award.find(:all, :conditions => ["id = ?", params[:award]])%>
   </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-
+	
   
 
   <div class="field">
-   	<b>Summary</b><br>
+   	<b>Summary *</b><br>
 	Please write a short overview statement about why this associate deserves to win this category (this will be used for the summary description).<br>
     <%= f.text_area :summary %>
   </div>
   <div class="field">
-    <b>Accomplishments in 2011</b><br>
+    <b>Accomplishments in 2011 *</b><br>
 	Provide concrete, tangible examples of the results achieved including, but not limited to, applicable statistics, projects completed, legendary service, and interactions with others. Please limit your write-up to 500 words. This write-up will be used by the Best of Bauer Academy to determine nominees and winners.<br />
     <%= f.text_area :accomplishments  %>
   </div>
@@ -57,7 +63,7 @@
 
   <div class="field">
 	Add a note/explanation<Br>
-	<%#= f.text_field :caption %><br>
+	<%= f.text_field :caption %><br>
 	URL: <%= f.text_field :url %>
   </div>
    

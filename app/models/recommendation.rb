@@ -3,6 +3,7 @@ class Recommendation < ActiveRecord::Base
   has_many :approvals, :dependent => :destroy
   accepts_nested_attributes_for :approvals, :allow_destroy => true, :reject_if => :all_blank
   attr_accessible :nominee, :award_id, :approvals_attributes
+  #validates_presence_of :nominee, :title, :department, :summary, :accomplishments
   
   has_attached_file :upload, :styles => { :large => "600x600>", :medium => "300x300>", :thumb => "100x100>" }
   

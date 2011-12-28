@@ -28,6 +28,7 @@ class RecommendationsController < ApplicationController
   # GET /recomendations/new.json
   def new
     @recommendation = Recommendation.new
+    @award = Award.find(params[:award])
     @recommendation.approvals.build
     respond_to do |format|
       format.html # new.html.erb
@@ -48,7 +49,7 @@ class RecommendationsController < ApplicationController
 
     respond_to do |format|
       if @recommendation.save
-        format.html { redirect_to @recommendation, notice: 'Recommendation was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Recommendation was successfully created.' }
         format.json { render json: @recommendation, status: :created, location: @recommendation }
       else
         format.html { render action: "new" }
