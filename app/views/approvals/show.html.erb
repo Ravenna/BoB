@@ -2,8 +2,12 @@
 
 <p>You have been asked to review the following recommendation.</p>
 
-Name:<b> <%= @approval.recommendation.nominee %></b><br>
-Award: <%= @approval.recommendation.award.name %>
+<p>Name:<b> <%= @approval.recommendation.nominee %></b></p>
+<p>Award: <%= @approval.recommendation.award.name %></p>
+<p>Job Title: <%= @approval.recommendation.title %><p>
+<p>Associate Number: <%= @approval.recommendation.associate_number %><p>
+<div>Summary: <%= @approval.recommendation.summary %><div>
+<div>Accomplishments: <%= @approval.recommendation.accomplishments %><div>
 
 <p>
 	<%= form_for :approval, :url => { :action => "update" }, :method => :put do |f| %>

@@ -32,7 +32,7 @@
   </div>
   
   <div class="field">
-	Award you are nominating for: <b><%= params[:award] %></b>
+	You are recommending this associate for the following award: <b><%= @award.name %></b>
 	
 	<%= f.hidden_field( :award_id, :value => @award.id ) %>
   </div>
