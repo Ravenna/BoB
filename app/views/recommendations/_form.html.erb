@@ -11,6 +11,10 @@
     </div>
   <% end %>
 
+<% Rails.logger.info("PARAMS: #{params.inspect}") %>
+
+<%= params[:award] %>
+
   <div class="field">
     Associate Name<br />
     <%= f.text_field :nominee %>

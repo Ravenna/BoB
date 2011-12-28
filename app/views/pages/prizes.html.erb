@@ -1,9 +1,6 @@
-<h1>#Prizes</h1>1234
+<h1>Prizes</h1>
 
 <div id="page_body">
-
+		<%= @page.body.html_safe %>
 </div>
 
-<% @pages.each do |page| %>
-	<% page.name %>
-<% end %>

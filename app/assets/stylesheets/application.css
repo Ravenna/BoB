@@ -147,5 +147,13 @@ text-decoration: none;
 /* Index Pages */
 td.first, td.second{width:250px; border-right:1px dashed #384400;}
 
+/* Dynamic Pages Styling */
+#page_body{}
+#page_body p{padding-bottom:15px;}
+#page_body ul{padding-left:15px;}
+#page_body ul li{list-style-type:disc;  padding:0 0 5px 5px; margin-left:10px; list-style-position:outside;}
+#page_body ul li ul{padding-left:20px;}
+#page_body ul ul li{list-style-type:circle !important; margin-left:20px;}
+
 
 
