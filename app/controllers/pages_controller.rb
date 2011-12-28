@@ -91,6 +91,7 @@ class PagesController < ApplicationController
   
   def prizes
     @page = Page.find_by_name("Prizes")
+    @pages = Page.all
   end
   
   def overview

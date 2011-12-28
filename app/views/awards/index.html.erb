@@ -6,17 +6,16 @@
     <th>Categories</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @awards.each do |award| %>
   <tr>
-    <td><%= award.name %></td>
-	<td><% award.categories.each do |category| %>
+    <td class="first"><%= award.name %></td>
+	<td class="second"><% award.categories.each do |category| %>
 			<%= category.name %>,
 		<% end %>
 	</td>
-    <td><%= link_to 'Show', award %></td>
+ 
     <td><%= link_to 'Edit', edit_award_path(award) %></td>
     <td><%= link_to 'Destroy', award, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
