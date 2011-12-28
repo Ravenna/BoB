@@ -16,4 +16,5 @@ class ApplicationController < ActionController::Base
         flash[:notice] = "You must signup before loggin in!"
       end
   end
+  
 end
