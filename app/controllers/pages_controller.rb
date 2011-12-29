@@ -101,9 +101,10 @@ class PagesController < ApplicationController
   def awards
       @page = Page.find_by_name("Awards")
             
-     @awardsall = Award.in_categories([1,2]).order("name ASC") 
-     @awards_store = Award.in_categories(1).includes(:categories)
-     #@awards_store.reject { |a| a.categories.include?(Category.find(2)) }
+     @awardsall = Award.in_categories([1 && 2]).order("name ASC") 
+     
+     @awards = Award.in_categories(1).includes(:categories)
+     @awards_store = @awards.reject! { |a| a.categories(Category.find(2)) }
       
   end
   
@@ -116,7 +117,7 @@ class PagesController < ApplicationController
   end 
   
   def inbox
-    @approvals = Approval.where(:email => current_user.email, :approved => nil)
+    @approvals = Approval.where(:email => current_user.email , :approved => nil)
   end
   
   def location

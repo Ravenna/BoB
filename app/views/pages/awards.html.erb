@@ -3,7 +3,7 @@
 <div id="page_body">
 	<%=m @page.body %>
 	
-<h1>Award Categories</h1>
+<h1 class="pad_top">Award Categories</h1>
 
 <h2>RECOMMENDED BRAND AWARDS (OPEN TO ALL ASSOCIATES)</h2>
 	<ul class="award_cat_list">
@@ -15,9 +15,10 @@
 
 <h2>RECOMMENDED CUSTOM EXPERIENCE AWARDS (OPEN TO STORES DIVISION)</h2>
 	<ul class="award_cat_list">
-	<% @awards_store.each do |award| %>
-		<li><%= link_to award.name, award_path(award), :title => award.info %></li>
-	<% end %>
+		<%= debug @awards_store%>
+	<%# @awards_store.each do |store| %>
+		<li><%#= link_to store.name, award_path(store), :title => store.info %></li>
+	<%# end %>
 	</ul>
 	
 	

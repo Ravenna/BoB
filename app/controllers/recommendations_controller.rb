@@ -17,7 +17,7 @@ class RecommendationsController < ApplicationController
   # GET /recomendations/1.json
   def show
     @recommendation = Recommendation.find(params[:id])
-    @approvals = Approval.find(:all, :order => "id ASC")
+    @approvals = @recommendation.approvals.find(:all, :order => "id ASC")
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @recommendation }
