@@ -144,6 +144,8 @@ text-decoration: none;
 #error a { border: 1px solid #900; color: #fff; }
 #notice a:hover, #error a:hover { color: #fff; border: 1px solid #333; }
 
+.home #notice {margin-top:200px;}
+
 /* Index Pages */
 td.first, td.second{width:250px; border-right:1px dashed #384400;}
 

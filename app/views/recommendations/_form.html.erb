@@ -75,7 +75,7 @@
   <div class="field">
 	Supervisor's Email: 
 	<%= f.fields_for :approvals do |approval| %>
-		<%= approval.text_field :email %>
+		<%= approval.text_field :next_approver_email %>
 		
 	<% end %>
   </div>
