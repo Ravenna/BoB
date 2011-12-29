@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  award_id: 1
-  award_category_id: 1
-
-two:
-  award_id: 1
-  award_category_id: 1
