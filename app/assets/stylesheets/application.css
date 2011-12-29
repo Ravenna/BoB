@@ -162,6 +162,9 @@ td.first, td.second{width:250px; border-right:1px dashed #384400;}
 .home_text{margin-left:-80px; width:350px;}
 #home_recommend{width:800px; text-align:center; padding-top:20px;}
 
+#page_body .award_cat_list{}
+#page_body .award_cat_list li{list-style-type:none;}
+.award_cat_list li a {color:#000;}
 
 /* Questions Form */
 .simple_form label{width:50px; display:inline-block;}
