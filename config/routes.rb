@@ -3,7 +3,7 @@ Bob::Application.routes.draw do
 
  
   resources :questions
-  match 'question' => "questions#new", :via => :get
+  #match 'question' => "questions#new", :via => :get
 
   resources :categories
   resources :accounts, :as => :user
@@ -19,9 +19,12 @@ Bob::Application.routes.draw do
   match 'inbox' => 'pages#inbox', :as => :inbox
   match 'award-cat' => 'pages#award_cat', :as => :award_cat
   match 'location' => 'pages#location', :as => :location
+  match 'question' => 'pages#question', :as => :question
   
   resources :recommendations, :shallow => true do
-    resources :approvals
+    resources :approvals do
+       get 'toggle_decline', :on => :member  
+    end
   end
 
   resources :awards

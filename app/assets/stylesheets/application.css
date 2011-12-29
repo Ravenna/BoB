@@ -163,4 +163,9 @@ td.first, td.second{width:250px; border-right:1px dashed #384400;}
 #home_recommend{width:800px; text-align:center; padding-top:20px;}
 
 
+/* Questions Form */
+.simple_form label{width:50px; display:inline-block;}
+.simple_form label abbr{display:none;}
+
+
 

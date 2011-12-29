@@ -1,6 +1,6 @@
 development:
   adapter: postgresql
-  database: bob_development
+  database: bob_dev
 test:
   adapter: postgresql
   database: bob_test

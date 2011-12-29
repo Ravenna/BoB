@@ -100,11 +100,11 @@ class PagesController < ApplicationController
   
   def awards
       @page = Page.find_by_name("Awards")
-      @corpcat = Category.find(2)
-      @corp = @corpcat.awards.all
+            
+     @awardsall = Award.in_categories([1,2]).order("name ASC") 
+     @awards_store = Award.in_categories(1).includes(:categories)
+     @awards_store.reject { |a| a.categories.include?(Category.find(2)) }
       
-      @storecat = Category.find(1)
-      @store = @storecat.awards.all
   end
   
   def admin
@@ -127,12 +127,14 @@ class PagesController < ApplicationController
       @corp = @corpcat.awards.all
       
       @storecat = Category.find(1)
-      @store = @storecat.awards.all
-      
+      @store = @storecat.awards.all 
   end
   
-  def questions
+  def question
+    @question = Question.new
+    
   end 
+
   
   
   

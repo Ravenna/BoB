@@ -11,6 +11,7 @@ gem "friendly_id", "~> 4.0.0.beta14"
 gem 'devise', '1.4.5'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'rdiscount'
+gem 'simple_form'
 
 # gem 'taps' this makes me able to pull the db from Heroku
 
