@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111229175447) do
+ActiveRecord::Schema.define(:version => 20111229201829) do
 
   create_table "approvals", :force => true do |t|
     t.integer  "recommendation_id"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20111229175447) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "info"
-    t.integer  "category_id"
   end
 
   create_table "awards_categories", :force => true do |t|

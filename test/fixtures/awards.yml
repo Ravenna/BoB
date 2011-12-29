@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  category: MyString
-
+  name: Award One
+  categories: one, two
+  
 two:
-  name: MyString
-  category: MyString
+  name: Award Two
+  categories: two
+ 
+three:
+  name: Award Three
+  categories: three
