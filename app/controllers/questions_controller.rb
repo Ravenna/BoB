@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
-  def index
-  end 
+
   
   def create
     @question = Question.new(params[:question])

@@ -2,8 +2,8 @@ Bob::Application.routes.draw do
   
 
  
-  resources :questions
-  #match 'question' => "questions#new", :via => :get
+#  resources :questions
+  match 'question' => "questions#create", :via => :post
 
   resources :categories
   resources :accounts, :as => :user
