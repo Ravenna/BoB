@@ -100,13 +100,14 @@ text-decoration: none;
 /* USERS LIST */
 .user_index{width:800px; }
 .user_title{width:800px; height:20px; font-weight:bold; border-right:none;}
-.user_title .name, .user_title .email{width:200px; margin-right:10px;}
+.user_title .name{width:200px; margin-right:10px;}
+.user_title .email{width:260px; margin-right:10px;}
 .user_title .admin, .user_smt .email{width:50px; margin-right:10px;}
 
 .user{width:800px; height:20px;}
 .user p, .user_title p{float:left;}
 .user p.name{width: 200px; border-right:1px dashed #384400; margin-right:10px;}
-.user p.email{width: 200px; border-right:1px dashed #384400; margin-right:10px;}
+.user p.email{width: 260px; border-right:1px dashed #384400; margin-right:10px;}
 .user p.admin{width: 50px; border-right:1px dashed #384400; margin-right:10px;}
 .user p.smt{width: 50px; border-right:1px dashed #384400; margin-right:10px;}
 
@@ -157,6 +158,9 @@ td.first, td.second{width:250px; border-right:1px dashed #384400;}
 #page_body ul li ul{padding-left:20px;}
 #page_body ul ul{padding-bottom:3px;}
 #page_body ul ul li{list-style-type:circle !important; margin-left:20px;}
+
+.home_text{margin-left:-80px; width:350px;}
+#home_recommend{width:800px; text-align:center; padding-top:20px;}
 
 
 
