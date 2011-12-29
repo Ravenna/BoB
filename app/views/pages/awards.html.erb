@@ -1,6 +1,7 @@
-<h1>Store/Field Awards</h1>
 
 
+<div id="page_body">
+	<%= @page.body %>
 
 <% @store.each do |store| %>
 	<h3><%= link_to store.name, award_path(store), {:title => store.info} %></h3>
@@ -12,3 +13,5 @@
 <% @corp.each do |corp| %>
 	<h3><%= link_to corp.name, award_path(corp), {:title => corp.info} %></h3>
 <% end %>
+
+</div>

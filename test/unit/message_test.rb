@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class QuestionMailerTest < ActionMailer::TestCase
+class MessageTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

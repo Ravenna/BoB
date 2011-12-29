@@ -1,0 +1,23 @@
+<h1>Ask a Question</h1>
+<%= form_for @question do |f| %>
+  <fieldset class="fields">
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+   
+    <div class="field">
+      <%= f.label :question %>
+      <%= f.text_area :question %>
+    </div>
+  </fieldset>
+  
+  <fieldset class="actions">
+    <%= f.submit "Send" %>
+  </fieldset>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111223215547) do
+ActiveRecord::Schema.define(:version => 20111229175447) do
 
   create_table "approvals", :force => true do |t|
     t.integer  "recommendation_id"
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(:version => 20111223215547) do
 
   add_index "pages", ["slug"], :name => "index_pages_on_slug", :unique => true
 
+  create_table "questions", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "email"
+    t.text     "question"
+  end
+
   create_table "recommendations", :force => true do |t|
     t.string   "nominee"
     t.datetime "created_at"
@@ -72,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20111223215547) do
     t.datetime "upload_updated_at"
     t.string   "url"
     t.string   "caption"
+    t.boolean  "decline",             :default => false
   end
 
   create_table "users", :force => true do |t|

@@ -1,5 +1,10 @@
 Bob::Application.routes.draw do
   
+
+ 
+  resources :questions
+  match 'question' => "questions#new", :via => :get
+
   resources :categories
   resources :accounts, :as => :user
   devise_for :users, :controllers => { :registrations => "registrations" }
