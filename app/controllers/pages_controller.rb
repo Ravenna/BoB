@@ -103,7 +103,7 @@ class PagesController < ApplicationController
             
      @awardsall = Award.in_categories([1,2]).order("name ASC") 
      @awards_store = Award.in_categories(1).includes(:categories)
-     @awards_store.reject { |a| a.categories.include?(Category.find(2)) }
+     #@awards_store.reject { |a| a.categories.include?(Category.find(2)) }
       
   end
   
