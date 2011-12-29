@@ -44,7 +44,7 @@ text-decoration:underline;
 
 
 /* Forms */
-.field{padding-bottom:15px;}
+.field{padding-bottom:15px; line-height:18px;}
 input{font-size:14px; padding:3px; margin-bottom:10px;}
 textarea{width:100%; background:#fff !important;}
 .nicEdit-main{background-color:#fff; margin:0 !important; padding:5px;}
@@ -67,7 +67,7 @@ input[type=submit]{background-color:#DD6000; padding:7px; color:#fff; border:non
 #utility_nav li{font-weight:bold; float:left; padding-left:10px; color:#fff; font-size:13px;}
 #utility_nav li a{color:#fff;}
 #sign_up_in a{text-decoration:underline;}
-#utility_nav li#signed_in_as{position:absolute; top:20px; width:300px; right:-28px;}
+#utility_nav li#signed_in_as{position:absolute; top:20px; width:300px; right:22px; text-align:right;}
 
 #main_nav{padding-left:22px;}
 #main_nav li{float:left; padding-right:20px; margin-right:8px; font-size:13px; font-weight:bold; background:url(menu-dot.png) no-repeat right center; }
@@ -151,11 +151,11 @@ td.first, td.second{width:250px; border-right:1px dashed #384400;}
 
 /* Dynamic Pages Styling */
 #page_body{}
-#page_body p{padding-bottom:15px;}
+#page_body p{padding-bottom:15px; line-height:16px;}
 #page_body ul{padding:0 0 10px 15px;}
 #page_body ul li{list-style-type:disc;  padding:0 0 5px 5px; margin-left:10px; list-style-position:outside;}
 #page_body ul li ul{padding-left:20px;}
-#page_body ul li ul{padding-bottom:10px;}
+#page_body ul ul{padding-bottom:3px;}
 #page_body ul ul li{list-style-type:circle !important; margin-left:20px;}
 
 

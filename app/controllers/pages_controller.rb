@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   
-  before_filter :authenticate_user!, :except => [:home, :prizes, :overview]
+  before_filter :authenticate_user!, :except => [:home, :prizes, :overview, :awards]
   before_filter :user_is_admin, :only => [:show] 
   # GET /pages
   # GET /pages.json
@@ -99,6 +99,7 @@ class PagesController < ApplicationController
   end
   
   def awards
+      @page = Page.find_by_name("Awards")
       @corpcat = Category.find(2)
       @corp = @corpcat.awards.all
       
@@ -129,6 +130,11 @@ class PagesController < ApplicationController
       @store = @storecat.awards.all
       
   end
+  
+  def questions
+  end 
+  
+  
   
  
 end

@@ -1,0 +1,25 @@
+<h1>Ask a Question</h1>
+
+<% form_for @question, :url => { :action => "create" }, :html => { :method => :post } do |f| %>
+  <p>
+    <%= f.label "Name" %>
+  </p>
+  <p>
+    <%= f.text_field :sender_name %>
+  </p>
+  <p>
+    <%= f.label "Email" %>
+  </p>
+  <p>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label "Question" %>
+  </p>
+  <p>
+    <%= f.text_area :question %>
+  </p>
+  <p>
+    <%= f.submit "Submit" %>
+  </p>
+<% end %>

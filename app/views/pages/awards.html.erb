@@ -3,12 +3,12 @@
 
 
 <% @store.each do |store| %>
-	<h3><%= link_to store.name, "", {:title => store.info} %></h3>
+	<h3><%= link_to store.name, award_path(store), {:title => store.info} %></h3>
 <% end %>
 
 <p>&nbsp;</p>
 <h1>Corp/Westmont/Vaugn Awards</h2>
 
 <% @corp.each do |corp| %>
-	<h3><%= link_to corp.name, "", {:title => corp.info} %></h3>
+	<h3><%= link_to corp.name, award_path(corp), {:title => corp.info} %></h3>
 <% end %>
