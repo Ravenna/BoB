@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(:version => 20111230001107) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.boolean  "decline"
-    t.string   "next_approver_email"
   end
 
   create_table "awards", :force => true do |t|
