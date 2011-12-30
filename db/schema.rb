@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111229201829) do
+ActiveRecord::Schema.define(:version => 20111230001107) do
 
   create_table "approvals", :force => true do |t|
     t.integer  "recommendation_id"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20111229201829) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "decline"
+    t.string   "next_approver_email"
   end
 
   create_table "awards", :force => true do |t|
@@ -79,7 +81,6 @@ ActiveRecord::Schema.define(:version => 20111229201829) do
     t.datetime "upload_updated_at"
     t.string   "url"
     t.string   "caption"
-    t.boolean  "decline",             :default => false
   end
 
   create_table "users", :force => true do |t|

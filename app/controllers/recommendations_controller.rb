@@ -46,7 +46,7 @@ class RecommendationsController < ApplicationController
   def create
     @recommendation = Recommendation.new(params[:recommendation])
     @recommendation.user_id = current_user.id
-
+ 
 
     respond_to do |format|
       if @recommendation.save
