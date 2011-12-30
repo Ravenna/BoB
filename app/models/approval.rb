@@ -19,7 +19,7 @@ protected
   after_create :approval_notification
   
 
-  #attr_accessor :next_approver_email
+  attr_accessor :next_approver_email
  
   def recently_approved?
       self.approved_changed? && self.approved?
