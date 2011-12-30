@@ -22,10 +22,9 @@ Bob::Application.routes.draw do
   match 'question' => 'pages#question', :as => :question
   
   resources :recommendations, :shallow => true do
-    resources :approvals do
-       get 'toggle_decline', :on => :member  
-    end
+    resources :approvals 
   end
+  match 'toggle_decline' => 'approvals#toggle_decline'
 
   resources :awards
 

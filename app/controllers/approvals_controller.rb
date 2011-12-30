@@ -80,4 +80,18 @@ class ApprovalsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def toggle_decline
+      @approval = Approval.find(params[:id])
+      @approval.decline = true
+      respond_to do |format|
+         if @approval.update_attributes(params[:approval])
+            format.html { redirect_to recommendations_path, notice: 'Approval was successfully made.' }
+            format.json { head :ok }
+          else
+            format.html { render action: "edit" }
+            format.json { render json: @approval.errors, status: :unprocessable_entity }
+          end
+      end 
+  end
 end

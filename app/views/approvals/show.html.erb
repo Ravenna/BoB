@@ -1,14 +1,15 @@
+<div id="page_body">
+<h2>You have been asked to review the following recommendation.</h2>
 
-<p>You have been asked to review the following recommendation.</p>
+<p><b>Associate:</b> <%= @approval.recommendation.nominee %></p>
+<p><b>Award:</b> <%= @approval.recommendation.award.name %></p>
+<p><b>Job Title:</b> <%= @approval.recommendation.title %></p>
+<p><b>Department:</b> <%= @approval.recommendation.department %></p>	
+<p><b>Associate Number:</b> <%= @approval.recommendation.associate_number %></p>
+<div><b>Summary:</b><br> <%= @approval.recommendation.summary %></div>
+<div><b>Accomplishments:</b><br> <%= @approval.recommendation.accomplishments %></div>
 
-<p>Name:<b> <%= @approval.recommendation.nominee %></b></p>
-<p>Award: <%= @approval.recommendation.award.name %></p>
-<p>Job Title: <%= @approval.recommendation.title %><p>
-<p>Associate Number: <%= @approval.recommendation.associate_number %><p>
-<div>Summary: <%= @approval.recommendation.summary %><div>
-<div>Accomplishments: <%= @approval.recommendation.accomplishments %><div>
 
-<p>
 	<%= form_for :approval, :url => { :action => "update" }, :method => :put do |f| %>
 	  <% if @approval.errors.any? %>
 	    <div id="error_explanation">
@@ -22,19 +23,27 @@
 	  <% end %>
 
 
-	  <div class="field">
-	    <%= f.label :approved %><br />
-	    <%= f.check_box :approved %>
+	  <div class="field approve">
+	    <h2>Approve?</h2>
+	    <%= f.check_box :approved %> Check for yes!
 	  </div>
+
+	  <div class="field approve">
+	    <h2>Decline?</h2>
+	    <%= f.check_box :decline %> Check to Decline!
+	  </div>
+	  
+	
 	  <div class="field">
 	    Supervisor Email Address:<br />
 	    <%= f.text_field :next_approver_email %>
 	  </div>
 	  <div class="actions">
-	    <%= f.submit "Approve" %> <%#= link_to "Decline Approval", %> Decline Approval
+	    <%= f.submit "Approve" %>  
 	  </div>
 	<% end %>
 	
+
 	
 	
 	
@@ -44,6 +53,4 @@
   <%= @approval.email %>
 </p>
 
-
-<%= link_to 'Edit', edit_approval_path(@approval) %> |
-<%= link_to 'Back', recommendations_path %>
+</div>

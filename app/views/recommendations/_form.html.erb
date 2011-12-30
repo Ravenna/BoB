@@ -32,7 +32,7 @@
   </div>
   
   <div class="field">
-	You are recommending this associate for the following award: <b><%= @award.name %></b>
+	You are recommending this associate for the following award: <b><%#= @award.name %></b>
 	
 	<%= f.hidden_field( :award_id, :value => @award.id ) %>
   </div>
@@ -63,12 +63,12 @@
   <div class="field">
 	Add a note/explanation<Br>
 	<%= f.text_field :caption %><br>
-	URL: <%= f.text_field :url %>
+	Share a URL:<br> <%= f.text_field :url %>
   </div>
    
   <div class="field">
-    <b>Are you this person's supervisor</b><br />
-    <%= f.check_box :supervisor %> Check for yes
+    <b>Select the one that matches best:</b><br />
+    <%= f.select :supervisor, options_for_select([ "You ARE the nominee’s direct manager / supervisor", "You ARE NOT the nominee’s direct manager / supervisor"]), { :include_blank => true } %>
   </div>
 
 
