@@ -47,9 +47,10 @@ class RecommendationsController < ApplicationController
     @recommendation = Recommendation.new(params[:recommendation])
     @recommendation.user_id = current_user.id
 
+
     respond_to do |format|
       if @recommendation.save
-        format.html { redirect_to root_path, notice: 'Recommendation was successfully created.' }
+        format.html { redirect_to location_path, notice: 'Recommendation was successfully created.' }
         format.json { render json: @recommendation, status: :created, location: @recommendation }
       else
         format.html { render action: "new" }
