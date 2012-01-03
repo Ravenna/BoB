@@ -12,6 +12,7 @@ body{font-family:Arial; background-color:#E5D9C7 !important; font-size:14px;}
 li{list-style:none;}
 td{padding-left:5px;}
 h1{font-size: 30px;
+img{border:none;}
 line-height: 35px;
 color: white;
 margin: 0px 0px 25px 0px;
@@ -54,11 +55,13 @@ input[type=submit]{background-color:#DD6000; padding:7px; color:#fff; border:non
 	-moz-border-radius: 3px; 
 	-webkit-border-radius: 3px;	
 	}
+	
+form p{padding-bottom:10px;}
 
 
 
 /*Container */
-#container{width:1164px; margin:0 auto; border-t}
+#container{width:1164px; margin:0 auto 20px auto; border-t}
 .home{background:url(bob_home_bg.jpg) no-repeat; min-height:1180px;}
 .interior{background:url(new_int_bg.jpg) no-repeat; min-height:1164px;}
 
@@ -114,8 +117,8 @@ text-decoration: none;
 .user p.edit{padding-left:10px;}
 
 /* Rec Bar */
-#rec_bar{padding-bottom:20px; height:31px;}
-#rec_bar li{float:left; width:160px; height:25px; text-align:center; padding-top:6px; font-size:14px; color:#fff; font-weight:bold;
+#page_body #rec_bar{padding:0 0 20px 0; height:31px; }
+#page_body #rec_bar li{float:left; width:160px; height:25px; text-align:center; padding:7px 0 0 0 ; font-size:14px; color:#fff; font-weight:bold; list-style-type:none; margin-left:0; 
 	-moz-box-shadow:  1px 0px 5px 0px #000;
 	-webkit-box-shadow: 1px 0px 5px 0px #000;
 	-ms-box-shadow:1px 0px 5px 0px #000;
@@ -160,7 +163,7 @@ td.first, td.second{width:250px; border-right:1px dashed #384400;}
 #page_body ul ul li{list-style-type:circle !important; margin-left:20px;}
 
 .home_text{margin-left:-80px; width:350px;}
-#home_recommend{width:800px; text-align:center; padding-top:20px;}
+#home_recommend{width:800px; text-align:center; padding-top:250px;}
 .pad_top{padding-top:20px;}
 
 #page_body .award_cat_list{}
@@ -174,6 +177,18 @@ td.first, td.second{width:250px; border-right:1px dashed #384400;}
 
 /* APPROVAL SHOW */
 .approve{padding:10px 0;}
+
+/* LOCATIONS */
+#location_buttons{padding-top:20px;}
+#location_buttons a{display:inline-block; margin-bottom:20px;}
+
+
+/* ERROR STYLES */
+#error_explanation{border:1px solid red; background-color:#fff; padding:3px; margin-bottom:10px;}
+#error_explanation h2{color:red; padding-bottom:5px; }
+#error_explanation ul li{padding-bottom:3px;}
+.field_with_errors input{border:2px solid red;}
+.field_with_errors textarea{border:2px solid red;}
 
 
 

@@ -2,6 +2,8 @@ Bob::Application.routes.draw do
   
 
  
+  resources :videos
+
 #  resources :questions
   match 'question' => "questions#create", :via => :post
 
@@ -20,6 +22,9 @@ Bob::Application.routes.draw do
   match 'award-cat' => 'pages#award_cat', :as => :award_cat
   match 'location' => 'pages#location', :as => :location
   match 'question' => 'pages#question', :as => :question
+  match 'thank-you' => 'pages#thankyou', :as => :thankyou
+  match 'my-recommendations' => 'pages#recs', :as => :recs
+  match 'photos-video' => 'pages#photos_video', :as => :photo_video
   
   resources :recommendations, :shallow => true do
     resources :approvals 

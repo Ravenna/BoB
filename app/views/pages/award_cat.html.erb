@@ -1,4 +1,4 @@
-
+<div id="page_body">
 <div id="rec_bar_arrow" class="pos4"><%= image_tag 'recommend_nav.png'%></div>
 <%= render  'shared/recommend_timeline' %>
 
@@ -7,15 +7,21 @@
 	
 	<% case params[:location]
 	   when 'store' %>
+		<h2>Select a Brand Award for your recommendation</h2>
+		<ul class="award_cat_list">
 		<% @store.each do |store| %>
-			<h3><%= link_to store.name, new_recommendation_path(:award => store.id ) %></h3>
+			<li><%= link_to store.name, new_recommendation_path(:award => store.id ), :title => store.info %></li>
 		<% end %>
+		</ul>
 		
 	<% when 'corp' %>
-	
+		<h2>Select a Corporate/Westmont/Vaughn Awards for your recommendation</h2>
+		<ul class="award_cat_list">
 	  	<% @corp.each do |corp| %>
-			<h3><%= link_to corp.name, new_recommendation_path(:award => corp.id) %></h3>
+			<li><%= link_to corp.name, new_recommendation_path(:award => corp.id), :title => corp.info %></li>
 		<% end %>
+		</ul>
 	<% else %>
 	   <br>You must select a Award Category From the <%= link_to "Locations", location_path %> page!
 	<% end %>
+</div>

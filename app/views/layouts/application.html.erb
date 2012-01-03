@@ -21,21 +21,32 @@
 				<% if user_signed_in? %>
 				   <li id="signed_in_as">Signed in as <%= current_user.email %></li>
 				   <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-				  <% else %>
+				<% else %>
 				    <li id="sign_up_in"><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %></li>
-				  <% end %>
+				<% end %>
+				
 				<% if current_user.present? && current_user.admin == true %>
 					<li><%= link_to "Admin", admin_path %></li>
 				<% end %>
-			<% if current_user.present? %><li><%= link_to "Inbox", inbox_path%></li><% else %><% end %> 
+				
+				<% if current_user.present? %>
+					<li><%= link_to "My Rec's", recs_path%></li>
+					<li>
+							<% if @approval_value.present? %>
+								<%= link_to image_tag("email_open.png", :align => "right"), inbox_path %>
+							<% else %>
+							
+							<% end %>
+						</li>
+			<% else %><% end %> 
 		</ul>
 		<ul id="main_nav">
 			<li><%= link_to "Recommend Now!", location_path %></li>
-			<li><%= link_to "Overview and Timeline", overview_path%></li>
+			<li><%= link_to "Overview & Timeline", overview_path%></li>
 			<li><%= link_to "Award Categories", awardcat_path%></li>
-			<li><%= link_to "Prizes", prizes_path%></li>
-			<li><%= link_to "Questions", question_path %></li>
-			<li id="last"><%= link_to "Photos & Video", awardcat_path%></li>
+			<li><%= link_to "Prizes", prizes_path%></li>		
+			<li><%= link_to "Photos & Video", photo_video_path%></li>
+			<li id="last"><%= link_to "Questions", question_path %></li>
 		</ul>
 		<div class="clear"></div>
 	</div>
@@ -48,7 +59,9 @@
 		      <div id="error"><%= flash[:error] %></div>
 		    <% end %>
 		
+		<div id="page_body">
 		<%= yield %>
+		</div>
 	</div>
 
 

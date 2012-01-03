@@ -1,0 +1,8 @@
+<h1>Photos &amp; Video</h1>
+
+<% @videos.each do |video| %>
+<div class="video">
+	<%=m video.embed %><br>
+	<b><%= video.name %></b>
+</div>
+<% end %>

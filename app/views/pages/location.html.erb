@@ -1,10 +1,13 @@
-
+<div id="page_body">
 <div id="rec_bar_arrow" class="pos3"><%= image_tag 'recommend_nav.png'%></div>
 <%= render  'shared/recommend_timeline' %>
 
 <h1>Location</h1>
 	
+<h2>Please select a location to begin the recommendation process</h2>
+<div id="location_buttons">
+	<%= link_to "Stores/Field", award_cat_path(:location => "store" ), :class => "buttonOrange" %><br>
+	<%= link_to "Corp/Westmont/Vaughan", award_cat_path(:location => "corp" ), :class => "buttonOrange" %>
+</div>
 	
-
-	<h3><%= link_to "Stores/Field", award_cat_path(:location => "store" ) %></h3>
-	<h3><%= link_to "Corp/Westmont/Vaughan", award_cat_path(:location => "corp" ) %></h3>
+</div>

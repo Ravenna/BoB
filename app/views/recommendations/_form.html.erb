@@ -26,13 +26,11 @@
     Department/Store # *<br />
     <%= f.text_field :department %>
   </div>
-  <div class="field">
-    <%= f.label :associate_number %><br />
-    <%= f.text_field :associate_number %>
-  </div>
+
   
   <div class="field">
-	You are recommending this associate for the following award: <b><%#= @award.name %></b>
+	You are recommending this associate for the following award: <b><%= @award.name %></b>
+	<p><b>Award Description:</b><%= @award.info %></p>
 	
 	<%= f.hidden_field( :award_id, :value => @award.id ) %>
   </div>
@@ -74,13 +72,13 @@
 
   <div class="field">
 	Supervisor's Email: 
-	<%= f.fields_for :approvals do |approval| %>
+	<%= f.fields_for :approval do |approval| %>
 		<%= approval.text_field :email %>
-		
 	<% end %>
+	<br>If no Supervisor email is provided, recommendation will be saved without moving up the chain of approvals.
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save" %>
   </div>
 <% end %>

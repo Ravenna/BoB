@@ -17,4 +17,10 @@ class ApplicationController < ActionController::Base
       end
   end
   
+  def inbox_value
+    if current_user
+     @approval_value = Approval.where(:email => current_user.email , :approved => nil)
+    end 
+  end 
+  
 end

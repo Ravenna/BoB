@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+    before_filter :inbox_value
   # GET /award_categories
   # GET /award_categories.json
   def index

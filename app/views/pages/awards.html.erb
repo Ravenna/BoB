@@ -15,11 +15,16 @@
 
 <h2>RECOMMENDED CUSTOM EXPERIENCE AWARDS (OPEN TO STORES DIVISION)</h2>
 	<ul class="award_cat_list">
-		<%= debug @awards_store%>
-	<%# @awards_store.each do |store| %>
-		<li><%#= link_to store.name, award_path(store), :title => store.info %></li>
-	<%# end %>
+		
+	<% @awards_store.each do |store| %>	
+		<li><%= link_to store.name, award_path(store), :title => store.info %> | 
+		<% store.categories.each do |cat| %>
+			<%= cat.id%>
+		<% end %>
+	</li>
+	<% end %>
 	</ul>
+
 	
 	
 <h2>SENIOR MANAGEMENT TEAM SELECTED AWARDS</h2>

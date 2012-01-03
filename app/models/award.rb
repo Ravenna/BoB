@@ -8,4 +8,6 @@ class Award < ActiveRecord::Base
       where(:awards_categories => { :category_id => categories } ).
       select("DISTINCT awards.*")
     }
+    
+   
 end

@@ -1,5 +1,6 @@
 class RecommendationsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :inbox_value
   #before_filter :user_is_admin, :only => [:show] 
   
   # GET /recomendations
@@ -50,10 +51,10 @@ class RecommendationsController < ApplicationController
 
     respond_to do |format|
       if @recommendation.save
-        format.html { redirect_to location_path, notice: 'Recommendation was successfully created.' }
+        format.html { redirect_to thankyou_path, notice: 'Recommendation was successfully created.' }
         format.json { render json: @recommendation, status: :created, location: @recommendation }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to new_recommendation_path(:award => @award) }
         format.json { render json: @recommendation.errors, status: :unprocessable_entity }
       end
     end
