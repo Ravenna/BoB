@@ -1,11 +1,10 @@
 <h1>Ask a Question</h1>
 <p>All Fields Required</p>
-<p>&nbsp;</p>
 <%= simple_form_for @question, :url => url_for(:action => 'create', :controller => 'questions'), :method => 'post' do |f| %>
     <%= f.input :name, :required => true %>
 	
 		<% if current_user %>
-			<p>Email: <%= current_user.email %></p>
+			<p><b>Signed in as:</b> <%= current_user.email %></p>
 			<%= hidden_field_tag( :email, current_user.email, :id => "question_name", :name => "question[email]") %>
 		<% else %>
 			<%= f.input :email, :required => true %>

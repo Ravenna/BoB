@@ -87,7 +87,7 @@ class PagesController < ApplicationController
   end
   
   def home
- 
+ @page = Page.find_by_name("Home")
   end
   
   def prizes
