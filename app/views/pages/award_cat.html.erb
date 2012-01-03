@@ -7,11 +7,22 @@
 	
 	<% case params[:location]
 	   when 'store' %>
-		<h2>Select a Brand Award for your recommendation</h2>
+		<h2>RECOMMENDED BRAND AWARDS</h2>
+		
 		<ul class="award_cat_list">
-		<% @store.each do |store| %>
-			<li><%= link_to store.name, new_recommendation_path(:award => store.id ), :title => store.info %></li>
+	  	<% @corp.each do |corp| %>
+			<li><%= link_to corp.name, new_recommendation_path(:award => corp.id), :title => corp.info %></li>
 		<% end %>
+		</ul>
+		
+		<h2>RECOMMENDED CUSTOMER EXPERIENCE AWARDS</h2>
+		<ul class="award_cat_list">		
+			<li><a href="../awards/3">Apparel Stores</li>
+			<li><a href="../awards/6">District Directors</li>
+			<li><a href="../awards/2">Legendary Customer Service</li>
+			<li><a href="../awards/5">Mission Summit Stores</li>
+			<li><a href="../awards/7">Open Category</li>
+			<li><a href="../awards/4">Outlet Store</li>
 		</ul>
 		
 	<% when 'corp' %>

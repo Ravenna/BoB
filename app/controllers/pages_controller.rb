@@ -104,6 +104,7 @@ class PagesController < ApplicationController
      @awardsall = Award.in_categories([1 && 2]).order("name ASC") 
 
      @awards_store = Award.in_categories([1]).order("name ASC") 
+     
    
   end
   

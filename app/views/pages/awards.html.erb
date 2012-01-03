@@ -13,16 +13,14 @@
 	</ul>
 
 
-<h2>RECOMMENDED CUSTOM EXPERIENCE AWARDS (OPEN TO STORES DIVISION)</h2>
-	<ul class="award_cat_list">
-		
-	<% @awards_store.each do |store| %>	
-		<li><%= link_to store.name, award_path(store), :title => store.info %> | 
-		<% store.categories.each do |cat| %>
-			<%= cat.id%>
-		<% end %>
-	</li>
-	<% end %>
+<h2>RECOMMENDED CUSTOMER EXPERIENCE AWARDS (OPEN TO STORES DIVISION)</h2>
+	<ul class="award_cat_list">		
+		<li><a href="../awards/3">Apparel Stores</li>
+		<li><a href="../awards/6">District Directors</li>
+		<li><a href="../awards/2">Legendary Customer Service</li>
+		<li><a href="../awards/5">Mission Summit Stores</li>
+		<li><a href="../awards/7">Open Category</li>
+		<li><a href="../awards/4">Outlet Store</li>
 	</ul>
 
 	
