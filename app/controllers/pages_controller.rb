@@ -104,8 +104,6 @@ class PagesController < ApplicationController
      @awardsall = Award.in_categories([1 && 2]).order("name ASC") 
 
      @awards_store = Award.in_categories([1]).order("name ASC") 
-     
-   
   end
   
   def admin
@@ -141,10 +139,11 @@ class PagesController < ApplicationController
   
   def recs
     @recommendations = Recommendation.where("user_id = ?", current_user.id)
-    
   end 
   
- 
+ def photos_video
+   @videos = Video.all
+ end 
   
   
   

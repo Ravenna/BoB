@@ -191,4 +191,8 @@ td.first, td.second{width:250px; border-right:1px dashed #384400;}
 .field_with_errors textarea{border:2px solid red;}
 
 
+/* Videos */
+.video{width:300px; height: 220px; margin: 10px 10px;}
+
+
 
