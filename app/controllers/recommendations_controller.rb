@@ -54,7 +54,7 @@ class RecommendationsController < ApplicationController
         format.html { redirect_to thankyou_path, notice: 'Recommendation was successfully created.' }
         format.json { render json: @recommendation, status: :created, location: @recommendation }
       else
-        format.html { redirect_to new_recommendation_path(:award => @award) }
+        format.html { redirect_to new_recommendation_path(@award) }
         format.json { render json: @recommendation.errors, status: :unprocessable_entity }
       end
     end

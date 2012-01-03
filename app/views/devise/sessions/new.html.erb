@@ -4,6 +4,8 @@
 
 <h1>You must be logged in to create a recommendation</h1>
 
+<h2>Login and you will be directed to select the type of award you will be recommending for</h2>
+
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
