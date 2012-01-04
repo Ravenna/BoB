@@ -1,5 +1,5 @@
 class ApprovalsController < ApplicationController
-  before_filter :inbox_value
+  before_filter :inbox_value, :if_recommendations
   # GET /approvals
   # GET /approvals.json
   def index

@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
-  before_filter :inbox_value
+  before_filter :inbox_value, :if_recommendations
+  
   
   def create
     @question = Question.new(params[:question])

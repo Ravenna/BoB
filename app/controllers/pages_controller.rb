@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
   
-  before_filter :authenticate_user!, :except => [:home, :prizes, :overview, :awards, :question]
+  before_filter :authenticate_user!, :except => [:home, :prizes, :overview, :awards, :question, :photos_video]
   before_filter :user_is_admin, :only => [:show] 
-  before_filter :inbox_value
+  before_filter :inbox_value, :if_recommendations
   # GET /pages
   # GET /pages.json
   def index
@@ -103,7 +103,7 @@ class PagesController < ApplicationController
      @page = Page.find_by_name("Awards")            
      @awardsall = Award.in_categories([1 && 2]).order("name ASC") 
 
-     @awards_store = Award.in_categories([1]).order("name ASC") 
+     @awards_store = Award.in_categories([3]).order("name ASC") 
   end
   
   def admin
@@ -125,7 +125,7 @@ class PagesController < ApplicationController
       @corpcat = Category.find(2)
       @corp = @corpcat.awards.order("name ASC")
       
-      @storecat = Category.find(1)
+      @storecat = Category.find(3)
       @store = @storecat.awards.order("name ASC")
   end
   

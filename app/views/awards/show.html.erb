@@ -6,7 +6,7 @@
 </div>
 
 <div id="award_recommendation">
-<% if @award.id == 15 || @award == 16 %>
+<% if @award.id == 15 || @award.id == 16 %>
 
 <% else %>		
 	<%= link_to "Recommend A Collegue Now!", new_recommendation_path(:award => @award.id ), :class => "buttonOrange"%>	

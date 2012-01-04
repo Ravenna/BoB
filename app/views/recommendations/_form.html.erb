@@ -12,7 +12,7 @@
   <% end %>
 
 
-
+<p>* Denotes Required Field</p>
 
   <div class="field">
     Associate Being Recommended*<br />
@@ -65,7 +65,7 @@
   </div>
    
   <div class="field">
-    <b>Select the one that matches best:</b><br />
+    <b>Select the one that matches best: *</b><br />
     <%= f.select :supervisor, options_for_select([ "You ARE the nominee’s direct manager / supervisor", "You ARE NOT the nominee’s direct manager / supervisor"]), { :include_blank => true } %>
   </div>
 
@@ -75,7 +75,9 @@
 	<%= f.fields_for :approval do |approval| %>
 		<%= approval.text_field :email %>
 	<% end %>
-	<br>If no Supervisor email is provided, recommendation will be saved without moving up the chain of approvals.
+	<br>If no Supervisor email is provided, recommendation will be saved without moving up the chain of approval.<br><br>
+	
+	
   </div>
 
   <div class="actions">

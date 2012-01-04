@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_filter :inbox_value
+  before_filter :inbox_value, :if_recommendations
   # GET /videos
   # GET /videos.json
   def index

@@ -30,14 +30,17 @@
 				<% end %>
 				
 				<% if current_user.present? %>
-					<li><%= link_to "My Rec's", recs_path%></li>
+					<li>
+						<% if @my_recs.present? %>
+							<%= link_to "My Rec's", recs_path%></li>
+						<% end %>
 					<li>
 							<% if @approval_value.present? %>
 								<%= link_to image_tag("email_open.png", :align => "right"), inbox_path %>
 							<% else %>
 							
 							<% end %>
-						</li>
+					</li>
 			<% else %><% end %> 
 		</ul>
 		<ul id="main_nav">

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     stored_location_for(resource) ||
       if resource.is_a?(User) 
-        location_path
+        root_url
       else
         root_url
         flash[:notice] = "You must signup before loggin in!"
@@ -22,5 +22,11 @@ class ApplicationController < ActionController::Base
      @approval_value = Approval.where(:email => current_user.email , :approved => nil)
     end 
   end 
+  
+  def if_recommendations
+    if current_user
+     @my_recs = Recommendation.where(:user_id => current_user.id)
+    end 
+  end
   
 end

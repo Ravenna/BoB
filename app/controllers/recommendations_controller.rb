@@ -1,12 +1,12 @@
 class RecommendationsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :inbox_value
+  before_filter :inbox_value, :if_recommendations
   #before_filter :user_is_admin, :only => [:show] 
   
   # GET /recomendations
   # GET /recomendations.json
   def index
-    @recommendations = Recommendation.all
+    @recommendations = Recommendation.order("nominee ASC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -54,7 +54,7 @@ class RecommendationsController < ApplicationController
         format.html { redirect_to thankyou_path, notice: 'Recommendation was successfully created.' }
         format.json { render json: @recommendation, status: :created, location: @recommendation }
       else
-        format.html { redirect_to new_recommendation_path(@award) }
+        format.html { redirect_to new_recommendation_path }
         format.json { render json: @recommendation.errors, status: :unprocessable_entity }
       end
     end

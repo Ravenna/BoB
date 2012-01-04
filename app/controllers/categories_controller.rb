@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-    before_filter :inbox_value
+    before_filter :inbox_value, :if_recommendations
   # GET /award_categories
   # GET /award_categories.json
   def index

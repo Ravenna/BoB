@@ -1,9 +1,19 @@
 <div id="page_body">
 <h1>Recommendation Information</h1>
-<p>
-  <b>Nominee:</b>
-  <%= @recommendation.nominee %>
-</p>
+
+<p><b>Associate:</b> <%= @recommendation.nominee %></p>
+<p><b>Award:</b> <%= @recommendation.award.name %></p>
+<p><b>Job Title:</b> <%= @recommendation.title %></p>
+<p><b>Department:</b> <%= @recommendation.department %></p>	
+<p><b>Summary:</b><br> <%= @recommendation.summary %></p>
+<p><b>Accomplishments:</b><br> <%= @recommendation.accomplishments %></p>
+<p><b>Supervisor:</b> <%= @recommendation.supervisor%></p>
+<% if @recommendation.upload.file? %>
+<p><b>Attachement:</b> <a href="<%= @recommendation.upload.url %>">File</a></p>
+<% else %>
+<p>No Attachment</p>
+<% end %>
+
 <p><b>Award:</b> <%= @recommendation.award.name  %></p>
 <p>&nbsp;</p>
 <h2>Approvals</h2>

@@ -5,11 +5,11 @@
 <h1>Choose an Award</h1>
 
 <h2>Select an Award for this Recommendation</h2>
-	
+<p>&nbsp;</p>
 	
 	<% case params[:location]
 	   when 'store' %>
-		<h2>RECOMMENDED BRAND AWARDS</h2>
+		<h2>BRAND AWARDS</h2>
 		
 		<ul class="award_cat_list">
 	  	<% @corp.each do |corp| %>
@@ -17,14 +17,11 @@
 		<% end %>
 		</ul>
 		
-		<h2>RECOMMENDED CUSTOMER EXPERIENCE AWARDS</h2>
+		<h2>CUSTOMER EXPERIENCE AWARDS</h2>
 		<ul class="award_cat_list">		
-			<li><a href="../awards/3">Apparel Stores</li>
-			<li><a href="../awards/6">District Directors</li>
-			<li><a href="../awards/2">Legendary Customer Service</li>
-			<li><a href="../awards/5">Mission Summit Stores</li>
-			<li><a href="../awards/7">Open Category</li>
-			<li><a href="../awards/4">Outlet Store</li>
+			<% @store.each do |award| %>
+				<li><%= link_to award.name, new_recommendation_path(:award => award.id), :title => award.info %></li>
+			<% end %>
 		</ul>
 		
 	<% when 'corp' %>

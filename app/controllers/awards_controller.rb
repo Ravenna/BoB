@@ -1,5 +1,5 @@
 class AwardsController < ApplicationController
-  before_filter :inbox_value
+  before_filter :inbox_value, :if_recommendations
   # GET /awards
   # GET /awards.json
   def index

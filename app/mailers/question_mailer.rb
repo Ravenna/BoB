@@ -1,7 +1,7 @@
 class QuestionMailer < ActionMailer::Base
   
-  default :from => "info@bestofbauer.com"
-  default :to => "tj@ravennainteractive.com"
+  default :from => "bestofbauer@eddiebauer.com"
+  default :to => "bestofbauer@eddiebauer.com"
 
    def new_question(question)
      @question = question

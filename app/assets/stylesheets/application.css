@@ -107,7 +107,7 @@ text-decoration: none;
 .user_title .email{width:260px; margin-right:10px;}
 .user_title .admin, .user_smt .email{width:50px; margin-right:10px;}
 
-.user{width:800px; height:20px;}
+.user{width:800px; height:20px; clear:both;}
 .user p, .user_title p{float:left;}
 .user p.name{width: 200px; border-right:1px dashed #384400; margin-right:10px;}
 .user p.email{width: 260px; border-right:1px dashed #384400; margin-right:10px;}
@@ -157,10 +157,10 @@ td.first, td.second{width:250px; border-right:1px dashed #384400;}
 #page_body{}
 #page_body p{padding-bottom:15px; line-height:16px;}
 #page_body ul{padding:0 0 10px 15px;}
-#page_body ul li{list-style-type:disc;  padding:0 0 5px 5px; margin-left:10px; list-style-position:outside;}
+#page_body ul li{list-style-type:disc;  padding:0 0 5px 0px;  list-style-position:outside;}
 #page_body ul li ul{padding-left:20px;}
 #page_body ul ul{padding-bottom:3px;}
-#page_body ul ul li{list-style-type:circle !important; margin-left:20px;}
+#page_body ul ul li{list-style-type:circle !important; margin-left:6px;}
 
 .home_text{margin-left:-80px; width:350px;}
 #home_recommend{width:800px; text-align:center; padding-top:250px;}
