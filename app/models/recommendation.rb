@@ -7,7 +7,4 @@ class Recommendation < ActiveRecord::Base
   
   has_attached_file :upload, :styles => { :large => "600x600>", :medium => "300x300>", :thumb => "100x100>" }
   
- 
-   
-  
 end

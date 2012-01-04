@@ -15,9 +15,11 @@
 <p>* Denotes Required Field</p>
 
   <div class="field">
-	<% if params[:award] = 3 || 4 || 5 %>
+	
+	
+	<% if Award.store_award?(params[:award]) %>
 		Store Name Being Recommended
-	<% elsif params[:award] = 7 %>
+	<% elsif params[:award] == 7 %>
 		Associate/Store Name Being Recommended
 	<% else%>
 		Associate Being Recommended
@@ -25,9 +27,9 @@
 	*<br /><%= f.text_field :nominee %>
   </div>
   <div class="field">
-	<% if params[:award] = 3 || 4 || 5 %>
+	<% if Award.store_award?(params[:award]) %>
 		Store Manager Name
-	<% elsif params[:award] = 7 %>
+	<% elsif params[:award] === 7 %>
 		Job Title/Store Number Being Recommended
 	<% else%>
 		Job Title
@@ -38,14 +40,14 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-	<% if params[:award] = 3 || 4 || 5 %>
+	<% if Award.store_award?(params[:award]) %>
 		Store Manager Name
-	<% elsif params[:award] = 6%>
+	<% elsif params[:award] == 6%>
 		District Name
-	<% elsif params[:award] = 7 %>
+	<% elsif params[:award] == 7 %>
 		Associate/Store Name Being Recommended
 	<% else%>
-		Associate Being Recommended
+		Department / Store#:
 	<% end %>
 	
     *<br />
@@ -62,7 +64,7 @@
   
 	<% else %>
 		You are recommending this  
-			<% if params[:award] = 3 || 4 || 5 %>
+			<% if params[:award] = 3 || params[:award] == 4 || params[:award] == 5 %>
 				store
 			<% elsif params[:award] = 7 %>
 				associate or store
