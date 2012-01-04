@@ -28,7 +28,7 @@
   </div>
   <div class="field">
 	<% if Award.store_award?(params[:award]) %>
-		Store Manager Name
+		Store Number Being Recommended
 	<% elsif params[:award] === 7 %>
 		Job Title/Store Number Being Recommended
 	<% else%>
@@ -64,9 +64,9 @@
   
 	<% else %>
 		You are recommending this  
-			<% if params[:award] = 3 || params[:award] == 4 || params[:award] == 5 %>
+			<% if Award.store_award?(params[:award]) %>
 				store
-			<% elsif params[:award] = 7 %>
+			<% elsif params[:award] == 7 %>
 				associate or store
 			<% else%>
 				associate
