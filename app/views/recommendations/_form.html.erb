@@ -15,26 +15,65 @@
 <p>* Denotes Required Field</p>
 
   <div class="field">
-    Associate Being Recommended*<br />
-    <%= f.text_field :nominee %>
+	<% if params[:award] = 3 || 4 || 5 %>
+		Store Name Being Recommended
+	<% elsif params[:award] = 7 %>
+		Associate/Store Name Being Recommended
+	<% else%>
+		Associate Being Recommended
+	<% end %>
+	*<br /><%= f.text_field :nominee %>
   </div>
   <div class="field">
-    Job Title*<br />
+	<% if params[:award] = 3 || 4 || 5 %>
+		Store Manager Name
+	<% elsif params[:award] = 7 %>
+		Job Title/Store Number Being Recommended
+	<% else%>
+		Job Title
+	<% end %>
+	
+	
+    *<br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    Department/Store # *<br />
+	<% if params[:award] = 3 || 4 || 5 %>
+		Store Manager Name
+	<% elsif params[:award] = 6%>
+		District Name
+	<% elsif params[:award] = 7 %>
+		Associate/Store Name Being Recommended
+	<% else%>
+		Associate Being Recommended
+	<% end %>
+	
+    *<br />
     <%= f.text_field :department %>
   </div>
 
   
   <div class="field">
+	<% if params[:award].present? %>
 	You are recommending this associate for the following award: <b><%= @award.name %></b>
 	<p><b>Award Description:</b><%= @award.info %></p>
 	
 	<%= f.hidden_field( :award_id, :value => @award.id ) %>
-  </div>
-	
+  
+	<% else %>
+		You are recommending this  
+			<% if params[:award] = 3 || 4 || 5 %>
+				store
+			<% elsif params[:award] = 7 %>
+				associate or store
+			<% else%>
+				associate
+			<% end %>
+		for the following award: <b><%= @recommendation.award.name %></b><br>
+		<b>Award Description:</b><%= @recommendation.award.info %>
+		<%= f.hidden_field( :award_id ) %>
+	<% end %>
+	</div>
   
 
   <div class="field">
@@ -72,8 +111,8 @@
 
   <div class="field">
 	Supervisor's Email: 
-	<%= f.fields_for :approval do |approval| %>
-		<%= approval.text_field :email %>
+	<%= f.fields_for :approvals do |f| %>
+		<%= f.text_field :email %>
 	<% end %>
 	<br>If no Supervisor email is provided, recommendation will be saved without moving up the chain of approval.<br><br>
 	

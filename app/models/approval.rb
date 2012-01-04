@@ -13,10 +13,14 @@ protected
   end # End Validator
   
   belongs_to :recommendation
+  attr_accessible :approval, :email
+  #EMAIL_REGEX = /\A[\w+-.]+@?ravennainteractive.com/i
   
-  validates :next_approver_email, :approver_email => { :if => :recently_approved? }
+  validates :next_approver_email, :approver_email => { :if => :recently_approved? }#, :format => {:with => EMAIL_REGEX}
   before_save :create_next_approval
   after_create :approval_notification
+  
+  
   
 
   attr_accessor :next_approver_email

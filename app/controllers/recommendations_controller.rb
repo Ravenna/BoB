@@ -29,7 +29,9 @@ class RecommendationsController < ApplicationController
   # GET /recomendations/new.json
   def new
     @recommendation = Recommendation.new
-    @award = Award.find(params[:award])
+    if params[:award].present?
+      @award = Award.find(params[:award])
+    end 
     @recommendation.approvals.build
     respond_to do |format|
       format.html # new.html.erb
