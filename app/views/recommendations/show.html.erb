@@ -17,13 +17,24 @@
 <p><b>Award:</b> <%= @recommendation.award.name  %></p>
 <p>&nbsp;</p>
 <h2>Approvals</h2>
-<ul>
+<table cellspacing="5">
+	<tr>
+		<th>Email</th>
+		<th>Approved</th>
+		<th>Declined</th>
+		<th></th>
+	</tr>
 	<% @approvals.each do |approval|%>
-		<li><%= approval.email %>  | <%= link_to "View", approval_path(approval) %> 
+	<tr>
+		<td class="first"><%= approval.email %></td> 
+		<td><%= approval.approved %></td>
+		<td><%= approval.decline %></td>
+		<td><%= link_to "View", approval_path(approval) %> </td>
 		
-		</li>
+		</td>
+	</tr>
 	<% end %>
-
+</table>
 </ul>
 
 <%= link_to 'Back', recommendations_path %>
