@@ -10,25 +10,40 @@
       </ul>
     </div>
   <% end %>
-
-
 <p>* Denotes Required Field</p>
 
+ <% if @award.present? %>
   <div class="field">
-	<%= recommendation_nominee_label @recommendation.award %>*<br />
+	<%= recommendation_nominee_label @award %>*<br />
 	<%= f.text_field :nominee %>
   </div>
 
   <div class="field">
-	<%= recommendation_title_label @recommendation.award %>*<br />
+	<%= recommendation_title_label @award %>*<br />
     <%= f.text_field :title %>
   </div>
 
   <div class="field">
-    <%= recommendation_dept_label @recommendation.award %>*<br />
+    <%= recommendation_dept_label @award %>*<br />
     <%= f.text_field :department %>
   </div>
 
+<% else %>
+	<div class="field">
+		<%= recommendation_nominee_label @recommendation.award %>*<br />
+		<%= f.text_field :nominee %>
+	  </div>
+
+	  <div class="field">
+		<%= recommendation_title_label @recommendation.award %>*<br />
+	    <%= f.text_field :title %>
+	  </div>
+
+	  <div class="field">
+	    <%= recommendation_dept_label @recommendation.award %>*<br />
+	    <%= f.text_field :department %>
+	  </div>
+<% end %>
   
   <div class="field">
 	<% if @award.present? %>
