@@ -11,7 +11,8 @@ class Award < ActiveRecord::Base
     
     # Hard coding the ids for the store awards
       STORE_AWARD_IDS = [3,4,5]
-
+      DIRECTOR_AWARD_IDS = [6]
+      OPEN_AWARD_IDS = [7]
       # Class method to make checking for a store award easier
       # Usage:
       #   if Award.store_award?(params[:award_id])
@@ -40,5 +41,28 @@ class Award < ActiveRecord::Base
       def person_award?
         !store_award?
       end
+      
+      
+     
+       def self.director_award?(id_or_award)
+          award = id_or_award.kind_of?(Award) ? id_or_award : find_by_id(id_or_award)
+          award.director_award?
+        end
+
+        def director_award?
+          DIRECTOR_AWARD_IDS.include?(id)
+        end
+        
+    
+       def self.open_award?(id_or_award)
+          award = id_or_award.kind_of?(Award) ? id_or_award : find_by_id(id_or_award)
+          award.open_award?
+        end
+
+        def open_award?
+          OPEN_AWARD_IDS.include?(id)
+        end
+
+      
     
 end

@@ -15,66 +15,43 @@
 <p>* Denotes Required Field</p>
 
   <div class="field">
-	
-	
-	<% if Award.store_award?(params[:award]) %>
-		Store Name Being Recommended
-	<% elsif params[:award] == 7 %>
-		Associate/Store Name Being Recommended
-	<% else%>
-		Associate Being Recommended
-	<% end %>
-	*<br /><%= f.text_field :nominee %>
+	<%= recommendation_nominee_label @recommendation.award %>*<br />
+	<%= f.text_field :nominee %>
   </div>
+
   <div class="field">
-	<% if Award.store_award?(params[:award]) %>
-		Store Number Being Recommended
-	<% elsif params[:award] == 7 %>
-		Job Title/Store Number Being Recommended
-	<% else%>
-		Job Title
-	<% end %>
-	
-	
-    *<br />
+	<%= recommendation_title_label @recommendation.award %>*<br />
     <%= f.text_field :title %>
   </div>
+
   <div class="field">
-	<% if Award.store_award?(params[:award]) %>
-		Store Manager Name
-	<% elsif params[:award] == 6 %>
-		District Name
-	<% elsif params[:award] == 7 %>
-		Associate/Store Name Being Recommended
-	<% else%>
-		Department / Store#:
-	<% end %>
-	
-    *<br />
+    <%= recommendation_dept_label @recommendation.award %>*<br />
     <%= f.text_field :department %>
   </div>
 
   
   <div class="field">
-	<% if params[:award].present? %>
+	<% if @award.present? %>
 	You are recommending this 
-			<% if Award.store_award?(params[:award]) %>
-				store
-			<% elsif params[:award] == 7 %>
-				associate or store
+			<% if @award.store_award? %>
+					store
+			<% elsif @award.open_award? %>
+					associate or store
 			<% else%>
-				associate
-			<% end %>
+					associate
+			<% end %> %>
+		
 	for the following award: <b><%= @award.name %></b>
 	<p><b>Award Description:</b><%= @award.info %></p>
 	
 	<%= f.hidden_field( :award_id, :value => @award.id ) %>
   
+
 	<% else %>
 		You are recommending this  
-			<% if Award.store_award?(params[:award]) %>
+			<% if @recommendation.award.store_award? %>
 				store
-			<% elsif params[:award] == 7 %>
+			<% elsif @recommendation.award.director_award? %>
 				associate or store
 			<% else%>
 				associate

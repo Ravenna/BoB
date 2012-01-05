@@ -13,8 +13,8 @@
 
 <% @recommendations.each do |recommendation| %>
   <tr>
-    <td><%= recommendation.nominee %> | </td>
-    <td><%= recommendation.award.name unless recommendation.award.nil?  %> </td>
+    <td class="first"><%= recommendation.nominee %> | </td>
+    <td class="second"><%= recommendation.award.name unless recommendation.award.nil?  %> </td>
     <td><%= link_to 'Show', recommendation %></td>
     <td><%= link_to 'Edit', edit_recommendation_path(recommendation) %></td>
  <td><%= link_to 'Destroy', recommendation, confirm: 'Are you sure?', method: :delete %></td>  </tr>
