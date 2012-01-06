@@ -13,6 +13,16 @@
 <% else %>
 <p>No Attachment</p>
 <% end %>
+<% if @recommendation.upload2.file? %>
+<p><b>Attachement:</b> <a href="<%= @recommendation.upload2.url %>">File</a></p>
+<% else %>
+
+<% end %>
+<% if @recommendation.upload3.file? %>
+<p><b>Attachement:</b> <a href="<%= @recommendation.upload3.url %>">File</a></p>
+<% else %>
+
+<% end %>
 
 <p><b>Award:</b> <%= @recommendation.award.name  %></p>
 <p>&nbsp;</p>

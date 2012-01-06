@@ -6,13 +6,13 @@ module RecomendationsHelper
       elsif Award.open_award?(award)
         "Associate/Store Name Being Recommended"
       else
-        "Associate Being Recommended"
+        "Associate or Store Name Being Recommended"
       end
   end
   
   def recommendation_title_label(award)
       if Award.store_award?(award)
-        "Store Number Being Recommended"
+        "Store #"
       elsif Award.open_award?(award)
         "Job Title/Store Number Being Recommended"
       else
@@ -26,7 +26,7 @@ module RecomendationsHelper
        elsif Award.director_award?(award)   
          "District Name"
        elsif Award.open_award?(award)
-         "Associate/Store Name Being Recommended"
+         "Job Title or Store Manager Name"
        else
          "Department / Store#:"
        end
