@@ -10,4 +10,19 @@ two:
  
 three:
   name: Award Three
-  categories: three
+  categories: three, stores
+
+one_not_two:
+  name: One not Two
+  categories: one, corp
+
+outfitter:
+  name: Outfitter
+  info: Info
+  id: 15
+  categories: three, corp
+
+special:
+  name: Special
+  id: 16
+  categories: three, stores

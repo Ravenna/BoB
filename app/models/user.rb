@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -12,9 +13,16 @@ class User < ActiveRecord::Base
 
    after_create :send_invitation, :only => :invite?
 
+   def self.generate_password(password)
+     ::BCrypt::Password.create("#{password}#{self.pepper}", :cost => self.stretches).to_s
+   end
+
    # everything we need to do before sending an invitation reset password link
-   def invite!
+   # if email object is provided use it's first and last name
+   def invite!(email = nil)
      self.password = self.password_confirmation = "ebbob1" # update generate random password
+     # set the reset token with Devise
+     self.first_name = email.first_name and self.last_name = email.last_name if email.kind_of? Email
      @needs_invite = true
    end
 
