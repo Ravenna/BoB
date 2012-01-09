@@ -7,13 +7,13 @@
 <h2>Select an Award for this Recommendation</h2>
 <p>&nbsp;</p>
 	
-	<% case params[:location]
+	<% case params[:id]
 	   when 'store' %>
 		<h2>BRAND AWARDS</h2>
 		
 		<ul class="award_cat_list">
 	  	<% @corp.each do |corp| %>
-			<li><%= link_to corp.name, new_recommendation_path(:award => corp.id), :title => corp.info %></li>
+			<li><%= link_to corp.name, recommend_award_path( :category_id => params[:id], :award_id => corp.id), :title => corp.info %></li>
 		<% end %>
 		</ul>
 		

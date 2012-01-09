@@ -5,12 +5,9 @@
 	
 	
 	<li id="award_cat">
-		<% if params[:location] != nil %>
-			<%= link_to "Award Category", award_cat_path %>
+		<%= link_to 'Award Category', show_location_path(params[:category_id]) unless params[:category_id].blank? %>
+		<%= 'Award Category' if params[:category_id].blank? %>
 		
-		<% else %>
-				Award Category
-		<% end %></li>
-		
+	</li>
 	<li id="form">Fill Out Form<%#= link_to "Fill Out Form", new_recommendation_path %></li>
 </ul>

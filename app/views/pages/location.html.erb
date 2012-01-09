@@ -6,8 +6,8 @@
 	
 <h2>Please select a location to begin the recommendation process</h2>
 <div id="location_buttons">
-	<%= link_to "Stores/Field", award_cat_path(:location => "store" ), :class => "buttonOrange" %><br>
-	<%= link_to "Corp/Westmont/Vaughan", award_cat_path(:location => "corp" ), :class => "buttonOrange" %>
+	<%= link_to "Stores/Field", show_location_path('store'), :class => "buttonOrange" %><br>
+	<%= link_to "Corp/Westmont/Vaughan", show_location_path('corp'), :class => "buttonOrange" %>
 </div>
 	
 </div>

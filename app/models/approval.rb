@@ -15,7 +15,7 @@ end # End Approver Validator
 
   class EmailFormatValidator < ActiveModel::EachValidator
     def validate_each(object, attribute, value)
-      unless value =~ /ravennainteractive.com$/
+      unless value =~ /ravennainteractive\.com$/
         object.errors[attribute] << (options[:message] || "is not formatted properly") 
       end
     end

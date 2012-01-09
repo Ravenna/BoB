@@ -24,40 +24,30 @@
 	<script type="text/javascript">
 	$(document).ready(function() { 
 		$('#next_approver_email_field').toggle(); 
-		$('input#approval_checked').click( function( event ) {
-			$('div#next_approver_email_field').show();
+		
+		$('#approval_checked').click(function() {
+			$('#next_approver_email_field').show();
 		});
 	});
 	</script>
 
-	  <div class="field approve">
-		
-		
-	    <h2>Approve?</h2>
-		
+	<div class="field approve">
+		<h2>Approve?</h2>
 		<%= f.radio_button( :approved, "1", :id => "approval_checked") %> Approve<br>
 		<%= f.radio_button( :approved, "0", :checked => true) %> Decline
+	</div>
 
-	  </div>
-
-			<% if current_user.smt == true %>
-				<h2>You are an SMT user of BoB, if you approve this recommendation will be sent to the committee</h2>
-			<% else%>
-			  <div class="field" id="next_approver_email_field">
-			    Supervisor Email Address:<br />
-			    <%= f.text_field :next_approver_email %>
-			  </div>
-			<% end %>
-	  <div class="actions">
-	    <%= f.submit "Submit" %>  
-	  </div>
+	<% if current_user.smt == true %>
+		<h2>You are an SMT user of BoB, if you approve this recommendation will be sent to the committee</h2>
+	<% else%>
+		<div class="field" id="next_approver_email_field">
+		Supervisor Email Address:<br />
+		<%= f.text_field :next_approver_email %>
+		</div>
 	<% end %>
 	
-
-	
-	
-	
-
-
-
+    <div class="actions">
+	    <%= f.submit "Submit" %>  
+    </div>
+	<% end %>
 </div>
