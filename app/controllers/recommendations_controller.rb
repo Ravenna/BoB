@@ -1,7 +1,7 @@
 class RecommendationsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :inbox_value, :if_recommendations
-  #before_filter :user_is_admin, :only => [:show] 
+  before_filter :user_is_admin, :only => [:show] 
   
   # GET /recomendations
   # GET /recomendations.json
@@ -18,7 +18,8 @@ class RecommendationsController < ApplicationController
   # GET /recomendations/1.json
   def show
     @recommendation = Recommendation.find(params[:id])
-    @approvals = @recommendation.approvals.find(:all, :order => "id ASC")
+    @approvals = @recommendation.approvals.find(:all, :order => "created_at ASC")
+    @rec_user = User.find(:first, :conditions => ["id = ?", @recommendation.user_id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @recommendation }

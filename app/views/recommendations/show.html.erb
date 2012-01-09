@@ -1,6 +1,7 @@
 <div id="page_body">
 <h1>Recommendation Information</h1>
 
+<%= debug @recommendation%>
 <p><b>Associate:</b> <%= @recommendation.nominee %></p>
 <p><b>Award:</b> <%= @recommendation.award.name %></p>
 <p><b>Job Title:</b> <%= @recommendation.title %></p>
@@ -25,23 +26,28 @@
 <% end %>
 
 <p><b>Award:</b> <%= @recommendation.award.name  %></p>
+
+<p><b>Original Recommender:</b> <%= @rec_user.email  %></p>
+
+<p><b>Current Inbox Awaiting Approval:</b></p>
+
 <p>&nbsp;</p>
 <h2>Approvals</h2>
 <table cellspacing="5">
 	<tr>
 		<th>Email</th>
-		<th>Approved</th>
+		<th>Approved |</th>
 		<th>Declined</th>
+		<th>SMT?</th>
 		<th></th>
 	</tr>
 	<% @approvals.each do |approval|%>
 	<tr>
 		<td class="first"><%= approval.email %></td> 
-		<td><%= approval.approved %></td>
+		<td><%= approval.approved %> </td>
 		<td><%= approval.decline %></td>
-		<td><%= link_to "View", approval_path(approval) %> </td>
-		
-		</td>
+		<td><%= approval.recommendation.user.smt %></td>
+		<td><%= approval.created_at %></td>	
 	</tr>
 	<% end %>
 </table>

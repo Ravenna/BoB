@@ -61,7 +61,7 @@ class ApprovalsController < ApplicationController
 
     respond_to do |format|
       if @approval.update_attributes(params[:approval])
-        format.html { redirect_to recommendations_path, notice: 'Approval was successfully made.' }
+        format.html { redirect_to root_path, notice: 'Thanks for Approving/Declining the Recommendation' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

@@ -6,7 +6,7 @@ module RecomendationsHelper
       elsif Award.open_award?(award)
         "Associate/Store Name Being Recommended"
       else
-        "Associate or Store Name Being Recommended"
+        "Associate Name Being Recommended"
       end
   end
   
@@ -14,7 +14,7 @@ module RecomendationsHelper
       if Award.store_award?(award)
         "Store #"
       elsif Award.open_award?(award)
-        "Job Title/Store Number Being Recommended"
+        "Store Number Being Recommended"
       else
         "Job Title"
       end

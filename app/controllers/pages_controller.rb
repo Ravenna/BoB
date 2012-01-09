@@ -102,8 +102,9 @@ class PagesController < ApplicationController
   def awards
      @page = Page.find_by_name("Awards")            
      @awardsall = Award.in_categories([1 && 2]).order("name ASC") 
-
      @awards_store = Award.in_categories([3]).order("name ASC") 
+     @award15 = Award.find_by_name("Outfitter Award")
+     @award16 = Award.find_by_name("Special Achievement Award")
   end
   
   def admin
