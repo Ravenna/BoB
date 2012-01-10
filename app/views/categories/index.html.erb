@@ -1,25 +1,27 @@
-<h1>Listing award_categories</h1>
+<div id="page_body">
+<div id="rec_bar_arrow" class="pos3"><%= image_tag 'recommend_nav.png'%></div>
+<%= render  'shared/recommend_timeline' %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Award</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>Location</h1>
+	
+<h2>Please select a location to begin the recommendation process</h2>
+<div id="location_buttons">
 
 <% @categories.each do |category| %>
-  <tr>
-    <td><%= category.name %></td>
-    <td><%= category.award_id %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>
+<% if category.id == 3 %>
+<% else %>
+<p><%= link_to category.name, category, :class => "buttonOrange"%></p>
+
+   
   </tr>
 <% end %>
-</table>
+<% end %>
 
-<br />
 
-<%= link_to 'New category', new_category_path %>
+</div>
+	
+</div>
+
+
+<!--Make this a link to if admin-->
+<%#= link_to 'New category', new_category_path %>

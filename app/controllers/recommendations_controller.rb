@@ -30,6 +30,7 @@ class RecommendationsController < ApplicationController
   # GET /recomendations/new.json
   def new
     @award = Award.find(params[:award_id])
+    @category = Category.find(params[:category_id])
     @recommendation = Recommendation.new
     
     @recommendation.approvals.build
@@ -54,10 +55,10 @@ class RecommendationsController < ApplicationController
     respond_to do |format|
       if @recommendation.save
         format.html { redirect_to thankyou_path, notice: 'Recommendation was successfully created.' }
-        format.json { render json: @recommendation, status: :created, location: @recommendation }
       else
-        format.html { redirect_to recommend_award_path}
+        format.html { redirect_to new_category_award_recommendation_path(@category, @award)}
         format.json { render json: @recommendation.errors, status: :unprocessable_entity }
+        
       end
     end
   end

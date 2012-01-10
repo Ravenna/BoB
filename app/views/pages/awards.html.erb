@@ -8,7 +8,7 @@
 <h2>RECOMMENDED BRAND AWARDS (OPEN TO ALL ASSOCIATES)</h2>
 	<ul class="award_cat_list">
 	<% @awardsall.each do |award| %>
-		<li><%= link_to award.name, award_path(award), :title => award.info %></li>
+		<li><%= link_to award.name, category_award_path(award), :title => award.info %></li>
 	<% end %>
 	</ul>
 
@@ -16,7 +16,7 @@
 <h2>RECOMMENDED CUSTOMER EXPERIENCE AWARDS (OPEN TO STORES DIVISION)</h2>
 	<ul class="award_cat_list">		
 		<% @awards_store.each do |award| %>
-			<li><%= link_to award.name, award_path(award), :title => award.info %></li>
+			<li><%= link_to award.name, category_award_path(award), :title => award.info %></li>
 		<% end %>
 	</ul>
 

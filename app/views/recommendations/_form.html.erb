@@ -1,4 +1,4 @@
-<%= form_for @recommendation, :url => recommendations_path(@recommendation, :category_id => params[:id], :award_id => params[:award_id]), :html => { :multipart => true}  do |f| %>
+<%= form_for [@category, @award,@recommendation], :url => category_award_recommendations_path(@category, @award),  :html => { :multipart => true}  do |f| %>
   <% if @recommendation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@recommendation.errors.count, "error") %> prohibited this recommendation from being saved:</h2>

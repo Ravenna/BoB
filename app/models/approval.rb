@@ -29,7 +29,7 @@ attr_accessor :next_approver_email
   belongs_to :recommendation
 
 #VALIDATIONS
-  validates :email, :email_format => true
+  #validates :email, :email_format => true
  
   validates :next_approver_email, :approver_email => { :if => :recently_approved? }   
 #CALLBACKS   
