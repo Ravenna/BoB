@@ -1,5 +1,6 @@
 <div id="page_body">
-<h2>You have been asked to review the following recommendation by <%= @rec_user.email %></h2>
+
+<h2>You have been asked to review the following recommendation by <%= @approval.recommendation.user.email %></h2>
 
 <%= form_for :approval, :url => { :action => "update" }, :method => :put do |f| %>
   <% if @approval.errors.any? %>

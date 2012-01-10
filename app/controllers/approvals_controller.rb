@@ -15,7 +15,7 @@ class ApprovalsController < ApplicationController
   # GET /approvals/1.json
   def show
     @approval = Approval.find(params[:id])
-    @rec_user = User.find(:first, :conditions => ["id = ?", @approval.recommendation.user_id])
+
     
     respond_to do |format|
       format.html # show.html.erb
