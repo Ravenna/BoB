@@ -1,4 +1,4 @@
-<%= form_for @recommendation, :html => { :multipart => true}  do |f| %>
+<%= form_for @recommendation, :url => recommendations_path(@recommendation, :category_id => params[:id], :award_id => params[:award_id]), :html => { :multipart => true}  do |f| %>
   <% if @recommendation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@recommendation.errors.count, "error") %> prohibited this recommendation from being saved:</h2>
@@ -11,6 +11,8 @@
     </div>
   <% end %>
 <p>* Denotes Required Field</p>
+
+
 
  <% if @award.present? %>
   <div class="field">
@@ -106,15 +108,34 @@
 	<%= f.text_field :caption %><br>
 	Share a URL:<br> <%= f.text_field :url %>
   </div>
-   
+  
+	<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#super').hide();
+
+	    $('#super_checked').change(function() {
+	      	$('#not_super').hide();
+		    $('#super').show();
+	    });
+	
+		$('#super_false').change(function() {
+	       	$('#not_super').show();
+		    $('#super').hide();
+	    });
+	});
+	</script>
+
+ 
   <div class="field">
     <b>Select the one that matches best: *</b><br />
-    <%= f.select :supervisor, options_for_select([ "You ARE the nominee’s direct manager / supervisor", "You ARE NOT the nominee’s direct manager / supervisor"]), { :include_blank => true } %>
+	<%= f.radio_button( :supervisor, "You ARE the nominee’s direct manager / supervisor", :id => "super_checked") %> You ARE the nominee’s direct manager / supervisor<br>
+	<%= f.radio_button( :supervisor, "You ARE NOT the nominee’s direct manager / supervisor", :checked => true, :id => "super_false") %> You ARE NOT the nominee’s direct manager / supervisor
   </div>
 
 
   <div class="field">
-	Supervisor's Email: 
+	<p id="not_super">Supervisor's Email: </p>
+	<p id="super">Enter Your Supervisor's Email</p>
 	<%= f.fields_for :approvals do |f| %>
 		<%= f.text_field :email %>
 	<% end %>

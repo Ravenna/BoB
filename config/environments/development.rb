@@ -28,15 +28,16 @@ Bob::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
+  Paperclip.options[:command_path] = "/usr/local/bin/identify"
+  
   
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :domain               => 'ravennainteractive.com',
-    :user_name            => 'tj@ravennainteractive.com',
-    :password             => 'ravenna1',
-    :authentication       => :plain,
-    :enable_starttls_auto => true  }
-  
-  
+     :address              => "smtp.gmail.com",
+     :port                 => 587,
+     :domain               => 'bestofbauer.com',
+     :user_name            => 'bestofbauer@bestofbauer.com',
+     :password             => 'ravenna_bob1',
+     :authentication       => :plain,
+     :enable_starttls_auto => true  }
+
 end

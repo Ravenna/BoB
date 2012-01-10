@@ -22,7 +22,7 @@ end # End Approver Validator
   end
 
 
-attr_accessible :approval, :email, :user_id, :approved, :decline, :next_approver_email
+attr_accessible :approval, :email, :user_id, :approved, :decline, :next_approver_email, :info
 attr_accessor :next_approver_email
 
 #ASSOCIATIONS

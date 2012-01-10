@@ -59,14 +59,13 @@ Bob::Application.configure do
   config.active_support.deprecation = :notify
   
   
-  config.action_mailer.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
+  config.action_mailer.smtp_settings = {
      :address              => "smtp.gmail.com",
      :port                 => 587,
-     :domain               => 'ravennainteractive.com',
-     :user_name            => 'tj@ravennainteractive.com',
-     :password             => 'ravenna1',
-     :authentication       => 'plain',
+     :domain               => 'bestofbauer.com',
+     :user_name            => 'bestofbauer@bestofbauer.com',
+     :password             => 'ravenna_bob1',
+     :authentication       => :plain,
      :enable_starttls_auto => true  }
      
 end

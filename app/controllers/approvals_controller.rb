@@ -15,7 +15,8 @@ class ApprovalsController < ApplicationController
   # GET /approvals/1.json
   def show
     @approval = Approval.find(params[:id])
-
+    @rec_user = User.find(:first, :conditions => ["id = ?", @approval.recommendation.user_id])
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @approval }
@@ -48,7 +49,7 @@ class ApprovalsController < ApplicationController
         format.html { redirect_to @approval, notice: 'Approval was successfully created.' }
         format.json { render json: @approval, status: :created, location: @approval }
       else
-        format.html { render action: "new" }
+        format.html { render action: "show" }
         format.json { render json: @approval.errors, status: :unprocessable_entity }
       end
     end
@@ -64,7 +65,7 @@ class ApprovalsController < ApplicationController
         format.html { redirect_to root_path, notice: 'Thanks for Approving/Declining the Recommendation' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
+        format.html { render action: "show" }
         format.json { render json: @approval.errors, status: :unprocessable_entity }
       end
     end

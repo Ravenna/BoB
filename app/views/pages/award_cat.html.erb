@@ -12,23 +12,23 @@
 		<h2>BRAND AWARDS</h2>
 		
 		<ul class="award_cat_list">
-	  	<% @corp.each do |corp| %>
-			<li><%= link_to corp.name, recommend_award_path( :category_id => params[:id], :award_id => corp.id), :title => corp.info %></li>
+	  	<% @corp.each do |award| %>
+			<li><%= link_to award.name, recommend_award_path( :category_id => params[:id], :award_id => award.id), :title => award.info %></li>
 		<% end %>
 		</ul>
 		
 		<h2>CUSTOMER EXPERIENCE AWARDS</h2>
 		<ul class="award_cat_list">		
 			<% @store.each do |award| %>
-				<li><%= link_to award.name, new_recommendation_path(:award => award.id), :title => award.info %></li>
+				<li><%= link_to award.name, recommend_award_path( :category_id => params[:id], :award_id => award.id), :title => award.info %></li>
 			<% end %>
 		</ul>
 		
 	<% when 'corp' %>
-		<h2>Select a Corporate/Westmont/Vaughn Awards for your recommendation</h2>
+		<h2>Brand Awards</h2>
 		<ul class="award_cat_list">
-	  	<% @corp.each do |corp| %>
-			<li><%= link_to corp.name, new_recommendation_path(:award => corp.id), :title => corp.info %></li>
+	  	<% @corp.each do |award| %>
+			<li><%= link_to award.name, recommend_award_path( :category_id => params[:id], :award_id => award.id), :title => award.info %></li>
 		<% end %>
 		</ul>
 	<% else %>

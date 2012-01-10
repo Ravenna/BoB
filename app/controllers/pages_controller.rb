@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   
   before_filter :authenticate_user!, :except => [:home, :prizes, :overview, :awards, :question, :photos_video]
-  before_filter :user_is_admin, :only => [:show] 
+  before_filter :user_is_admin, :only => [:show, :index] 
   before_filter :inbox_value, :if_recommendations
   # GET /pages
   # GET /pages.json

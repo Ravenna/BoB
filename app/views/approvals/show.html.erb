@@ -1,5 +1,17 @@
 <div id="page_body">
-<h2>You have been asked to review the following recommendation by <%= @approval.email %></h2>
+<h2>You have been asked to review the following recommendation by <%= @rec_user.email %></h2>
+
+<%= form_for :approval, :url => { :action => "update" }, :method => :put do |f| %>
+  <% if @approval.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@approval.errors.count, "error") %> prohibited this approval from being saved:</h2>
+      <ul>
+      <% @approval.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 <p><b>Associate:</b> <%= @approval.recommendation.nominee %></p>
 <p><b>Award:</b> <%= @approval.recommendation.award.name %></p>
@@ -8,37 +20,33 @@
 <div><b>Summary:</b><br> <%= @approval.recommendation.summary %></div>
 <div><b>Accomplishments:</b><br> <%= @approval.recommendation.accomplishments %></div>
 
-
-	<%= form_for :approval, :url => { :action => "update" }, :method => :put do |f| %>
-	  <% if @approval.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@approval.errors.count, "error") %> prohibited this approval from being saved:</h2>
-	      <ul>
-	      <% @approval.errors.full_messages.each do |msg| %>
-	        <li><%= msg %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
-		
 	<script type="text/javascript">
-	$(document).ready(function() { 
-		$('#next_approver_email_field').toggle(); 
-		
-		$('#approval_checked').click(function() {
-			$('#next_approver_email_field').show();
-		});
+	$(document).ready(function() {
+	    $('#next_approver_email_field').hide();
+
+	    $('#approval_checked').change(function() {
+	        $('#next_approver_email_field').show();
+	    });
+	
+		$('#approval_denied').change(function() {
+	        $('#next_approver_email_field').hide();
+	    });
 	});
 	</script>
 
 	<div class="field approve">
 		<h2>Approve?</h2>
 		<%= f.radio_button( :approved, "1", :id => "approval_checked") %> Approve<br>
-		<%= f.radio_button( :approved, "0", :checked => true) %> Decline
+		<%= f.radio_button( :approved, "0", :id => "approval_denied") %> Decline
+	</div>
+	
+	<div class="field">
+		Notes/Comments<br>
+		<%= f.text_area :info %> 
 	</div>
 
 	<% if current_user.smt == true %>
-		<h2>You are an SMT user of BoB, if you approve this recommendation will be sent to the committee</h2>
+		<h2>With your approval, the recommendation process is complete and this recommendation will move on to the Best of Bauer Academy for voting.</h2>
 	<% else%>
 		<div class="field" id="next_approver_email_field">
 		Supervisor Email Address:<br />

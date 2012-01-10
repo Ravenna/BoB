@@ -6,8 +6,8 @@ class Recommendation < ActiveRecord::Base
   attr_accessible :nominee, :award_id, :approvals_attributes, :title, :department, :summary, :accomplishments, :caption, :url, :supervisor, :upload
   validates  :nominee, :title, :department, :summary, :accomplishments, :supervisor,  :presence => true
   
-  has_attached_file :upload, :styles => { :large => "600x600>" }
-  has_attached_file :upload2, :styles => { :large => "600x600>" }
-  has_attached_file :upload3, :styles => { :large => "600x600>" }
+  has_attached_file :upload
+  has_attached_file :upload2
+  has_attached_file :upload3
   
 end
