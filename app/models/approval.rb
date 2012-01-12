@@ -13,24 +13,13 @@ protected
 
 end # End Approver Validator
 
-  class EmailFormatValidator < ActiveModel::EachValidator
-    def validate_each(object, attribute, value)
-      unless value =~ /ravennainteractive\.com$/
-        object.errors[attribute] << (options[:message] || "is not formatted properly") 
-      end
-    end
-  end
-
-
 attr_accessible :approval, :email, :user_id, :approved, :decline, :next_approver_email, :info
 attr_accessor :next_approver_email
 
 #ASSOCIATIONS
   belongs_to :recommendation
 
-#VALIDATIONS
-  #validates :email, :email_format => true
- 
+#VALIDATIONs 
   validates :next_approver_email, :approver_email => { :if => :recently_approved? }   
 #CALLBACKS   
   before_save :create_next_approval
@@ -42,12 +31,18 @@ attr_accessor :next_approver_email
     end
 
   def create_next_approval
-         next_approval = self.recommendation.approvals.build(:email => self.next_approver_email)
-         next_approval.save  if next_approver_email.present? && recently_approved?
-  
+    #logger.debug "Approval attributes hash: #{self.attributes.inspect}"
+    user = User.find_by_email(self.email)
+    if user.nil?
+        new_user = User.new(:email => self.email, :password => "ebbob1", :password_confirmation => "ebbob1" )
+        new_user.save
+        next_approval = self.recommendation.approvals.build(:email => self.next_approver_email, :user_id  => User.find_by_email(next_approver_email))
+        next_approval.save  if next_approver_email.present? && recently_approved?
+    else
+       next_approval = self.recommendation.approvals.build(:email => self.next_approver_email, :user_id  => User.find_by_email(next_approver_email))
+       next_approval.save  if next_approver_email.present? && recently_approved?
+    end 
   end 
-
-
 private
   def approval_notification
     ApprovalMailer.needs_approval(self).deliver

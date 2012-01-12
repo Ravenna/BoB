@@ -35,6 +35,7 @@ class AwardsController < ApplicationController
 
   # GET /awards/1/edit
   def edit
+    @category = Category.find(params[:id])
     @award = Award.find(params[:id])
   end
 

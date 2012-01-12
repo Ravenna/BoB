@@ -13,6 +13,7 @@ gem 'rmagick'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'rdiscount'
 gem 'simple_form'
+gem "ruby-debug19"
 
 # gem 'taps' this makes me able to pull the db from Heroku
 

@@ -50,6 +50,7 @@ class RecommendationsController < ApplicationController
   def create
     @recommendation = Recommendation.new(params[:recommendation])
     @recommendation.user_id = current_user.id
+
  
 
     respond_to do |format|
@@ -90,4 +91,9 @@ class RecommendationsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  protected
+       def is_valid_email?(address)
+         Email.find_by_email(address)
+       end
 end

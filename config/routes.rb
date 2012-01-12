@@ -24,14 +24,11 @@ Bob::Application.routes.draw do
   match 'award-categories' => 'pages#awards', :as => :awardcat
   match 'admin' => 'pages#admin', :as => :admin
   match 'accounts-list' => 'pages#users_list', :as => :accounts_list
-  match 'inbox' => 'pages#inbox', :as => :inbox
-  
-  
   match 'location' => 'categories#index', :as => :location
-  match 'location/:id' => 'pages#award_cat', :as => :show_location
-  match 'location/:category_id/:award_id/recommend' => 'recommendations#new', :as => :recommend_award
-  match 'award-cat' => 'categories/:id/awards/#award_cat', :as => :award_cat
   
+  match 'admin-awards' => 'pages#admin_awards', :as => :admin_awards
+  match 'admin-recommendations' => 'pages#admin_recommendations', :as => :admin_recommendations
+  match 'inbox' => 'pages#inbox', :as => :inbox  
   match 'question' => 'pages#question', :as => :question
   match 'thank-you' => 'pages#thankyou', :as => :thankyou
   match 'my-recommendations' => 'pages#recs', :as => :recs

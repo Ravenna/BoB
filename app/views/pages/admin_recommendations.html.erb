@@ -1,0 +1,24 @@
+<h1>Listing recomendations</h1>
+
+<p><%= link_to "Back to Admin", admin_path %></p>
+
+<table>
+  <tr>
+    <th>Nominee</th>
+    <th>Award</th>
+    <th></th>
+    <th></th>
+	<th></th>
+  </tr>
+
+<% @recommendations.each do |recommendation| %>
+  <tr>
+    <td class="first"><%= recommendation.nominee %> |  </td>
+    <td class="second"><%= recommendation.award.name unless recommendation.award.nil?  %> </td>
+    <td><%= link_to 'Show', category_award_recommendation_path(@category, recommendation.award, recommendation) %></td>
+    <td><%= link_to 'Edit', edit_category_award_recommendation_path(recommendation) %></td>
+ <td><%= link_to 'Destroy', recommendation, confirm: 'Are you sure?', method: :delete %></td>  </tr>
+<% end %>
+
+
+</table>

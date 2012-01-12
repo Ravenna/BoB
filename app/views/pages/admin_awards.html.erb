@@ -1,0 +1,27 @@
+<p><%= link_to "Back to Admin", admin_path %></p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Categories</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @awards.each do |award| %>
+  <tr>
+    <td class="first"><%= award.name %></td>
+	<td class="second"><% award.categories.each do |category| %>
+			<%= category.name %>,
+		<% end %>
+	</td>
+ 
+    <td><%= link_to 'Edit', edit_category_award_path(1, award) %></td>
+    <td><%#= link_to 'Destroy', award, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<h3><%#= link_to 'New Award', new_category_award_path %></h3>
