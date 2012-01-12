@@ -1,8 +1,8 @@
 <div id="page_body">
 
-<h2>You have been asked to review the following recommendation by <%= @approval.recommendation.user.email %></h2>
+<h2>You have been asked to review the following recommendation!</h2>
 
-<%= form_for :approval, :url => { :action => "update" }, :method => :put do |f| %>
+<%= form_for :approval, :url => { :action => "update" }, :method => :put, :html => { :multipart => true } do |f| %>
   <% if @approval.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@approval.errors.count, "error") %> prohibited this approval from being saved:</h2>
@@ -20,6 +20,13 @@
 <p><b>Department:</b> <%= @approval.recommendation.department %></p>	
 <div><b>Summary:</b><br> <%= @approval.recommendation.summary %></div>
 <div><b>Accomplishments:</b><br> <%= @approval.recommendation.accomplishments %></div>
+
+<h2>To date the following associates have approved this recommendation:</h2>
+<ul>
+	<% @approval.recommendation.approvals.each do |approval| %>
+		<li><%= approval.email %>  - <b>Submitted on:</b> <%= approval.created_at.strftime("%d %b. %Y")%></li>
+	<% end %>
+</ul>
 
 	<script type="text/javascript">
 	$(document).ready(function() {
@@ -41,10 +48,7 @@
 		<%= f.radio_button( :approved, "0", :id => "approval_denied") %> Decline
 	</div>
 	
-	<div class="field">
-		Notes/Comments<br>
-		<%= f.text_area :info %> 
-	</div>
+	
 
 	<% if current_user.smt == true %>
 		<h2>With your approval, the recommendation process is complete and this recommendation will move on to the Best of Bauer Academy for voting.</h2>
@@ -54,6 +58,16 @@
 		<%= f.text_field :next_approver_email %>
 		</div>
 	<% end %>
+	
+	<div class="field">
+		Notes/Comments<br>
+		<%= f.file_field :upload %> 
+	</div>
+	
+	<div class="field">
+		Notes/Comments<br>
+		<%= f.text_area :info %> 
+	</div>
 	
     <div class="actions">
 	    <%= f.submit "Submit" %>  

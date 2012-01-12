@@ -12,13 +12,14 @@ protected
      end
 
 end # End Approver Validator
-attr_accessible :approval, :email, :user_id, :approved, :decline, :next_approver_email, :info
+attr_accessible :approval, :email, :user_id, :approved, :decline, :next_approver_email, :info, :upload
 attr_accessor :next_approver_email
 
-belongs_to :user
-
 #ASSOCIATIONS
-  belongs_to :recommendation
+belongs_to :user
+belongs_to :recommendation
+has_attached_file :upload
+
 
 #VALIDATIONs 
   validates :next_approver_email, :approver_email => { :if => :recently_approved? } 

@@ -2,5 +2,5 @@
 
 
 <% @recommendations.each do |rec| %>
-	<h3><%= link_to rec.nominee, edit_recommendation_path(rec) %></h3>
+	<h3><%= link_to rec.nominee, edit_category_award_recommendation_path(@category, rec.award, rec) %></h3>
 <% end %>

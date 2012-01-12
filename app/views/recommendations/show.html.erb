@@ -29,7 +29,7 @@
 
 <p><b>Original Recommender:</b> <%= @rec_user.email  %></p>
 
-<p><b>Current Inbox Awaiting Approval:</b></p>
+<p><b>Current Inbox Awaiting Approval:</b><%= @approvals.last.email %></p>
 
 <p>&nbsp;</p>
 <h2>Approvals</h2>

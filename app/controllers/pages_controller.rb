@@ -102,9 +102,10 @@ class PagesController < ApplicationController
   def awards
     @cat1 = Category.find(1)
     @cat2 = Category.find(2)
+    @cat3 = Category.find(3)
     @cat4 = Category.find(4)
     
- 
+    @categories = Category.all
      @page = Page.find_by_name("Awards")            
      @awardsall = Award.in_categories([1 && 2]).order("name ASC") 
      @awards_store = Award.in_categories([3]).order("name ASC") 
@@ -147,6 +148,7 @@ class PagesController < ApplicationController
   
   def recs
     @recommendations = Recommendation.where("user_id = ?", current_user.id)
+    @category = Category.find(1)
   end 
   
  def photos_video

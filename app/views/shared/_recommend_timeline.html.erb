@@ -5,7 +5,7 @@
 	
 	
 	<li id="award_cat">
-		<%#= link_to 'Award Category', category_award_path(params[:category_id]) unless params[:category_id].blank? %>
+		<%= link_to 'Award Category', category_path(params[:category_id]) unless params[:category_id].blank? %>
 		<%= 'Award Category' if params[:category_id].blank? %>
 		
 	</li>
