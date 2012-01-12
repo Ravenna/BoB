@@ -87,7 +87,7 @@ class RecommendationsController < ApplicationController
     @recommendation.destroy
 
     respond_to do |format|
-      format.html { redirect_to recommendations_url }
+      format.html { redirect_to admin_recommendations_path, notice: 'Recommendation deleted.'  }
       format.json { head :ok }
     end
   end

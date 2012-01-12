@@ -101,8 +101,10 @@ class PagesController < ApplicationController
   
   def awards
     @cat1 = Category.find(1)
-    @cat2 = Category.find(1)
+    @cat2 = Category.find(2)
     @cat3 = Category.find(3)
+    @cat4 = Category.find(4)
+    
  
      @page = Page.find_by_name("Awards")            
      @awardsall = Award.in_categories([1 && 2]).order("name ASC") 
@@ -132,6 +134,7 @@ class PagesController < ApplicationController
   
   def admin_recommendations
     @category = Category.find(1)
+    
     @recommendations = Recommendation.all
   end 
   
