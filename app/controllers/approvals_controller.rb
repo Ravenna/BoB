@@ -1,4 +1,5 @@
 class ApprovalsController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :inbox_value, :if_recommendations
   # GET /approvals
   # GET /approvals.json

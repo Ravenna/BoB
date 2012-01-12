@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
 
    # TODO: Tell devise to send out email
    def send_invitation
-     raise "Tell devise to send email"
+     User.find(self).send_reset_password_instructions
+     
+     
    end
 end 
