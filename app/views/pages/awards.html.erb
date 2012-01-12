@@ -10,9 +10,10 @@
 
 
 	<ul class="award_cat_list">
-	<% @awardsall.each do |award| %>
+
+	<% @corp.each do |award| %>
 	
-		<li><%= link_to award.name, category_award_path(1, award.id), :title => award.info %></li>
+		<li><%= link_to award.name, category_award_path(award, :category_id => @corpcat ), :title => award.info %></li>
 	<% end %>
 	</ul>
 	
@@ -20,17 +21,17 @@
 
 <h2>RECOMMENDED CUSTOMER EXPERIENCE AWARDS (OPEN TO STORES DIVISION)</h2>
 	<ul class="award_cat_list">		
-		<% @awards_store.each do |award| %>
-			<li><%= link_to award.name, category_award_path(Category.find(2), award), :title => award.info %></li>
-			<% end %>
+		<% @store.each do |award| %>
+			<li><%= link_to award.name, category_award_path(award, :category_id => @storecat), :title => award.info %></li>
+		<% end %>
 	</ul>
 
 
 
 	<h2>SENIOR MANAGEMENT TEAM SELECTED AWARDS</h2>
 		<ul class="award_cat_list">
-			<li><%= link_to "Outfitter Award", category_awards_path(@cat4, @award15), :title => @award15.info %></li>
-			<li><%= link_to "Special Achievement Award", category_awards_path(@cat4, @award16), :title => @award16.info %></li>
+			<li><%= link_to "Outfitter Award", category_awards_path(@award15.id, @cat4), :title => @award15.info %></li>
+			<li><%= link_to "Special Achievement Award", category_awards_path(@award16, @cat4), :title => @award16.info %></li>
 		</ul>
 
 

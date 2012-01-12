@@ -19,9 +19,8 @@ class CategoriesController < ApplicationController
       
       @storecat = Category.find(3)
       @store = @storecat.awards.order("name ASC")
-     
-     
-    @category = Category.find(params[:id])
+
+      @category = Category.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

@@ -15,7 +15,7 @@ class AwardsController < ApplicationController
   # GET /awards/1.json
   def show
     @award = Award.find(params[:id])
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:category_id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +36,7 @@ class AwardsController < ApplicationController
 
   # GET /awards/1/edit
   def edit
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:category_id])
     @award = Award.find(params[:id])
   end
 

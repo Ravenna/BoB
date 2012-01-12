@@ -18,7 +18,7 @@ attr_accessor :next_approver_email
 #ASSOCIATIONS
 belongs_to :user
 belongs_to :recommendation
-has_attached_file :upload
+has_attached_file :upload, :url => '/system/approvals/:class/:attachment/:id/:style/:filename'
 
 
 #VALIDATIONs 

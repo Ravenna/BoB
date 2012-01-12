@@ -51,14 +51,14 @@ class RecommendationsController < ApplicationController
     @recommendation = Recommendation.new(params[:recommendation])
     @recommendation.user_id = current_user.id
 
- 
 
     respond_to do |format|
       if @recommendation.save
         format.html { redirect_to thankyou_path, notice: 'Recommendation was successfully created.' }
       else
-        format.html { redirect_to new_category_award_recommendation_path(@category, @award)}
-        format.json { render json: @recommendation.errors, status: :unprocessable_entity }
+        
+        format.html { render action: "new"  }
+        format.json { render json: @recommendation.errors, status: :unprocessable_entity } 
         
       end
     end
