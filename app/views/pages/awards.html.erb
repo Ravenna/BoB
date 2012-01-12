@@ -8,7 +8,7 @@
 <h2>RECOMMENDED BRAND AWARDS (OPEN TO ALL ASSOCIATES)</h2>
 	<ul class="award_cat_list">
 	<% @awardsall.each do |award| %>
-		<%= award.categories.first.id %>
+	
 		<li><%= link_to award.name, category_award_path(1, award), :title => award.info %></li>
 	<% end %>
 	</ul>

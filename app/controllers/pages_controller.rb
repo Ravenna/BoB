@@ -102,7 +102,6 @@ class PagesController < ApplicationController
   def awards
     @cat1 = Category.find(1)
     @cat2 = Category.find(2)
-    @cat3 = Category.find(3)
     @cat4 = Category.find(4)
     
  
