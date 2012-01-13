@@ -53,11 +53,8 @@ private
   
   def associate_correct_user
     new_user = User.find_or_create_by_email self.email do |u|
-        user = Email.find_by_email(self.email)
-        u.first_name = user.first_name
-        u.last_name = user.last_name
-    u.invite!
-  end
+        u.invite!(Email.find_by_email(self.email))
+    end
     
     self.user = user
     

@@ -8,7 +8,7 @@ class ApprovalTest < ActiveSupport::TestCase
     
     assert !@approval.valid?, "Email should be invalid"
     assert_equal 1, @approval.errors[:email].length
-    assert_equal "must be a valid eddiebauer.com e-mail address and exist in our system", @approval.errors[:email].first
+    assert_equal "must be a valid eddiebauer.com e-mail address!", @approval.errors[:email].first
     
   end
   
@@ -40,10 +40,15 @@ class ApprovalTest < ActiveSupport::TestCase
     assert @approval.recently_approved?, "It is recently approved"
     assert @approval.recommendation
     assert @approval.recommendation.approvals
-    # assert_difference 'Approval.count' do
+    
+    assert_difference 'User.count' do
       assert @approval.save
       assert ActionMailer::Base.deliveries.last.to.include?(@approval.next_approver_email)
-    # end
+    end
+    
+    @user = User.find_by_email @approval.next_approver_email
+    assert_equal 'Next', @user.first_name
+    assert_equal 'Email', @user.last_name
     
   end
     

@@ -5,6 +5,8 @@ me:
 
 next:
   email: next@example.com
+  first_name: Next
+  last_name: Email
 
 new:
   email: new@example.com
