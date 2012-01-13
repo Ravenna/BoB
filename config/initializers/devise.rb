@@ -69,7 +69,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "3f6ab93369523911486ab6b0a36e4e3be0b7e3ad1cf4e676930a552ef1848ab4d27c3fda5bf338fb06d0373c4689d7ca2cfe4ccd673b6541e4a58d461a50a565"
+  config.pepper = "8442cc6ed942386b1852486fead8347e3b54c26b9ae277ac4be666a26833c742513460fbf40c327a607a6439bdac5397ef1030822baf8c713e1e303ff6adf32e"
 
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time
