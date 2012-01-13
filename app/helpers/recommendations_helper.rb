@@ -1,4 +1,4 @@
-module RecomendationsHelper
+module RecommendationsHelper
   
   def recommendation_nominee_label(award)
       if Award.store_award?(award)
@@ -41,6 +41,5 @@ module RecomendationsHelper
         "associate"
       end
   end
-  
   
 end

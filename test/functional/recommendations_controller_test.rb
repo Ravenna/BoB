@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class RecomendationsControllerTest < ActionController::TestCase
+class RecommendationsControllerTest < ActionController::TestCase
   setup do
-    @recomendation = recomendations(:one)
+    @recomendation = recommendations(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:recomendations)
+    assert_not_nil assigns(:recommendations)
   end
 
   test "should get new" do
@@ -17,8 +17,10 @@ class RecomendationsControllerTest < ActionController::TestCase
   end
 
   test "should create recomendation" do
-    assert_difference('Recomendation.count') do
-      post :create, recomendation: @recomendation.attributes
+    assert_difference 'ActionMailer::Deliveries.length' do
+      assert_difference('Recomendation.count') do
+        post :create, recomendation: @recomendation.attributes
+      end
     end
 
     assert_redirected_to recomendation_path(assigns(:recomendation))
@@ -44,6 +46,6 @@ class RecomendationsControllerTest < ActionController::TestCase
       delete :destroy, id: @recomendation.to_param
     end
 
-    assert_redirected_to recomendations_path
+    assert_redirected_to recommendations_path
   end
 end

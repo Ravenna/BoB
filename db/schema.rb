@@ -67,9 +67,11 @@ ActiveRecord::Schema.define(:version => 20120113162026) do
   add_index "pages", ["slug"], :name => "index_pages_on_slug", :unique => true
 
   create_table "questions", :force => true do |t|
-    t.string "name"
-    t.string "email"
-    t.text   "question"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "email"
+    t.text     "question"
   end
 
   create_table "recommendations", :force => true do |t|
