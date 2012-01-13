@@ -117,7 +117,7 @@ class PagesController < ApplicationController
   end 
   
   def users_list
-    @users = User.order("name ASC")
+    @users = User.order("last_name ASC")
   end 
   
   def inbox

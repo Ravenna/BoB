@@ -5,7 +5,7 @@
 
 <div id="user_index">
 	<div class="user_title">
-		<p class="name">Name</p> 
+		<p class="name">First Name/Last Name</p> 
 		<p class="email">Email</p>
 		<p class="admin">Admin</p>
 		<p class="smt">SMT</p>
@@ -15,7 +15,7 @@
 	
 <% @users.each do |user| %>
 	<div class="user">
-		<p class="name"><%= user.name %></p> 
+		<p class="name"><%= user.first_name %>, <%= user.last_name %></p>
 		<p class="email"><%= user.email %></p>
 		<p class="admin"><%= user.admin %></p>
 		<p class="smt"><%= user.smt %></p>

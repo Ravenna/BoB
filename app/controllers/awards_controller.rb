@@ -48,7 +48,7 @@ class AwardsController < ApplicationController
     respond_to do |format|
       if @award.save
         format.html { redirect_to @award, notice: 'Award was successfully created.' }
-        format.json { render json: awards_path, status: :created, location: @award }
+        format.json { render json: admin_awards_path, status: :created, location: @award }
       else
         format.html { render action: "new" }
         format.json { render json: @award.errors, status: :unprocessable_entity }
@@ -63,7 +63,7 @@ class AwardsController < ApplicationController
 
     respond_to do |format|
       if @award.update_attributes(params[:award])
-        format.html { redirect_to awards_path, notice: 'Award was successfully updated.' }
+        format.html { redirect_to admin_awards_path, notice: 'Award was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
    # everything we need to do before sending an invitation reset password link
    def invite!
      self.password = self.password_confirmation = "ebbob1" # update generate random password
-     # set the reset token with Devise
      @needs_invite = true
    end
 
@@ -25,7 +24,6 @@ class User < ActiveRecord::Base
 
    protected
 
-   # TODO: Tell devise to send out email
    def send_invitation
      User.find(self).send_reset_password_instructions
      

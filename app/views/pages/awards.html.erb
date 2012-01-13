@@ -30,8 +30,8 @@
 
 	<h2>SENIOR MANAGEMENT TEAM SELECTED AWARDS</h2>
 		<ul class="award_cat_list">
-			<li><%= link_to "Outfitter Award", category_awards_path(@award15.id, @cat4), :title => @award15.info %></li>
-			<li><%= link_to "Special Achievement Award", category_awards_path(@award16, @cat4), :title => @award16.info %></li>
+			<li><%= link_to "Outfitter Award", category_award_path(@cat4, @award15), :title => @award15.info %></li>
+			<li><%= link_to "Special Achievement Award", category_award_path(@cat4, @award16), :title => @award16.info %></li>
 		</ul>
 
 
