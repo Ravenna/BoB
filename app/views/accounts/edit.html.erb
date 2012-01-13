@@ -1,8 +1,13 @@
-<h2>Edit <%= @account.name %></h2>
+<h2>Edit <%= @account.first_name %><%= @account.last_name %></h2>
 
 <p><%= link_to "Back to Admin", admin_path %></p>
 
 <%= form_for(@account) do |f| %>
+
+	<div>First Name:<br />
+	  <%= f.email_field :first_name %></div>
+	<div>Last Name: <br />
+	  <%= f.email_field :last_name %></div>
 
 
   <div><%= f.label :email %><br />

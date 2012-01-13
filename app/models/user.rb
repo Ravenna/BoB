@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
    has_many :recommendations
    has_many :approvals # the approvals this user needs to approve or has approved
 
-   after_create :send_invitation, :only => :invite?
+   after_create :send_invitation, :if => :invite?
 
    def self.generate_password(password)
      ::BCrypt::Password.create("#{password}#{self.pepper}", :cost => self.stretches).to_s
@@ -21,7 +21,6 @@ class User < ActiveRecord::Base
    # if email object is provided use it's first and last name
    def invite!(email = nil)
      self.password = self.password_confirmation = "ebbob1" # update generate random password
-     # set the reset token with Devise
      self.first_name = email.first_name and self.last_name = email.last_name if email.kind_of? Email
      @needs_invite = true
    end
