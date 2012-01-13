@@ -1,7 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  email: MyString
+me:
+  email: valid@example.com
 
-two:
-  email: MyString
+next:
+  email: next@example.com
+  first_name: Next
+  last_name: Email
+
+new:
+  email: new@example.com

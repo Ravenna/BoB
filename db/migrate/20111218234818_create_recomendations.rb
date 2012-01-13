@@ -1,6 +1,6 @@
-class CreateRecomendations < ActiveRecord::Migration
+class Createrecommendations < ActiveRecord::Migration
   def change
-    create_table :recomendations do |t|
+    create_table :recommendations do |t|
       t.string :nominee
 
       t.timestamps

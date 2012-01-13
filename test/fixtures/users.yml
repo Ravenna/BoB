@@ -1,0 +1,3 @@
+user:
+  email: beaucollins@gmail.com
+  encrypted_password: <%= User.generate_password 'password' %>

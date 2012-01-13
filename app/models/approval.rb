@@ -25,18 +25,22 @@ has_attached_file :upload, :url => '/system/approvals/:class/:attachment/:id/:st
   validates :next_approver_email, :approver_email => { :if => :recently_approved? } 
   validates :email, :approver_email => true
 #CALLBACKS   
-  before_save :create_next_approval
+  before_save :create_next_approval, :if => :recently_approved?
   after_create :approval_notification
   before_create :associate_correct_user
 
+attr_accessor :next_approver_email
+
+  def recommendation_present?
+    recommendation.present?
+  end
 
   def recently_approved?
-      self.approved_changed? && self.approved?
+     self.approved_changed? && self.approved?
   end
   
-
-
   def create_next_approval
+    #logger.debug "Approval attributes hash: #{self.attributes.inspect}"
     next_approval = self.recommendation.approvals.build(:email => self.next_approver_email)
     next_approval.save  if next_approver_email.present? && recently_approved?
   end 
@@ -49,11 +53,8 @@ private
   
   def associate_correct_user
     new_user = User.find_or_create_by_email self.email do |u|
-        user = Email.find_by_email(self.email)
-        u.first_name = user.first_name
-        u.last_name = user.last_name
-    u.invite!
-  end
+        u.invite!(Email.find_by_email(self.email))
+    end
     
     self.user = user
     

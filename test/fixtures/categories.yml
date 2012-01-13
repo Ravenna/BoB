@@ -6,3 +6,15 @@ two:
 
 three:
   name: Three
+  
+stores:
+  name: Stores
+  id: 2
+
+corp:
+  name: Corp
+  id: 1
+
+other:
+  name: Other
+  id: 3

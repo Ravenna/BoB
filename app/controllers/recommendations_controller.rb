@@ -3,8 +3,9 @@ class RecommendationsController < ApplicationController
   before_filter :inbox_value, :if_recommendations
   before_filter :user_is_admin, :only => [:show] 
   
-  # GET /recomendations
-  # GET /recomendations.json
+  # GET /recommendations
+  # GET /recommendations.json
+  
   def index
     @recommendations = Recommendation.order("nominee ASC")
 
@@ -14,8 +15,8 @@ class RecommendationsController < ApplicationController
     end
   end
 
-  # GET /recomendations/1
-  # GET /recomendations/1.json
+  # GET /recommendations/1
+  # GET /recommendations/1.json
   def show
     @recommendation = Recommendation.find(params[:id])
     @approvals = @recommendation.approvals.find(:all, :order => "created_at ASC")
@@ -26,8 +27,8 @@ class RecommendationsController < ApplicationController
     end
   end
 
-  # GET /recomendations/new
-  # GET /recomendations/new.json
+  # GET /recommendations/new
+  # GET /recommendations/new.json
   def new
     @award = Award.find(params[:award_id])
     @category = Category.find(params[:category_id])
@@ -40,13 +41,13 @@ class RecommendationsController < ApplicationController
     end
   end
 
-  # GET /recomendations/1/edit
+  # GET /recommendations/1/edit
   def edit
     @recommendation = Recommendation.find(params[:id])
   end
 
-  # POST /recomendations
-  # POST /recomendations.json
+  # POST /recommendations
+  # POST /recommendations.json
   def create
     @recommendation = Recommendation.new(params[:recommendation])
     @recommendation.user_id = current_user.id
@@ -64,8 +65,8 @@ class RecommendationsController < ApplicationController
     end
   end
 
-  # PUT /recomendations/1
-  # PUT /recomendations/1.json
+  # PUT /recommendations/1
+  # PUT /recommendations/1.json
   def update
     @recommendation = Recommendation.find(params[:id])
 
@@ -80,8 +81,8 @@ class RecommendationsController < ApplicationController
     end
   end
 
-  # DELETE /recomendations/1
-  # DELETE /recomendations/1.json
+  # DELETE /recommendations/1
+  # DELETE /recommendations/1.json
   def destroy
     @recommendation = Recommendation.find(params[:id])
     @recommendation.destroy
