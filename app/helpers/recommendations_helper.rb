@@ -28,7 +28,7 @@ module RecommendationsHelper
        elsif Award.open_award?(award)
          "Job Title or Store Manager Name"
        else
-         "Store# & Store Name:"
+         "Department/Store #/Store Name:"
        end
   end
   

@@ -84,7 +84,7 @@
 
   <div class="field">
    	<b>Summary *</b><br>
-	Please write a short overview statement about why this associate deserves to win this category (this will be used for the summary description).<br>
+	Write a short summary of 4-5 sentences.<br>
     <%= f.text_area :summary %>
   </div>
   <div class="field">
@@ -136,7 +136,7 @@
 
 
   <div class="field">
-	<p id="not_super">Supervisor's Email: </p>
+	<p id="not_super">Nominees Supervisors' Email: </p>
 	<p id="super">Enter Your Supervisor's Email</p>
 	<%= f.fields_for :approvals do |f| %>
 		<%= f.text_field :email %>
@@ -147,6 +147,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Save" %>
+	<p>You can come back to this Recommendation at any time before you submit a supervisor's email address.  Simply hit save and the Recommendation will appear under My Recs</p>
+    <%= f.submit "Save/Submit" %>
   </div>
 <% end %>

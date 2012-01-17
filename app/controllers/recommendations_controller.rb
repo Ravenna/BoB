@@ -44,6 +44,9 @@ class RecommendationsController < ApplicationController
   # GET /recommendations/1/edit
   def edit
     @recommendation = Recommendation.find(params[:id])
+    @recommendation.approvals.build
+    @award = Award.find(params[:award_id])
+       @category = Category.find(params[:category_id])
   end
 
   # POST /recommendations
