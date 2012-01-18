@@ -4,7 +4,7 @@ class EmailsController < ApplicationController
    # GET /emails
    # GET /emails.json
    def index
-     @emails = Email.all
+     @emails = Email.order("last_name ASC")
 
      respond_to do |format|
        format.html # index.html.erb
