@@ -3,7 +3,7 @@ Bob::Application.routes.draw do
 
  
   resources :videos
-
+  resources :emails
 #  resources :questions
   match 'question' => "questions#create", :via => :post
 
