@@ -2,10 +2,11 @@
 
 
 <% @recommendations.each do |rec| %>
-	<h3>
+		<h3>
 		<% if rec.approvals.count == 0 %>
-			<%= link_to rec.nominee, edit_category_award_recommendation_path(@category, rec.award, rec) %> </h3>
+			<%= link_to rec.nominee, edit_category_award_recommendation_path(@category, rec.award, rec) %> 
 		<% else %>
 			<%= rec.nominee %> (Submitted)
 		<% end %>
+		</h3>
 <% end %>
