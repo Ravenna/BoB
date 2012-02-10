@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   
-  before_filter :authenticate_user!, :except => [:home, :prizes, :overview, :awards, :question, :photos_video]
+  before_filter :authenticate_user!, :except => [:home, :prizes, :overview, :awards, :question, :photos_video, :export]
   before_filter :user_is_admin, :only => [:show, :index] 
   before_filter :inbox_value, :if_recommendations
   # GET /pages
@@ -154,6 +154,13 @@ class PagesController < ApplicationController
    @videos = Video.all
  end 
   
+  def export
+    @recommendation = Recommendation.all
+    respond_to do |format|
+      format.html
+      format.csv { render :layout => false }
+    end 
+  end
   
   
  

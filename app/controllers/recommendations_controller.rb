@@ -96,6 +96,8 @@ class RecommendationsController < ApplicationController
     end
   end
   
+
+  
   protected
        def is_valid_email?(address)
          Email.find_by_email(address)

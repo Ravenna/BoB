@@ -8,7 +8,7 @@ class Approval < ActiveRecord::Base
 
 protected
      def is_valid_email?(address)
-       Email.find_by_email(address)
+       true
      end
 
 end # End Approver Validator

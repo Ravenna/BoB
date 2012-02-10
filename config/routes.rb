@@ -28,6 +28,7 @@ Bob::Application.routes.draw do
   
   match 'admin-awards' => 'pages#admin_awards', :as => :admin_awards
   match 'admin-recommendations' => 'pages#admin_recommendations', :as => :admin_recommendations
+  match 'export' => 'pages#export', :as => :export_recommendations
   match 'inbox' => 'pages#inbox', :as => :inbox  
   match 'question' => 'pages#question', :as => :question
   match 'thank-you' => 'pages#thankyou', :as => :thankyou
