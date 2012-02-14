@@ -75,7 +75,7 @@ class RecommendationsController < ApplicationController
 
     respond_to do |format|
       if @recommendation.update_attributes(params[:recommendation])
-        format.html { redirect_to @recommendation, notice: 'Recommendation was successfully updated.' }
+        format.html { redirect_to recs_path, notice: 'Recommendation was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
