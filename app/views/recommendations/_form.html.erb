@@ -61,7 +61,7 @@
 			<% end %> 
 		
 	for the following award: <b><%= @award.name %></b>
-	<p><b>Award Description:</b><%= @award.info %></p>
+	<p><b>Award Description:</b><%= m @award.info %></p>
 	
 	<%= f.hidden_field( :award_id, :value => @award.id ) %>
   

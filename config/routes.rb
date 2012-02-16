@@ -6,6 +6,9 @@ Bob::Application.routes.draw do
   resources :emails
 #  resources :questions
   match 'question' => "questions#create", :via => :post
+  
+    resources :awards 
+        resources :recommendations
 
   resources :categories do
     resources :awards do

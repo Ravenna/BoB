@@ -60,9 +60,8 @@ class RecommendationsController < ApplicationController
       if @recommendation.save
         format.html { redirect_to thankyou_path, notice: 'Recommendation was successfully created.' }
       else
-        
         format.html { render action: "new"  }
-        format.json { render json: @recommendation.errors, status: :unprocessable_entity } 
+        format.json { render json: @recommendation.errors, status: :unprocessable_entity }
         
       end
     end
