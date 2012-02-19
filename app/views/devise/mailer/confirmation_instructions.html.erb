@@ -1,5 +1,6 @@
-<p>Welcome <%= @resource.email %>!</p>
+<p>Hello <%= @resource.email %>!</p>
 
-<p>You can confirm your account through the link below:</p>
+<p>Someone has submitted a recommendation and you are next in line for approval. It looks like you didn't have an account with Best of Bauer so we created one for you. Click the link below, set your password, and click on “inbox” in the top right corner of the page to review and take action on this recommendation!</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<p><%= link_to 'Set my password', edit_password_url(@resource, :reset_password_token => @resource.reset_password_token) %></p>
+

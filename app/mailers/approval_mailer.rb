@@ -5,8 +5,8 @@ class ApprovalMailer < ActionMailer::Base
   
   def needs_approval(approval)
     @approval = approval
-    @greeting = "Hi"
+   # @greeting = "Hi"
 
-    mail to: @approval.email, subject: "Best of Bauer recommendation needs your approval"
+    mail to: @approval.email, subject: "Best of Bauer Recommendation Awaiting Your Approval!"
   end
 end

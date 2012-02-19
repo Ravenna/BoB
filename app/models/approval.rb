@@ -21,13 +21,15 @@ belongs_to :recommendation
 has_attached_file :upload, :url => '/system/approvals/:class/:attachment/:id/:style/:filename'
 
 
-#VALIDATIONs 
+#VALIDATIONS 
   validates :next_approver_email, :approver_email => { :if => :recently_approved? } 
   validates :email, :approver_email => true
-#CALLBACKS   
+  
+#CALLBACKS 
+  before_create :associate_correct_user
   before_save :create_next_approval, :if => :recently_approved?
   after_create :approval_notification
-  before_create :associate_correct_user
+ 
 
 attr_accessor :next_approver_email
 
