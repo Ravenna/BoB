@@ -34,6 +34,18 @@ class ApplicationController < ActionController::Base
     request.format = :html if request.format == :mobile
   end
   
+  before_filter :set_request_format
+
+  def set_request_format
+    if mobile? 
+      if (devise_controller?)
+        request.format = :html
+      else
+        request.format = :html
+      end
+    end
+  end
+  
   
   before_filter :prepare_for_mobile
   private  
