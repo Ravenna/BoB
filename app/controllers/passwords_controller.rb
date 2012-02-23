@@ -1,5 +1,9 @@
-class PasswordsController < ApplicationController
+class PasswordsController < Devise::PasswordsController
   before_filter :determine_format
+  
+  def create
+    super
+  end 
   
   def edit
       @user = current_user
