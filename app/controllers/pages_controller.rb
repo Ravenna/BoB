@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_filter :determine_format
   
   before_filter :authenticate_user!, :except => [:home, :prizes, :overview, :awards, :question, :photos_video, :export]
   before_filter :user_is_admin, :only => [:show, :index] 
@@ -88,6 +89,10 @@ class PagesController < ApplicationController
   
   def home
  @page = Page.find_by_name("Home")
+ respond_to do |format|                                                                                                                                     
+   format.html  { render 'home'}                                                                                                                             
+   format.mobile { render 'home', :formats => [:html]}                                                                                      
+ end
   end
   
   def prizes

@@ -29,6 +29,11 @@ class ApplicationController < ActionController::Base
     end 
   end
   
+
+  def determine_format
+    request.format = :html if request.format == :mobile
+  end
+  
   
   before_filter :prepare_for_mobile
   private  

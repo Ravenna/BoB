@@ -1,4 +1,6 @@
 class EmailsController < ApplicationController
+  before_filter :determine_format
+  
   before_filter :inbox_value, :if_recommendations
   before_filter :user_is_admin 
    # GET /emails
