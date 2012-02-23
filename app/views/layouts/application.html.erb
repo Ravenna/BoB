@@ -70,6 +70,14 @@
 		<div id="page_body">
 		<%= yield %>
 		</div>
+		
+		
+			<% unless mobile?%>
+			<div class="switcher">
+				<%= link_to "Full Site", root_url(:mobile => 0)%>	
+			</div>
+					
+			<% end %>
 	</div>
 
 
