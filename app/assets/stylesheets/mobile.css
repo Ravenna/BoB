@@ -3,7 +3,6 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- 
 */
 *{margin:0; padding:0;}
 a{text-decoration:none;}
@@ -11,18 +10,16 @@ a:hover{text-decoration:underline;}
 body{font-family:Arial; background-color:#E5D9C7 !important; font-size:14px;}
 li{list-style:none;}
 td{padding-left:5px;}
-h1{font-size: 30px;
+
 a img{border-style:none !important;}
 img{border-style:none !important; }
-line-height: 35px;
+h1,h2,h3,h4,h5,h6{font-weight:normal;}
+
+h1{font-size: 20px;
+line-height: 20px;
 color: white;
 margin: 0px 0px 25px 0px;
-text-weight:bold;
-text-transform: uppercase;
-text-shadow: 0px 3px 10px #333;
--moz-text-shadow: 0px 3px 10px #333;
--webkit-text-shadow: 0px 3px 10px #333;
--ms-text-shadow: 0px 3px 10px #333;
+
 }
 
 h2{color: #384400;
@@ -32,16 +29,11 @@ margin: 5px 0;}
 
 h3{
 display: block;
-font-size: 1.17em;
-line-height:1.35em;
--webkit-margin-before: 1em;
--webkit-margin-after: 1em;
--webkit-margin-start: 0px;
--webkit-margin-end: 0px;
-font-weight: bold;
+font-size: 14px;
+line-height:15px;
 color:#666;}
+
 h3 a{color: #4C4C4C;
-font-weight: bold;
 text-decoration:underline;
 }
 .clear{clear:both;}
@@ -64,23 +56,23 @@ form p{padding-bottom:10px;}
 
 
 /*Container */
-#container{width:1164px; margin:0 auto 20px auto; border-t}
-.home{background:url(bob_home_bg2.jpg) no-repeat; min-height:1180px;}
-.interior{background:url(new_int_bg.jpg) no-repeat; min-height:1164px;}
+#container{width:320px; margin:0 auto 20px auto; border-t}
+.home{background:url(mobile_bg.jpg) no-repeat; min-height:480px;}
+.interior{background:url(mobile_bg.jpg) repeat; min-height:480px;}
 
-#top{padding:20px 0;}
-#utility_nav{float:right;padding-right:24px; margin-top:-10px; position:relative;}
-#utility_nav li{font-weight:bold; float:left; padding-left:10px; color:#fff; font-size:13px;}
+#top{border-bottom:1px solid #364301;}
+#utility_nav{ background-color:#364301; padding:10px 5px; position:relative;}
+#utility_nav li{font-weight:bold; display:inline; color:#fff; font-size:13px;}
 #utility_nav li a{color:#fff;}
 #sign_up_in a{text-decoration:underline;}
-#utility_nav li#signed_in_as{position:absolute; top:20px; width:300px; right:22px; text-align:right;}
+#utility_nav li#signed_in_as{ width:310px; padding-bottom:5px; display:block;}
 
-#main_nav{padding-left:22px;}
-#main_nav li{float:left; padding-right:20px; margin-right:8px; font-size:14px; font-weight:bold; background:url(menu-dot.png) no-repeat right center; }
-#main_nav li a{color:#fff;}
+#main_nav{padding:5px;  }
+#main_nav li{ font-size:14px; float:left; font-weight:bold; width:155px; padding-bottom:5px;  }
+#main_nav li a{color:#364301; display:inline-block;}
 #main_nav li#last{background:none;}
 
-#limiter{width:800px; height:auto; padding-top:80px; margin:0 auto;}
+#limiter{width:320px; height:auto; padding-top:10px; margin:0 auto;}
 #logo{width:185px; margin:0 auto; padding-top:40px;}
 
 #award_info{padding:15px 0;}
@@ -157,7 +149,7 @@ text-decoration: none;
 td.first, td.second{width:250px; border-right:1px dashed #384400;}
 
 /* Dynamic Pages Styling */
-#page_body{}
+#page_body{padding:0 5px;}
 #page_body p{padding-bottom:15px; line-height:16px;}
 #page_body ul{padding:0 0 10px 15px;}
 #page_body ul li{list-style-type:disc;  padding:0 0 5px 0px;  list-style-position:outside;}
@@ -196,6 +188,12 @@ td.first, td.second{width:250px; border-right:1px dashed #384400;}
 
 /* Videos */
 .video{width:300px; height: 220px; margin: 10px 10px; float:left;}
+
+
+/* HOME */
+#home_mobile_logo{padding-bottom:20px; text-align:center; }
+#rec_now{text-align:center;}
+#rec_now a{background-color: #364301; padding:5px 10px; color:#fff;}
 
 
 

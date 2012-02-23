@@ -29,6 +29,23 @@ class ApplicationController < ActionController::Base
     end 
   end
   
+  
+  before_filter :prepare_for_mobile
+  private  
+  def mobile?
+    if session[:mobile_param]
+      session[:mobile_param] == "1"
+    else
+      request.user_agent =~ /Mobile|webOS/
+    end
+  end
 
+
+  def prepare_for_mobile
+    session[:mobile_param] = params[:mobile] if params[:mobile]
+    request.format = :mobile if mobile?
+  end
+
+  helper_method :mobile?
   
 end

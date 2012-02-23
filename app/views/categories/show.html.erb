@@ -1,4 +1,6 @@
 <div id="page_body">
+	
+<% unless mobile? %>	
 <div id="rec_bar_arrow" class="pos4"><%= image_tag 'recommend_nav.png'%></div>
 <%= render  'shared/recommend_timeline' %>
 
@@ -32,6 +34,44 @@
 		<li><%= link_to award.name, new_category_award_recommendation_path(@category, award), :title => award.info %></li>
 	<% end %>
 	</ul>
+
+<% end %>
+
+<% else %>
+
+<h1>Choose an Award</h1>
+
+<h2>Select an Award for this Recommendation</h2>
+<p>&nbsp;</p>
+
+<% if @category.id == 1 %>
+	<h2>BRAND AWARDS</h2>
+	
+	<ul class="award_cat_list">
+  	<% @corp.each do |award| %>
+		<li><%= link_to award.name, new_category_award_recommendation_path(@category, award), :title => award.info %></li>
+	<% end %>
+	</ul>
+	
+	<h2>CUSTOMER EXPERIENCE AWARDS</h2>
+	<ul class="award_cat_list">		
+		<% @store.each do |award| %>
+			<li><%= link_to award.name, new_category_award_recommendation_path(@category, award), :title => award.info %></li>
+		<% end %>
+	</ul>
+
+
+<% elsif @category.id == 2%>
+
+	<h2>Brand Awards</h2>
+	<ul class="award_cat_list">
+  	<% @corp.each do |award| %>
+		<li><%= link_to award.name, new_category_award_recommendation_path(@category, award), :title => award.info %></li>
+	<% end %>
+	</ul>
+
+<% end %>
+
 
 <% end %>
 
