@@ -35,6 +35,8 @@ text-decoration:underline;
 .clear{clear:both;}
 
 
+
+
 /* Forms */
 .field{padding-bottom:15px; line-height:18px;}
 input{font-size:14px; padding:3px; margin-bottom:10px;}
@@ -53,7 +55,7 @@ form p{padding-bottom:10px;}
 
 /*Container */
 #container{width:320px; margin:0 auto 20px auto; border-t}
-.home{background:url(mobile_bg.jpg) no-repeat; min-height:480px;}
+.home{background:url(mobile_bg.jpg) repeat; min-height:480px;}
 .interior{background:url(mobile_bg.jpg) repeat; min-height:480px;}
 
 #top{border-bottom:1px solid #364301;}
@@ -68,8 +70,11 @@ form p{padding-bottom:10px;}
 #main_nav li a{color:#364301; display:inline-block;}
 #main_nav li#last{background:none;}
 
-#limiter{width:320px; height:auto; padding-top:10px; margin:0 auto;}
+#limiter{width:320px; height:auto; padding-top:10px; margin:0 auto; position:relative; min-height:480px}
 #logo{width:185px; margin:0 auto; padding-top:40px;}
+
+#switcher{position:absolute; bottom:0px; left:0px; width:315px; background-color:#364301; height:20px; padding:5px 0 0 5px;}
+#switcher a{color:#fff; text-decoration:underline;}
 
 #award_info{padding:15px 0;}
 #award_recommendation{padding-top:10px;}
