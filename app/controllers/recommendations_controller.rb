@@ -22,7 +22,7 @@ class RecommendationsController < ApplicationController
   def show
     @recommendation = Recommendation.find(params[:id])
     @approvals = @recommendation.approvals.find(:all, :order => "created_at ASC")
-    @rec_user = User.find(:first, :conditions => ["id = ?", @recommendation.user_id])
+    @rec_user = User.find(@recommendation.user_id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @recommendation }
