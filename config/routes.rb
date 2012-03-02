@@ -18,7 +18,7 @@ Bob::Application.routes.draw do
   
   
   resources :accounts, :as => :user
-  devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions", :passwords => "passwords" }
+  devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions"}
   
   resources :pages
   match 'home' => 'pages#home', :as => :home
