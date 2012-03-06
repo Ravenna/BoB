@@ -9,6 +9,5 @@ class Recommendation < ActiveRecord::Base
   has_attached_file :upload
   has_attached_file :upload2
   has_attached_file :upload3
-  validates_attachment_size :photo, :less_than => 5.megabytes
   
 end
