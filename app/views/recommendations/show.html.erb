@@ -63,10 +63,12 @@
 	<h2>Approval Comments</h2>
 	<table cellspacing="5">
 		<tr>
+			<th>Email</th>
 			<th>Comments</th>
 		</tr>
 		<% @approvals.each do |approval|%>
 		<tr>
+			<td class="first"><%= approval.email %></td>
 			<td><%= approval.info %></td>	
 		</tr>
 		<% end %>
