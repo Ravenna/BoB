@@ -101,7 +101,7 @@
   <div class="field">
 	<b>Upload up to 3 files:</b><Br>
 		<% if @recommendation.upload.file? %>
-			<p><b>Attachment 1:</b> <a href="<%= @recommendation.upload.url %>">File </a></p>
+			<p><b>Attachment 1:</b> <a href="<%= @recommendation.upload.url %>">File </a>  <%= f.check_box(:delete_upload)%></p>
 		<% else %>	
 	 		<%= f.file_field :upload %><br>
 		<% end %>

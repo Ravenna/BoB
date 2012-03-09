@@ -1,4 +1,5 @@
-AWS::S3::Base.establish_connection!(
+AWS.config({
+
   :access_key_id     => ENV['MyAccessKey'],
   :secret_access_key => ENV['MySecretKey']
-)
+})

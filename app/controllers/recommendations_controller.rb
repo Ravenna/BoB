@@ -97,6 +97,14 @@ class RecommendationsController < ApplicationController
     end
   end
   
+  def delete_upload=(value)
+     @delete_upload = !value.to_i.zero?
+   end
+
+   def delete_upload
+     !!@delete_upload
+   end
+   alias_method :delete_upload?, :delete_upload
 
   
   protected
