@@ -100,10 +100,26 @@
 
   <div class="field">
 	<b>Upload up to 3 files:</b><Br>
+		<% if @recommendation.upload.file? %>
+			<p><b>Attachment 1:</b> <a href="<%= @recommendation.upload.url %>">File </a></p>
+		<% else %>	
+	 		<%= f.file_field :upload %><br>
+		<% end %>
 		
-	 <%= f.file_field :upload %><br>
-     <%= f.file_field :upload2 %><br>
-	 <%= f.file_field :upload3 %>
+		<% if @recommendation.upload2.file? %>
+			<p><b>Attachment 1:</b> <a href="<%= @recommendation.upload2.url %>">File </a></p>
+		<% else %>	
+	 		<%= f.file_field :upload2 %><br>
+		<% end %>
+			
+		<% if @recommendation.upload3.file? %>
+			<p><b>Attachment 1:</b> <a href="<%= @recommendation.upload3.url %>">File </a></p>
+		<% else %>	
+	 		<%= f.file_field :upload3 %><br>
+		<% end %>
+		
+		
+   
   </div>
 
   <div class="field">

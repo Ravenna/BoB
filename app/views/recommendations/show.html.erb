@@ -9,19 +9,19 @@
 <p><b>Summary:</b><br> <%= @recommendation.summary %></p>
 <p><b>Accomplishments:</b><br> <%= @recommendation.accomplishments %></p>
 <p><b>Supervisor:</b> <%= @recommendation.supervisor%></p>
-<% if @recommendation.upload.file? %>
-<p><b>Attachement:</b> <a href="<%= @recommendation.upload.url %>">File</a></p>
-<% else %>
-<p>No Attachment</p>
-<% end %>
-<% if @recommendation.upload2.file? %>
-<p><b>Attachement:</b> <a href="<%= @recommendation.upload2.url %>">File</a></p>
-<% else %>
+	<% if @recommendation.upload.file? %>
+	<p><b>Attachment 1:</b> <a href="<%= @recommendation.upload.url %>">File</a></p>
+	<% else %>
+	<p>No Attachment</p>
+	<% end %>
+	<% if @recommendation.upload2.file? %>
+	<p><b>Attachment 2:</b> <a href="<%= @recommendation.upload2.url %>">File</a></p>
+	<% else %>
 
-<% end %>
-<% if @recommendation.upload3.file? %>
-<p><b>Attachement:</b> <a href="<%= @recommendation.upload3.url %>">File</a></p>
-<% else %>
+	<% end %>
+	<% if @recommendation.upload3.file? %>
+	<p><b>Attachment 3:</b> <a href="<%= @recommendation.upload3.url %>">File</a></p>
+	<% else %>
 
 <% end %>
 
@@ -32,31 +32,49 @@
 <p><b>Current Inbox Awaiting Approval:</b><% unless @approvals.blank?  %><%= @approvals.last.email %> <% end %></p>
 
 <p>&nbsp;</p>
-<h2>Approvals</h2>
-<table cellspacing="5">
-	<tr>
-		<th>Email</th>
-		<th>Approved |</th>
-		<th>Declined</th>
-		<th>SMT?</th>
-		<th></th>
-	</tr>
-	<% @approvals.each do |approval|%>
-	<tr>
-		<td class="first"><%= approval.email %></td>
-		<% if approval.approved == true %>
-			<td>&radic;</td>
-			<td></td>
-		<% else %>
-		 	<td></td>
-			<td>&radic;</td>
+
+<% if current_user.present? && current_user.admin == true %>
+		<h2>Approvals</h2>
+		<table cellspacing="5">
+			<tr>
+				<th>Email</th>
+				<th>Approved |</th>
+				<th>Declined</th>
+				<th>SMT?</th>
+				<th>Comments</th>
+			</tr>
+			<% @approvals.each do |approval|%>
+			<tr>
+				<td class="first"><%= approval.email %></td>
+				<% if approval.approved == true %>
+					<td>&radic;</td>
+					<td></td>
+				<% else %>
+				 	<td></td>
+					<td>&radic;</td>
+				<% end %>
+				<td><%= approval.recommendation.user.smt %></td>
+				<td><%= approval.created_at %></td>
+				<td><%= approval.info %></td>	
+			</tr>
+			<% end %>
+		</table>
+<% else %> <!-- User is not an Admin -->
+	<h2>Approval Comments</h2>
+	<table cellspacing="5">
+		<tr>
+			<th>Comments</th>
+		</tr>
+		<% @approvals.each do |approval|%>
+		<tr>
+			<td><%= approval.info %></td>	
+		</tr>
 		<% end %>
-		<td><%= approval.recommendation.user.smt %></td>
-		<td><%= approval.created_at %></td>	
-	</tr>
-	<% end %>
-</table>
-</ul>
+	</table>
+
+
+<% end %>
+
 
 <%= link_to 'Back', admin_recommendations_path %>
 </div>
