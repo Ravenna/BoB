@@ -2,11 +2,12 @@
 
 
 <% @recommendations.each do |rec| %>
-		<h3>
+		<h5>
 		<% if rec.approvals.count == 0 %>
-			<%= link_to rec.nominee, edit_category_award_recommendation_path(@category, rec.award, rec) %> 
+			<%= link_to rec.nominee, edit_category_award_recommendation_path(@category, rec.award, rec), :class => "btn" %> 
 		<% else %>
-			<%= rec.nominee %> (Submitted)
+			<a href="" class="btn disabled"> <%= rec.nominee %> (In Process)</a>
+
 		<% end %>
-		</h3>
+		</h5>
 <% end %>

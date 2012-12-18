@@ -17,16 +17,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
  
 
   <div class="field ">
-    <%= f.label :body %><br />
+    <%= f.label :body %>
 	<%= f.text_area( :body, :rows => "20", :class => 'ckeditor') %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

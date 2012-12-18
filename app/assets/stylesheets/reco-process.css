@@ -4,3 +4,8 @@
 
 #page_body textarea{width:400px; height:100px;}
 fieldset{margin-bottom:30px;}
+
+#top{position:relative;}
+.current-user{position:absolute; top:30px; right:14px;}
+
+#page_body{margin:40px 0;}

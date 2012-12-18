@@ -2,11 +2,10 @@
 
 <p><%= link_to "Back to Admin", admin_path %></p>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Name</th>
     <th>Categories</th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -18,8 +17,8 @@
 		<% end %>
 	</td>
  
-    <td><%= link_to 'Edit', edit_award_path(award) %></td>
-    <td><%= link_to 'Destroy', award, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Edit', edit_award_path(award), :class => "btn" %>
+    <%= link_to 'Destroy', award, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %></td>
   </tr>
 <% end %>
 </table>

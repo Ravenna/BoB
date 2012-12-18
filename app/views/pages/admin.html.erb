@@ -1,16 +1,16 @@
 <h1>Best of Bauer Administration</h1>
 
-<h2>Choose from one of the following options to administrate</h2>
+<h4>Choose from one of the following options to administrate</h4>
 
 
-	<h3><%= link_to "Employees", accounts_list_path %></h3>
-	<h3><%= link_to "Awards", admin_awards_path %></h3>
-	<h3><%= link_to "Recommendations", admin_recommendations_path%></h3>
-	<h3><%= link_to "New Recommendation", location_path %> </h3>
+	<%= link_to "Employees", accounts_list_path, :class => "btn" %>
+	<%= link_to "Awards", admin_awards_path, :class => "btn" %>
+	<%= link_to "Recommendations", admin_recommendations_path, :class => "btn"%>
+	<%= link_to "New Recommendation", location_path, :class => "btn" %> 
 	
-	<h3><%= link_to "Pages", pages_path %><h3>
-	<h3><%= link_to "Videos", videos_path %> </h3>
-	<h3><%= link_to "Emails", emails_path %> </h3>
-	<h3><%= link_to "Export Recommendations", export_recommendations_path(:format => "xls") %>
+	<%= link_to "Pages", pages_path, :class => "btn" %>
+	<%= link_to "Videos", videos_path, :class => "btn" %>
+	<%= link_to "Emails", emails_path, :class => "btn" %>
+	<%= link_to "Export Recommendations", export_recommendations_path(:format => "xls"), :class => "btn btn-inverse" %>
 	
 

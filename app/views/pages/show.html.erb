@@ -10,6 +10,6 @@
   <%= @page.body %>
 </p>
 
-
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+<div class="btn-group">
+	<%= link_to 'Edit', edit_page_path(@page), :class => "btn btn-primary" %>
+<%= link_to 'Back', pages_path, :class => "btn" %>

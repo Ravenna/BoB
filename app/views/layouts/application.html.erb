@@ -21,14 +21,12 @@
 		
 		<ul id="utility_nav" class="nav nav-pills pull-right">
 				<% if user_signed_in? %>
-				   <li id="signed_in_as">Signed in as <%= current_user.email %></li>
 				   <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 				<% else %>
 				    <li id="sign_up_in"><%= link_to "Sign up", new_user_registration_path %></li>
 					<li>or </li>
 					<li><%= link_to "Sign in", new_user_session_path %></li>
 				<% end %>
-				
 				<% if current_user.present? && current_user.admin == true %>
 					<li><%= link_to "Admin", admin_path %></li>
 				<% end %>
@@ -55,8 +53,13 @@
 			<li><%= link_to "Photos & Video", photo_video_path%></li>
 			<li id="last"><%= link_to "Questions", question_path %></li>
 		</ul>
-		<div class="clear"></div>
+		<div class="pull-right current-user">
+		<% if user_signed_in? %>
+		   <small>Signed in as <%= current_user.email %></small>
+		<% end %>
+		</div>
 	</div>
+
 	
 	<div id="limiter">
 		<% if flash[:notice] %>
@@ -67,7 +70,7 @@
 		    <% end %>
 		
 		<div id="page_body">
-		<%= yield %>
+			<%= yield %>
 		</div>
 		
 		

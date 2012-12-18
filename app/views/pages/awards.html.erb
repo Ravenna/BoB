@@ -3,9 +3,11 @@
 <div id="page_body">
 	<%=m @page.body %>
 	
-<h1 class="pad_top">Award Categories</h1>
+<hr> 
 
-<h2>RECOMMENDED BRAND AWARDS (OPEN TO ALL ASSOCIATES)</h2>
+<h2 class="pad_top">Award Categories</h2>
+
+<h4>RECOMMENDED BRAND AWARDS (OPEN TO ALL ASSOCIATES)</h4>
 
 
 
@@ -19,13 +21,13 @@
 	
 	
 
-<h2>RECOMMENDED CUSTOMER EXPERIENCE AWARDS (OPEN TO STORES DIVISION)</h2>
+<h4>RECOMMENDED CUSTOMER EXPERIENCE AWARDS (OPEN TO STORES DIVISION)</h4>
 	<ul class="award_cat_list">		
 		<% @store.each do |award| %>
 			<li><%= link_to award.name, category_award_path(award, :category_id => @storecat), :title => award.info %></li>
 		<% end %>
 	</ul>
-	<h2>SENIOR MANAGEMENT TEAM SELECTED AWARDS</h2>
+	<h4>SENIOR MANAGEMENT TEAM SELECTED AWARDS</h4>
 		<ul class="award_cat_list">
 			<li><%= link_to "Outfitter Award", category_award_path(@cat4, @award15), :title => @award15.info %></li>
 			<li><%= link_to "Special Achievement Award", category_award_path(@cat4, @award16), :title => @award16.info %></li>

@@ -1,27 +1,27 @@
-<h1>Employees</h1>
+<p><%= link_to "Back to Admin", admin_path, :class => "btn" %></p>
 
 
-<p><%= link_to "Back to Admin", admin_path %></p>
+<h3>Employees</h3>
 
-<div id="user_index">
-	<div class="user_title">
-		<p class="name">First Name/Last Name</p> 
-		<p class="email">Email</p>
-		<p class="admin">Admin</p>
-		<p class="smt">SMT</p>
-		
+
+<table class="table table-striped">
+	<tr>
+		<th>First Name / Last Name</th>
+		<th>Email</th>
+		<th>Admin</th>
+		<th>SMT</th>
+		<th></th>
+	</tr>
+	<% @users.each do |user| %>
+		<tr>		
+			<td class="name"><%= user.first_name %> <%= user.last_name %></td>
+			<td class="email"><%= user.email %></td>
+			<td class="admin"><%= user.admin %></yd>
+			<td class="smt"><%= user.smt %></yd>
+			<td class="edit"><%= link_to "Edit", edit_user_path(user), :class => "btn" %></td>
+		</tr>
+	<% end %>
 	
-	</div>
-	
-<% @users.each do |user| %>
-	<div class="user">
-		<p class="name"><%= user.first_name %>, <%= user.last_name %></p>
-		<p class="email"><%= user.email %></p>
-		<p class="admin"><%= user.admin %></p>
-		<p class="smt"><%= user.smt %></p>
-		
-		<p class="edit"><%= link_to "Edit", edit_user_path(user) %></p>
-	</div>
-<% end %>
+</table>
 
 
