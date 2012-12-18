@@ -1,13 +1,13 @@
-<ul id="rec_bar">
-	<li id="create"><% if current_user %> Create Profile <% else %><%= link_to "Create Profile", new_user_registration_path %><% end %></li>
+<ul id="rec_bar" class="breadcrumb">
+	<li id="create"><% if current_user %> Create Profile <% else %><%= link_to "Create Profile", new_user_registration_path %><% end %> <span class="divider">/</span></li>
 	<li id="bar_login"><% if current_user %> Login <% else %><%= link_to "Login", new_user_session_path %><% end %></li>
-	<li id="location"><%= link_to "Location", location_path %></li>
+	<li id="location"><%= link_to "Location", location_path %><span class="divider">/</span></li>
 	
 	
 	<li id="award_cat">
 		<%= link_to 'Award Category', category_path(params[:category_id]) unless params[:category_id].blank? %>
 		<%= 'Award Category' if params[:category_id].blank? %>
-		
+		<span class="divider">/</span>
 	</li>
-	<li id="form">Fill Out Form<%#= link_to "Fill Out Form", new_recommendation_path %></li>
+	<li id="form">Fill Out Form<%#= link_to "Fill Out Form", new_recommendation_path %><span class="divider">/</span></li>
 </ul>

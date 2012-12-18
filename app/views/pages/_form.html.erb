@@ -1,4 +1,8 @@
 <div class="page_body">
+<script type="text/javascript">
+
+</script>
+	
 <%= form_for(@page) do |f| %>
   <% if @page.errors.any? %>
     <div id="error_explanation">
@@ -17,22 +21,11 @@
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
-	<h2>Instructions on page editing</h2>
-	# h1 tag<br>
-	## h2 tag<br>
-	### h3 tag - Add more "#" up to 6<br>
-	-    List Items (hyphen, four spaces, item)<br>
-	**This is a bold line**<br>
-	_this is an italic line_<br>
-	<a href="http://daringfireball.net/projects/markdown/syntax#list" target="_blank">Go Here</a> for more info on how to style text
-	
+ 
 
-  </div>
-
-  <div class="field">
+  <div class="field ">
     <%= f.label :body %><br />
-	<%= f.text_area( :body, :rows => "20") %>
+	<%= f.text_area( :body, :rows => "20", :class => 'ckeditor') %>
   </div>
   <div class="actions">
     <%= f.submit %>

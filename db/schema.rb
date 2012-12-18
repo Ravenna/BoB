@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120219161518) do
+ActiveRecord::Schema.define(:version => 20121119184539) do
 
   create_table "approvals", :force => true do |t|
     t.integer  "recommendation_id"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(:version => 20120219161518) do
     t.string   "upload_content_type"
     t.integer  "upload_file_size"
     t.datetime "upload_updated_at"
+  end
+
+  create_table "assets", :force => true do |t|
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
+    t.integer  "recommendation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "awards", :force => true do |t|
@@ -83,20 +93,8 @@ ActiveRecord::Schema.define(:version => 20120219161518) do
     t.text     "summary"
     t.text     "accomplishments"
     t.string   "supervisor"
-    t.string   "upload_file_name"
-    t.string   "upload_content_type"
-    t.integer  "upload_file_size"
-    t.datetime "upload_updated_at"
     t.string   "url"
     t.string   "caption"
-    t.string   "upload2_file_name"
-    t.string   "upload2_content_type"
-    t.integer  "upload2_file_size"
-    t.datetime "upload2_updated_at"
-    t.string   "upload3_file_name"
-    t.string   "upload3_content_type"
-    t.integer  "upload3_file_size"
-    t.datetime "upload3_updated_at"
   end
 
   create_table "users", :force => true do |t|

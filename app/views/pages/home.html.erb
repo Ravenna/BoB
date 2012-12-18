@@ -2,12 +2,14 @@
 
 </div>
 
-<div id="home_recommend_closed">The Recommendation Process is Closed!</div>
-<!--
-<%# unless mobile? %>
-<%#= link_to(image_tag("recommend_now2.png", :border => "0"), location_path) %></div>
-<%# else %>
+<!--<div id="home_recommend_closed">The Recommendation Process is Closed!</div>-->
+
+<% unless mobile? %>
+<%= link_to(image_tag("recommend_now2.png", :border => "0"), location_path) %></div>
+<% else %>
 	<div id="home_mobile_logo"><%#= image_tag "mobile_logo.png"%></div>
-	<h1 id="rec_now"><%#= link_to "Recommend Now", location_path %></h1>
-<%# end %>
--->
+	<h1 id="rec_now"><%= link_to "Recommend Now", location_path %></h1>
+<% end %>
+
+
+<a href="" class="btn">TEST</a>

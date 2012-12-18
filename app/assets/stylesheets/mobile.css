@@ -1,5 +1,9 @@
 
 /* THIS IS THE MOBILE STYLESHEET */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+
 *{margin:0; padding:0;}
 a{text-decoration:none;}
 a:hover{text-decoration:underline;}
@@ -196,5 +200,5 @@ td.first, td.second{width:250px; border-right:1px dashed #384400;}
 #rec_now{text-align:center;}
 #rec_now a{background-color: #364301; padding:5px 10px; color:#fff;}
 
-
+}
 

@@ -42,4 +42,5 @@ module RecommendationsHelper
       end
   end
   
+ 
 end

@@ -11,13 +11,14 @@
 <div id="location_buttons">
 
 <% @categories.each do |category| %>
-<% if category.id == 3 || category.id == 4 %>
-<% else %>
-<p><%= link_to category.name, category, :class => "buttonOrange"%></p>
+	<% if category.id == 3 || category.id == 4 %>
+	<% else %>
+	
+	<p><%= link_to category.name, category, :class => "btn btn-primary"%></p>
 
    
-  </tr>
-<% end %>
+	  </tr>
+	<% end %>
 <% end %>
 
 

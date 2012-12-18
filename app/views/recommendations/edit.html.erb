@@ -1,6 +1,4 @@
 <h1>Editing Recommendation</h1>
 
-<%= render 'form' %>
+<%= render :partial => 'form', :locals => { :recommendation => @recommendation, :button_name => 'Update' }  %>
 
-<%#= link_to 'Show', @recommendation %> 
-<%#= link_to 'Back', recommendations_path %>

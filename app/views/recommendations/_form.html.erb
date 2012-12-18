@@ -15,7 +15,8 @@
 <p>* Denotes Required Field</p>
 
 
-
+<fieldset>
+	<legend>Basic Info</legend>
  <% if @award.present? %>
   <div class="field">
 	<%= recommendation_nominee_label @award %>*<br />
@@ -48,124 +49,154 @@
 	    <%= f.text_field :department %>
 	  </div>
 <% end %>
-  
-  <div class="field">
-	<% if @award.present? %>
-	You are recommending this 
-			<% if @award.store_award? %>
+
+</fieldset>
+
+<fieldset>
+	<legend>Award and Summary Info</legend>  
+  	<div class="field">
+		<% if @award.present? %>
+			You are recommending this 
+				<% if @award.store_award? %>
+						store
+				<% elsif @award.open_award? %>
+						associate or store
+				<% else%>
+						associate
+				<% end %> 
+		
+		for the following award: <b><%= @award.name %></b>
+		<div><b>Award Description:</b> <%=  @award.info %></div>
+	
+		<%= f.hidden_field( :award_id, :value => @award.id ) %>
+
+		<% else %>
+			You are recommending this  
+				<% if @recommendation.award.store_award? %>
 					store
-			<% elsif @award.open_award? %>
+				<% elsif @recommendation.award.director_award? %>
 					associate or store
-			<% else%>
+				<% else %>
 					associate
-			<% end %> 
+				<% end %>
+			for the following award: <b><%= @recommendation.award.name %></b>
+			<div><b>Award Description:</b> <%= @recommendation.award.info %></div>
+			<%= f.hidden_field( :award_id ) %>
+		<% end %>
+		</div>
+  
+	  <hr>
+
+	  <div class="field">
+	   	<b>Summary *</b><br>
+		Write a short summary of 4-5 sentences.<br>
+	    <%= f.text_area :summary %>
+	  </div>
+	  <div class="field">
+	    <b>Accomplishments in 2011 *</b><br>
+		Provide concrete, tangible examples of the results achieved including, but not limited to, applicable statistics, projects completed, legendary service, and interactions with others. Please limit your write-up to 500 words. This write-up will be used by the Best of Bauer Academy to determine nominees and winners.<br />
+	    <%= f.text_area :accomplishments  %>
+	  </div>
+</fieldset>
+
+<fieldset>
+	<legend>Supporting Documentation</legend>
+ 		<div class="field">
+		When you submit your recommendation online, you will also have the option of uploading supporting documentation (photos, a video, a letter of recommendation, etc,).
+		 </div>
+
+  	<div class="field">
+		<b>Upload up to 3 files:</b><Br>
+		<%= f.fields_for :assets do |asset_fields| %>
+			<% if asset_fields.object.new_record? %>
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+				<div class="input-append">
+			    	<div class="uneditable-input span3">
+						<i class="icon-file fileupload-exists"></i> 
+						<span class="fileupload-preview"></span>
+					</div>
+					<span class="btn btn-file">
+						<span class="fileupload-new">Select file</span>
+						<span class="fileupload-exists">Change</span>
+						<%= asset_fields.file_field :asset %>
+					</span>
+			    </div>
+	       </div>
 		
-	for the following award: <b><%= @award.name %></b>
-	<p><b>Award Description:</b><%= m @award.info %></p>
+	  	   <% end %>
+		<% end %>
 	
-	<%= f.hidden_field( :award_id, :value => @award.id ) %>
-  
-
-	<% else %>
-		You are recommending this  
-			<% if @recommendation.award.store_award? %>
-				store
-			<% elsif @recommendation.award.director_award? %>
-				associate or store
-			<% else %>
-				associate
-			<% end %>
-		for the following award: <b><%= @recommendation.award.name %></b><br>
-		<b>Award Description:</b><%= @recommendation.award.info %>
-		<%= f.hidden_field( :award_id ) %>
-	<% end %>
-	</div>
-  
-
-  <div class="field">
-   	<b>Summary *</b><br>
-	Write a short summary of 4-5 sentences.<br>
-    <%= f.text_area :summary %>
-  </div>
-  <div class="field">
-    <b>Accomplishments in 2011 *</b><br>
-	Provide concrete, tangible examples of the results achieved including, but not limited to, applicable statistics, projects completed, legendary service, and interactions with others. Please limit your write-up to 500 words. This write-up will be used by the Best of Bauer Academy to determine nominees and winners.<br />
-    <%= f.text_area :accomplishments  %>
-  </div>
-
-  <div class="field">
-	<b>Supporting Documentation</b><br>
-	When you submit your recommendation online, you will also have the option of uploading supporting documentation (photos, a video, a letter of recommendation, etc,).
-  </div>
-
-  <div class="field">
-	<b>Upload up to 3 files:</b><Br>
-		<% if @recommendation.upload.file? %>
-			<p><b>Attachment 1:</b> <a href="<%= @recommendation.upload.url %>">File </a>  | <%= f.check_box(:delete_upload)%> Delete</p>
-		<% else %>	
-	 		<%= f.file_field :upload %><br>
-		<% end %>
+		<% @recommendation.assets.each do |asset| %>
+			<div id="asset_<%= asset.id %>">
+				<%= asset.asset_file_name %> | 
+				<%#= link_to "Delete Attachment", destroy_asset_path, :remote => true, :confirm => "Are you sure?" %>
+			</div>
+		<% end 	%>	
 		
-		<% if @recommendation.upload2.file? %>
-			<p><b>Attachment 1:</b> <a href="<%= @recommendation.upload2.url %>">File </a> | <%= f.check_box(:delete_upload)%> Delete</p>
-		<% else %>	
-	 		<%= f.file_field :upload2 %><br>
-		<% end %>
+	  </div>
+
+ 	 <div class="field">
+		<p>
+			Add a note/explanation<Br>
+			<%= f.text_field :caption %>
+		</p>
+		<p>
+			Share a URL:<br> 
+			<%= f.text_field :url %>
+		</p>
+	 </div>
+  
+</fieldset>
+
+<fieldset>
+	<legend>Approval Process</legend>
+  		<div class="field">
+		    <b>Select the one that matches best: *</b><br />
+			<%= f.radio_button( :supervisor, "You ARE the nominee’s direct manager / supervisor", :id => "super_checked") %> 
+			You ARE the nominee’s direct manager / supervisor<br>
 			
-		<% if @recommendation.upload3.file? %>
-			<p><b>Attachment 1:</b> <a href="<%= @recommendation.upload3.url %>">File </a> | <%= f.check_box(:delete_upload)%> Delete</p>
-		<% else %>	
-	 		<%= f.file_field :upload3 %><br>
-		<% end %>
-		
-		
-   
-  </div>
-
-  <div class="field">
-	Add a note/explanation<Br>
-	<%= f.text_field :caption %><br>
-	Share a URL:<br> <%= f.text_field :url %>
-  </div>
-  
-	<script type="text/javascript">
-	$(document).ready(function() {
-	    $('#super').hide();
-
-	    $('#super_checked').change(function() {
-	      	$('#not_super').hide();
-		    $('#super').show();
-	    });
-	
-		$('#super_false').change(function() {
-	       	$('#not_super').show();
-		    $('#super').hide();
-	    });
-	});
-	</script>
-
- 
-  <div class="field">
-    <b>Select the one that matches best: *</b><br />
-	<%= f.radio_button( :supervisor, "You ARE the nominee’s direct manager / supervisor", :id => "super_checked") %> You ARE the nominee’s direct manager / supervisor<br>
-	<%= f.radio_button( :supervisor, "You ARE NOT the nominee’s direct manager / supervisor", :checked => true, :id => "super_false") %> You ARE NOT the nominee’s direct manager / supervisor
-  </div>
+			<%= f.radio_button( :supervisor, "You ARE NOT the nominee’s direct manager / supervisor", :checked => true, :id => "super_false") %>
+			 You ARE NOT the nominee’s direct manager / supervisor
+		</div>
 
 
-  <div class="field">
-	<p id="not_super">Nominees Supervisors' Email: </p>
-	<p id="super">Enter Your Supervisor's Email</p>
-	<%= f.fields_for :approvals do |f| %>
-		<%= f.text_field :email %>
-	<% end %>
-	<br>If no Supervisor email is provided, recommendation will be saved without moving up the chain of approval.<br><br>
-	
-	
-  </div>
+  		<div class="field">
+			<p id="not_super">Nominees Supervisors' Email: </p>
+			<p id="super">Enter Your Supervisor's Email</p>
+			<ul>
+				<%= f.fields_for :approvals do |f| %>
+					<li><%= f.text_field :email %></li>
+				<% end %>
+			</ul>
+			<br>If no Supervisor email is provided, recommendation will be saved without moving up the chain of approval.<br><br>
+		</div>
+</fieldset>
+
+<hr>
 
   <div class="actions">
 	<p>You can come back to this Recommendation at any time before you submit a supervisor's email address.  Simply hit save and the Recommendation will appear under My Recs</p>
     <%= f.submit "Save/Submit" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.fileupload').fileupload()
+	
+	
+    $('#super').hide();
+
+    $('#super_checked').change(function() {
+      	$('#not_super').hide();
+	    $('#super').show();
+    });
+
+	$('#super_false').change(function() {
+       	$('#not_super').show();
+	    $('#super').hide();
+    });
+});
+</script>
+
 

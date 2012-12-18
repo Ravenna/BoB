@@ -4,4 +4,4 @@ log/*.log
 config/database.yml
 tmp/
 .sass-cache/
-config/database.yml
+config/initializers/dev-s3.rb

@@ -160,10 +160,9 @@ class PagesController < ApplicationController
  end 
   
   def export
-    @recommendation = Recommendation.all
+    @recommendations = Recommendation.order(:nominee)
     respond_to do |format|
-      format.html
-      format.csv { render :layout => false }
+      format.xls
     end 
   end
   

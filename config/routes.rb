@@ -1,20 +1,21 @@
 Bob::Application.routes.draw do
-  
 
- 
   resources :videos
   resources :emails
 #  resources :questions
   match 'question' => "questions#create", :via => :post
   
-    resources :awards 
-        resources :recommendations
-
+  resources :awards 
+  resources :recommendations 
   resources :categories do
     resources :awards do
         resources :recommendations 
     end
   end 
+  
+  match "asset/:id/destroy_asset", :to => "recommendations#destroy_asset", :as=> "destroy_asset"
+  
+  
   
   
   resources :accounts, :as => :user
@@ -38,10 +39,7 @@ Bob::Application.routes.draw do
   match 'my-recommendations' => 'pages#recs', :as => :recs
   match 'photos-video' => 'pages#photos_video', :as => :photo_video
   
-  #resources :recommendations, :shallow => true do
   resources :approvals 
-  #end
   match 'toggle_decline' => 'approvals#toggle_decline'
-  
   root :to => 'pages#home'
 end

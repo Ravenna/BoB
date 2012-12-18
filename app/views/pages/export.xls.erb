@@ -1,5 +1,45 @@
-<% @recommendations.each do |r| %>
-	
-	<%= r.nominee %>
-	
-<% end %>
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Nominee</Data></Cell>
+        <Cell><Data ss:Type="String">Department</Data></Cell>
+        <Cell><Data ss:Type="String">Title</Data></Cell>
+        <Cell><Data ss:Type="String">Summary</Data></Cell>
+        <Cell><Data ss:Type="String">Accomplishments</Data></Cell>
+        <Cell><Data ss:Type="String">URL</Data></Cell>
+        <Cell><Data ss:Type="String">Caption</Data></Cell>
+        <Cell><Data ss:Type="String">Submitted by the Nominee's Supervisor</Data></Cell>
+        <Cell><Data ss:Type="String">Created Date</Data></Cell>
+        <Cell><Data ss:Type="String">Award</Data></Cell>
+
+      </Row>
+    <% @recommendations.each do |reco| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= reco.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= reco.nominee %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= reco.department %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= reco.title %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= reco.summary %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= reco.accomplishments %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= reco.url %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= reco.caption %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= reco.supervisor %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= reco.created_at %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= reco.award.name %></Data></Cell>
+
+		
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+
+
+

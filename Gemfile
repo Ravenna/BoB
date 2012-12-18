@@ -9,14 +9,16 @@ gem 'rails', '3.1.1'
 gem 'pg'
 gem "friendly_id", "~> 4.0.0.beta14"
 gem 'devise', '1.4.5'
-gem 'rmagick'
+#gem 'rmagick'
 gem "paperclip"#, :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk'
 gem 'aws-s3'
-
 gem 'rdiscount'
 gem 'simple_form'
 
+# Additions Nov 2012
+gem 'ckeditor_rails', :require => 'ckeditor-rails'
+gem 'therubyracer'
 
 # gem 'taps' this makes me able to pull the db from Heroku
 
@@ -25,9 +27,12 @@ gem 'simple_form'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'less'
   gem 'sass-rails',   '~> 3.1.4'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'less-rails-bootstrap'
+  
 end
 
 gem 'jquery-rails'

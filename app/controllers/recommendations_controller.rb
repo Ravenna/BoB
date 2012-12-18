@@ -35,6 +35,7 @@ class RecommendationsController < ApplicationController
     @award = Award.find(params[:award_id])
     @category = Category.find(params[:category_id])
     @recommendation = Recommendation.new
+    1.times {@recommendation.assets.build}
     
     @recommendation.approvals.build
     respond_to do |format|
@@ -48,7 +49,9 @@ class RecommendationsController < ApplicationController
     @recommendation = Recommendation.find(params[:id])
     @recommendation.approvals.build
     @award = Award.find(params[:award_id])
-       @category = Category.find(params[:category_id])
+    @category = Category.find(params[:category_id])
+    1.times {@recommendation.assets.build}
+    
   end
 
   # POST /recommendations
@@ -97,14 +100,15 @@ class RecommendationsController < ApplicationController
     end
   end
   
-  def delete_upload=(value)
-     @delete_upload = !value.to_i.zero?
-   end
-
-   def delete_upload
-     !!@delete_upload
-   end
-   alias_method :delete_upload?, :delete_upload
+  def destroy_asset
+    @asset = Asset.find(params[:id])
+    @asset.destroy
+    respond_to do |format|
+      format.js
+    end 
+  end 
+  
+ 
 
   
   protected
