@@ -6,4 +6,4 @@ class AssetsController < ApplicationController
      respond_to do |format|
        format.js
      end
-   endend 
+end
