@@ -13,7 +13,7 @@ Bob::Application.routes.draw do
     end
   end 
   
-  match "asset/:id/destroy_asset", :to => "recommendations#destroy_asset", :as=> "destroy_asset"
+  match "asset/:id", :to => "assets#destroy_asset", :as=> "destroy_asset"
   
   
   

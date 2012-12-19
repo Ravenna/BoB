@@ -1,5 +1,5 @@
 class AssetsController < ApplicationController
-  def destroy
+  def destroy_asset
      @asset = Asset.find(params[:id])
      @asset.destroy
 

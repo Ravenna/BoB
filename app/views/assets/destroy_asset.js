@@ -1,0 +1,1 @@
+$("#asset_<%= params[:id] %>").effect("highlight', {}, 3000).fadeOut('slow');

@@ -9,5 +9,5 @@ class Recommendation < ActiveRecord::Base
   validates  :nominee, :title, :department, :summary, :accomplishments, :supervisor,  :presence => true
   
   
-  
+   
 end

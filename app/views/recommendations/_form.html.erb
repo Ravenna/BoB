@@ -106,34 +106,40 @@
 		 </div>
 
   	<div class="field">
-		<b>Upload up to 3 files:</b><Br>
-		<%= f.fields_for :assets do |asset_fields| %>
-			<% if asset_fields.object.new_record? %>
-			<div class="fileupload fileupload-new" data-provides="fileupload">
-				<div class="input-append">
-			    	<div class="uneditable-input span3">
-						<i class="icon-file fileupload-exists"></i> 
-						<span class="fileupload-preview"></span>
-					</div>
-					<span class="btn btn-file">
-						<span class="fileupload-new">Select file</span>
-						<span class="fileupload-exists">Change</span>
-						<%= asset_fields.file_field :asset %>
-					</span>
-			    </div>
-	       </div>
+		<!-- Upload Asset Attachments -->
+		<b>Upload up to 3 files:</b><Br>			
+			<%= f.fields_for :assets do |asset_fields| %>
+				<% if asset_fields.object.new_record? %>
+				<div class="fileupload fileupload-new" data-provides="fileupload">
+					<div class="input-append">
+				    	<div class="uneditable-input span3">
+							<i class="icon-file fileupload-exists"></i> 
+							<span class="fileupload-preview"></span>
+						</div>
+						<span class="btn btn-file">
+							<span class="fileupload-new">Select file</span>
+							<span class="fileupload-exists">Change</span>
+							<%= asset_fields.file_field :asset %>
+						</span>
+				    </div>
+		       </div>
 		
-	  	   <% end %>
-		<% end %>
-	
+		  	   <% end %>
+			<% end %>
+		
+		<!-- View and delete asset attachments -->
 		<% @recommendation.assets.each do |asset| %>
-			<div id="asset_<%= asset.id %>">
-				<%= asset.asset_file_name %> | 
-				<%#= link_to "Delete Attachment", destroy_asset_path, :remote => true, :confirm => "Are you sure?" %>
-			</div>
-		<% end 	%>	
+			<% unless asset.new_record? %>
+					<div id="asset_<%= asset.id %>">
+						<%= asset.asset_file_name %> | 
+						<%= link_to "Delete Attachment", destroy_asset_path(asset.id), :method => :delete, :confirm => "Are you sure?", :remote => true %>
+					</div>
+			<% end %>
+		<% end 	%>
 		
 	  </div>
+	
+	<hr>
 
  	 <div class="field">
 		<p>

@@ -35,7 +35,7 @@ class RecommendationsController < ApplicationController
     @award = Award.find(params[:award_id])
     @category = Category.find(params[:category_id])
     @recommendation = Recommendation.new
-    1.times {@recommendation.assets.build}
+    3.times {@recommendation.assets.build}
     
     @recommendation.approvals.build
     respond_to do |format|
@@ -50,8 +50,13 @@ class RecommendationsController < ApplicationController
     @recommendation.approvals.build
     @award = Award.find(params[:award_id])
     @category = Category.find(params[:category_id])
-    1.times {@recommendation.assets.build}
-    
+    @assets = @recommendation.assets.all
+    if @assets.empty?
+      3.times {@recommendation.assets.build}
+    else
+      asset_loop = 3 - @assets.count  
+      asset_loop.times {@recommendation.assets.build}
+    end   
   end
 
   # POST /recommendations
@@ -100,16 +105,6 @@ class RecommendationsController < ApplicationController
     end
   end
   
-  def destroy_asset
-    @asset = Asset.find(params[:id])
-    @asset.destroy
-    respond_to do |format|
-      format.js
-    end 
-  end 
-  
- 
-
   
   protected
        def is_valid_email?(address)
