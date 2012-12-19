@@ -27,11 +27,11 @@ class AwardsController < ApplicationController
   # GET /awards/new
   # GET /awards/new.json
   def new
+    @category = Category.find(params[:category_id])
     @award = Award.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @award }
     end
   end
 
@@ -48,11 +48,9 @@ class AwardsController < ApplicationController
 
     respond_to do |format|
       if @award.save
-        format.html { redirect_to @award, notice: 'Award was successfully created.' }
-        format.json { render json: admin_awards_path, status: :created, location: @award }
+        format.html { redirect_to admin_awards_path, notice: 'Award was successfully created.' }
       else
         format.html { render action: "new" }
-        format.json { render json: @award.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -80,7 +78,7 @@ class AwardsController < ApplicationController
     @award.destroy
 
     respond_to do |format|
-      format.html { redirect_to awards_url }
+      format.html { redirect_to admin_awards_url }
       format.json { head :ok }
     end
   end

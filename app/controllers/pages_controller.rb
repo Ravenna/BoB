@@ -134,6 +134,7 @@ class PagesController < ApplicationController
    end
   def admin_awards
      @awards = Award.all
+     @stores = Category.find(1)
   end
   
   def admin_recommendations

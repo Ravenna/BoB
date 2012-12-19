@@ -1,4 +1,4 @@
-<%= form_for [@category, @award], :url => category_award_path do |f| %>
+<%= form_for [@category, @award] do |f| %>
 
   <% if @award.errors.any? %>
     <div id="error_explanation">
@@ -12,37 +12,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
+  <div class="control-group">
+    <%= f.label :name, :class => "control" %>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="control-group">
    Categories<br />
 <% for category in Category.find(:all)%>
+	<label class="checkbox inline">
 	<%= check_box_tag "award[category_ids][]", category.id, @award.categories.include?(category)%>
 	<%= category.name%>
+	</label>
 <% end %>
     
   </div>
 
- <div class="field">
-	<h2>Instructions on page editing</h2>
-	# h1 tag<br>
-	## h2 tag<br>
-	### h3 tag - Add more "#" up to 6<br>
-	-    List Items (hyphen, four spaces, item)<br>
-	**This is a bold line**<br>
-	_this is an italic line_<br>
-	<a href="http://daringfireball.net/projects/markdown/syntax#list">Go Here</a> for more info on how to style text
 
+<div class="control-group">
+    <%= f.text_area(:info, :rows => "20", :class => 'ckeditor') %>
 
-  </div>
-
-<div class="field">
-    Award Info<br />
-    <%= f.text_area :info %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
+    <%= f.submit :class => "btn" %>
 <% end %>
