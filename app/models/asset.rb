@@ -1,5 +1,5 @@
 class Asset < ActiveRecord::Base
-  belongs_to :recomendation
+  belongs_to :recommendation
   
   has_attached_file :asset,
     :storage => :s3,
