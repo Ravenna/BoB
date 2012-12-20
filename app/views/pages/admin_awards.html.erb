@@ -1,4 +1,4 @@
-<p><%= link_to "Back to Admin", admin_path, :class => "btn" %><%= link_to "New Award", new_category_award_path(@stores) ,:class => "btn" %></p>
+<p><%= link_to "Back to Admin", admin_path, :class => "btn" %><%= link_to "New Award", new_award_path ,:class => "btn" %></p>
 
 <table class="table table-striped">
   <tr>
@@ -16,11 +16,8 @@
 	</td>
  
     <td>
-		<% if award.id == 16 || award.id == 15 %>
+
 			<%= link_to 'Edit', edit_category_award_path(award.categories.first.id, award ), :class => "btn" %>
-		<% else %>
-			<%= link_to 'Edit', edit_category_award_path(award.categories.first.id, award ), :class => "btn" %>
-		<% end %>
 	<%= link_to 'Destroy', award, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %></td>
   </tr>
 <% end %>

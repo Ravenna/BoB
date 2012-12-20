@@ -24,28 +24,18 @@ class AwardsController < ApplicationController
     end
   end
 
-  # GET /awards/new
-  # GET /awards/new.json
-  def new
-    @category = Category.find(params[:category_id])
-    @award = Award.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-    end
+  def new
+    @award = Award.new
   end
 
-  # GET /awards/1/edit
   def edit
-    @category = Category.find(params[:category_id])
     @award = Award.find(params[:id])
   end
 
-  # POST /awards
-  # POST /awards.json
+
   def create
     @award = Award.new(params[:award])
-
     respond_to do |format|
       if @award.save
         format.html { redirect_to admin_awards_path, notice: 'Award was successfully created.' }
