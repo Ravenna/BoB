@@ -3,7 +3,7 @@ class Award < ActiveRecord::Base
     has_many :recommendations
     attr_accessible :name, :info, :category_ids
     
-    validates :name, :category_id, :presence => true
+    validates :name, :categories, :presence => true
     
     scope :in_categories, lambda { |categories|
       joins(:categories).
