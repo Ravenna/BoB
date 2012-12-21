@@ -137,10 +137,10 @@ class PagesController < ApplicationController
      @stores = Category.find(1)
   end
   
-  def admin_recommendations
+  def admin_recommendations    
+    @recommendations = Recommendation.all
     @category = Category.find(1)
     
-    @recommendations = Recommendation.all
   end 
   
   def question

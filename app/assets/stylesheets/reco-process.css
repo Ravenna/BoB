@@ -1,3 +1,24 @@
+.container{
+	border-left:1px solid #bbb; 
+	border-right:1px solid #bbb; 
+	position:relative;
+}
+
+.limiter{padding:10px;}
+#utility-nav{
+	position:absolute;
+	top:0px;
+	right:0px;
+	z-index:100;
+}
+
+#utility-nav li{
+	list-style-type:none;
+	background-color:#bbb;
+	padding:3px 10px;
+}
+
+.or{padding-top:5px;}
 .inline-block{display:inline-block;}
 .space20{height:20px;}
 

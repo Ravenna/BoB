@@ -17,34 +17,35 @@
 	<div class=" container interior">
 <% end %>
 
+<ul id="utility-nav" class="">
+		<% if user_signed_in? %>
+		   <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+		<% else %>
+		    <li id="sign_up_in"><%= link_to "Sign up", new_user_registration_path %></li>
+			<li class="or">or </li>
+			<li><%= link_to "Sign in", new_user_session_path %></li>
+		<% end %>
+		<% if current_user.present? && current_user.admin == true %>
+			<li><%= link_to "Admin", admin_path %></li>
+		<% end %>
+		
+		<% if current_user.present? %>
+			<li>
+				<% if @my_recs.present? %>
+					<%= link_to "My Rec's", recs_path%></li>
+				<% end %>
+					<% if @approval_value.present? %>
+						<%= link_to "In-Box", inbox_path %>
+					<% else %>
+					
+					<% end %>
+			</li>
+	<% else %><% end %> 
+</ul>
+
 	<div id="top" class="clearfix">	
 		
-		<ul id="utility_nav" class="nav nav-pills pull-right">
-				<% if user_signed_in? %>
-				   <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-				<% else %>
-				    <li id="sign_up_in"><%= link_to "Sign up", new_user_registration_path %></li>
-					<li>or </li>
-					<li><%= link_to "Sign in", new_user_session_path %></li>
-				<% end %>
-				<% if current_user.present? && current_user.admin == true %>
-					<li><%= link_to "Admin", admin_path %></li>
-				<% end %>
-				
-				<% if current_user.present? %>
-					<li>
-						<% if @my_recs.present? %>
-							<%= link_to "My Rec's", recs_path%></li>
-						<% end %>
-					<li>
-							<% if @approval_value.present? %>
-								<%= link_to "In-Box", inbox_path %>
-							<% else %>
-							
-							<% end %>
-					</li>
-			<% else %><% end %> 
-		</ul>
+
 		<ul id="main_nav" class="nav nav-pills pull-left">
 			<li><%= link_to "Recommend Now!", location_path %></li>
 			<li><%= link_to "Overview & Timeline", overview_path%></li>
@@ -53,15 +54,11 @@
 			<li><%= link_to "Photos & Video", photo_video_path%></li>
 			<li id="last"><%= link_to "Questions", question_path %></li>
 		</ul>
-		<div class="pull-right current-user">
-		<% if user_signed_in? %>
-		   <small>Signed in as <%= current_user.email %></small>
-		<% end %>
-		</div>
+		
 	</div>
 
 	
-	<div id="limiter">
+	<div class="limiter">
 		<% if flash[:notice] %>
 		      <div id="notice alert alert-success"><%= flash[:notice] %></div>
 		    <% end %>

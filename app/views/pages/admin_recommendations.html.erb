@@ -1,26 +1,24 @@
-<h1>Listing recomendations</h1>
+<h3>Listing recomendations</h3>
 
 <p><%= link_to "Back to Admin", admin_path %></p>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Nominee</th>
     <th>Award</th>
     <th></th>
-    <th></th>
-	<th></th>
   </tr>
 
 <% @recommendations.each do |recommendation| %>
   <tr>
-    <td class="first"><%= recommendation.nominee %> |  </td>
+    <td class="first" id="<%= recommendation.id %>"><%= recommendation.nominee %> |  </td>
     <td class="second"><%= recommendation.award.name unless recommendation.award.nil?  %> </td>
-    <td><%= link_to 'View', category_award_recommendation_path(@category, recommendation.award.id, recommendation) %></td>
-    <td><%= link_to 'Edit', edit_category_award_recommendation_path(@category, recommendation.award.id, recommendation) %></td>
- <td><%= link_to 'Destroy', category_award_recommendation_path(@category, recommendation.award.id, recommendation), confirm: 'Are you sure?', method: :delete %></td>  </tr>
+    <td>
+	<%= link_to 'View', category_award_recommendation_path(@category, recommendation.award_id, recommendation), :class => "btn" %>
+	<%= link_to 'Edit', edit_category_award_recommendation_path(@category, recommendation.award_id, recommendation), :class => "btn" %>
+	<%= link_to 'Destroy', category_award_recommendation_path(@category, recommendation.award_id, recommendation), confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %></td>  </tr>
 <% end %>
 
 
 </table>
 
-<%#= link_to 'Export Recommendations to Excel', url_for(:format => 'xls'), export_recommendations_path %>
