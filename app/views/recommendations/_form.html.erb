@@ -65,8 +65,9 @@
 						associate
 				<% end %> 
 		
-		for the following award: <b><%= @award.name %></b>
-		<div><b>Award Description:</b> <%=  @award.info %></div>
+		for the following award: 
+			<h4><%= @award.name %></h4>
+		<div><%= @award.info.html_safe %></div>
 	
 		<%= f.hidden_field( :award_id, :value => @award.id ) %>
 
