@@ -113,8 +113,8 @@ class PagesController < ApplicationController
      @cat4 = Category.find(4)
      @page = Page.find_by_name("Awards")            
 
-     #@award15 = Award.find(15)
-     #@award16 = Award.find(16)
+     @award15 = Award.find(15)
+     @award16 = Award.find(16)
   end
   
   def admin

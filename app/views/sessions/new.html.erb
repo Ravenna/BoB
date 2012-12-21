@@ -2,42 +2,44 @@
 <div id="rec_bar_arrow" class="pos2"><%= image_tag 'recommend_nav.png'%></div>
 <%= render  'shared/recommend_timeline' %>
 
-<h1>You must be logged in to use this site.</h1>
+<h3>You must be logged in to use this site.</h3>
 
-<h2>Login and you will be directed to select the type of award you will be recommending for</h2>
+<h4>Login and you will be directed to select the type of award you will be recommending for</h4>
 <%= devise_error_messages! %>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email %>
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
+  <div><%= f.label :password %>
   <%= f.password_field :password %></div>
 
   
 
-  <div><%= f.submit "Sign in" %></div>
+  <div><%= f.submit "Sign in", :class => "btn" %></div>
 
 <p><%#= link_to 'Change my password', edit_password_url(@resource, :reset_password_token => @resource.reset_password_token) %></p>
 
 <% end %>
 
+<hr>
+
 <%= render :partial => "devise/shared/links" %>
 
 <% else %>
-<h2>Login and you will be directed to select the type of award you will be recommending for</h2>
+<h3>Login and you will be directed to select the type of award you will be recommending for</h3>
 <%= devise_error_messages! %>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email %>
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
+  <div><%= f.label :password %>
   <%= f.password_field :password %></div>
 
   
 
-  <div><%= f.submit "Sign in" %></div>
+  <div><%= f.submit "Sign in", :class => "btn" %></div>
 
 <p><%#= link_to 'Change my password', edit_password_url(@resource, :reset_password_token => @resource.reset_password_token) %></p>
 
