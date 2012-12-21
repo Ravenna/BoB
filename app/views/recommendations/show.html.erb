@@ -9,38 +9,34 @@
 <p><b>Summary:</b><br> <%= @recommendation.summary %></p>
 <p><b>Accomplishments:</b><br> <%= @recommendation.accomplishments %></p>
 <p><b>Supervisor:</b> <%= @recommendation.supervisor%></p>
-	<% if @recommendation.upload.file? %>
-	<p><b>Attachment 1:</b> <a href="<%= @recommendation.upload.url %>">File</a></p>
-	<% else %>
-	<p>No Attachment</p>
-	<% end %>
-	<% if @recommendation.upload2.file? %>
-	<p><b>Attachment 2:</b> <a href="<%= @recommendation.upload2.url %>">File</a></p>
-	<% else %>
 
-	<% end %>
-	<% if @recommendation.upload3.file? %>
-	<p><b>Attachment 3:</b> <a href="<%= @recommendation.upload3.url %>">File</a></p>
-	<% else %>
-
-<% end %>
+	<!-- View and delete asset attachments -->
+	<% @recommendation.assets.each do |asset| %>
+		<% unless asset.new_record? %>
+				<div id="asset_<%= asset.id %>">
+					<%= asset.asset_file_name %> | 
+					<%= link_to "Delete Attachment", destroy_asset_path(asset.id), :method => :delete, :confirm => "Are you sure?", :remote => true %>
+				</div>
+		<% end %>
+	<% end 	%>
 
 <p><b>Award:</b> <%= @recommendation.award.name  %></p>
 
 <p><b>Original Recommender:</b> <%= @rec_user.email  %></p>
 
-<p><b>Current Inbox Awaiting Approval:</b><% unless @approvals.blank?  %><%= @approvals.last.email %> <% end %></p>
+<p><b>Current Inbox Awaiting Approval:</b> <% unless @approvals.blank?  %><%= @approvals.last.email %> <% end %></p>
 
 <p>&nbsp;</p>
 
 <% if current_user.present? && current_user.admin == true %>
 		<h2>Approvals</h2>
-		<table cellspacing="5">
+		<table cellspacing="5" class="table table-striped">
 			<tr>
 				<th>Email</th>
 				<th>Approved |</th>
 				<th>Declined</th>
 				<th>SMT?</th>
+				<th>Created</th>
 				<th>Comments</th>
 			</tr>
 			<% @approvals.each do |approval|%>
@@ -61,7 +57,7 @@
 		</table>
 <% else %> <!-- User is not an Admin -->
 	<h2>Approval Comments</h2>
-	<table cellspacing="5">
+	<table cellspacing="5" class="table table-striped">
 		<tr>
 			<th>Email</th>
 			<th>Comments</th>
