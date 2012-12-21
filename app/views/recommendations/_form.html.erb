@@ -80,8 +80,9 @@
 				<% else %>
 					associate
 				<% end %>
-			for the following award: <b><%= @recommendation.award.name %></b>
-			<div><b>Award Description:</b> <%= @recommendation.award.info %></div>
+			for the following award: 
+				<h4><%= @recommendation.award.name %></h4>
+			<div><%= @recommendation.award.info %></div>
 			<%= f.hidden_field( :award_id ) %>
 		<% end %>
 		</div>
