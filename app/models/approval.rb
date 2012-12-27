@@ -6,12 +6,14 @@ class Approval < ActiveRecord::Base
        approval.errors[attribute] << "must be a valid eddiebauer.com e-mail address!" unless is_valid_email?(value)
      end
 
-protected
-     def is_valid_email?(address)
-       true
-     end
+    protected
+         def is_valid_email?(address)
+           true
+         end
 
-end # End Approver Validator
+   end # End Approver Validator
+   
+   
 attr_accessible :approval, :email, :user_id, :approved, :decline, :next_approver_email, :info, :upload
 attr_accessor :next_approver_email
 

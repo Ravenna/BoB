@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
    has_many :recommendations
    has_many :approvals # the approvals this user needs to approve or has approved
    before_create :skip_confirmation!
-   after_create :send_invitation, :if => :invite?
+   # after_create :send_invitation, :if => :invite?
 
    def self.generate_password(password)
      ::BCrypt::Password.create("#{password}#{self.pepper}", :cost => self.stretches).to_s
@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
    def invite?
      @needs_invite == true
    end
+  
    def update_with_password(params={}) 
      if params[:password].blank? 
        params.delete(:password) 
@@ -36,9 +37,7 @@ class User < ActiveRecord::Base
    end
 
    protected
-  
    
-
    def send_invitation
      User.find(self).send_confirmation_instructions
    end

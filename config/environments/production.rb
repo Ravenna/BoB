@@ -69,4 +69,9 @@ Bob::Application.configure do
      :authentication       => :plain,
      :enable_starttls_auto => true  }
      
+   config.middleware.use ExceptionNotifier,
+     :email_prefix => "[BoB Error Report] ",
+     :sender_address => %{"BoB" <bestofbauer@bestofbauer.com>},
+     :exception_recipients => %w{errors@ravennainteractive.com}
+
 end

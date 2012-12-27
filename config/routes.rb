@@ -2,26 +2,21 @@ Bob::Application.routes.draw do
 
   resources :videos
   resources :emails
-#  resources :questions
-  match 'question' => "questions#create", :via => :post
   
   resources :awards 
   resources :recommendations 
+  resources :approvals 
+  resources :pages
+  resources :accounts, :as => :user
+ 
   resources :categories do
     resources :awards do
         resources :recommendations 
     end
   end 
-  
-  match "asset/:id", :to => "assets#destroy_asset", :as=> "destroy_asset"
-  
-  
-  
-  
-  resources :accounts, :as => :user
+
   devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions"}
   
-  resources :pages
   match 'home' => 'pages#home', :as => :home
   match 'overview-timeline' => 'pages#overview', :as => :overview
   match 'prizes' => 'pages#prizes', :as => :prizes
@@ -29,7 +24,6 @@ Bob::Application.routes.draw do
   match 'admin' => 'pages#admin', :as => :admin
   match 'accounts-list' => 'pages#users_list', :as => :accounts_list
   match 'location' => 'categories#index', :as => :location
-  
   match 'admin-awards' => 'pages#admin_awards', :as => :admin_awards
   match 'admin-recommendations' => 'pages#admin_recommendations', :as => :admin_recommendations
   match 'export' => 'pages#export', :as => :export_recommendations
@@ -38,8 +32,9 @@ Bob::Application.routes.draw do
   match 'thank-you' => 'pages#thankyou', :as => :thankyou
   match 'my-recommendations' => 'pages#recs', :as => :recs
   match 'photos-video' => 'pages#photos_video', :as => :photo_video
-  
-  resources :approvals 
   match 'toggle_decline' => 'approvals#toggle_decline'
+  match "asset/:id", :to => "assets#destroy_asset", :as=> "destroy_asset"
+  match 'question' => "questions#create", :via => :post
+  
   root :to => 'pages#home'
 end

@@ -19,7 +19,7 @@ gem 'simple_form'
 # Additions Nov 2012
 gem 'ckeditor_rails', :require => 'ckeditor-rails'
 gem 'therubyracer'
-
+gem 'exception_notification', git: 'git://github.com/alanjds/exception_notification.git'
 # gem 'taps' this makes me able to pull the db from Heroku
 
 
