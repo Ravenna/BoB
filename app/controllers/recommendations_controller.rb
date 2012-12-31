@@ -35,7 +35,7 @@ class RecommendationsController < ApplicationController
     @award = Award.find(params[:award_id])
     @category = Category.find(params[:category_id])
     @recommendation = Recommendation.new
-    3.times {@recommendation.assets.build}
+    5.times {@recommendation.assets.build}
     
     @recommendation.approvals.build
     respond_to do |format|
@@ -52,9 +52,9 @@ class RecommendationsController < ApplicationController
     @category = Category.find(params[:category_id])
     @assets = @recommendation.assets.all
     if @assets.empty?
-      3.times {@recommendation.assets.build}
+      5.times {@recommendation.assets.build}
     else
-      asset_loop = 3 - @assets.count  
+      asset_loop = 5 - @assets.count  
       asset_loop.times {@recommendation.assets.build}
     end   
   end

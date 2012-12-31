@@ -3,7 +3,7 @@
 <% if @approvals.present? %>
 	<h2>Please review each approval listed</h2>
 	<% @approvals.each do |approval|%>
-		<h3>> <%= link_to approval.recommendation.nominee, approval %></h3>
+		<%= link_to approval.recommendation.nominee, approval, :class => 'btn' %>
 	<% end %>
 <% else %>
 	No Recommendations need your approval!
