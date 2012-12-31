@@ -6,9 +6,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require ckeditor-jquery
 //= require jquery-ui
-//= require twitter/bootstrap
 //= require_tree .
 
 

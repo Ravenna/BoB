@@ -1,3 +1,6 @@
+body{padding-top:0px;}
+
+.alert{width:80%;}
 .container{
 	border-left:1px solid #bbb; 
 	border-right:1px solid #bbb; 

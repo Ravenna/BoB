@@ -60,10 +60,16 @@
 	
 	<div class="limiter">
 		<% if flash[:notice] %>
-		      <div id="notice alert alert-success"><%= flash[:notice] %></div>
+		      <div class="alert alert-success">
+					<button class="close" type="button" data-dismiss="alert">&times;</button>
+					<%= flash[:notice] %>
+				</div>
 		    <% end %>
 		    <% if flash[:error] %>
-		      <div id="error alert alert-error"><%= flash[:error] %></div>
+		      <div class="alert alert-error">
+				<button class="close" type="button" data-dismiss="alert">&times;</button>
+				<%= flash[:error] %>
+			</div>
 		    <% end %>
 		
 		<div id="page_body">

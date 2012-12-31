@@ -2,10 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
 
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
-
 gem 'pg'
 gem "friendly_id", "~> 4.0.0.beta14"
 gem 'devise', '1.4.5'
@@ -34,8 +30,8 @@ group :assets do
   
 end
 
-gem 'less-rails-bootstrap'
-
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 
 gem 'jquery-rails'
 
