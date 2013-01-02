@@ -17,6 +17,8 @@ class Approval < ActiveRecord::Base
 attr_accessible :approval, :email, :user_id, :approved, :decline, :next_approver_email, :info, :upload
 attr_accessor :next_approver_email
 
+has_attached_file :upload
+
 #ASSOCIATIONS
 belongs_to :user
 belongs_to :recommendation

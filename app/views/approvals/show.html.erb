@@ -26,7 +26,11 @@
 <h4>To date the following associates have approved this recommendation:</h4>
 <ul>
 	<% @approval.recommendation.approvals.each do |approval| %>
-		<li><%= approval.email %>  - <b>Submitted on:</b> <%= approval.created_at.strftime("%d %b. %Y")%></li>
+		<li><%= approval.email %>  - <b>Submitted on:</b> <%= approval.created_at.strftime("%d %b. %Y")%> 
+			<% if approval.upload.exists?%>
+				- <%= link_to "Attachment", approval.upload.url %>
+			<% end %>
+		</li>
 	<% end %>
 </ul>
 
