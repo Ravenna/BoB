@@ -3,55 +3,43 @@
 <h3>You have been asked to review the following recommendation!</h3>
 
 <%= form_for :approval, :url => { :action => "update" }, :method => :put, :html => { :multipart => true } do |f| %>
-  <% if @approval.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@approval.errors.count, "error") %> prohibited this approval from being saved:</h2>
-      <ul>
-      <% @approval.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<p><b>Associate:</b> <%= @approval.recommendation.nominee %></p>
-<p><b>Award:</b> <%= @approval.recommendation.award.name %></p>
-<p><b>Job Title:</b> <%= @approval.recommendation.title %></p>
-<p><b>Department:</b> <%= @approval.recommendation.department %></p>	
-<div><b>Summary:</b><br> <%= @approval.recommendation.summary %></div>
-<div><b>Accomplishments:</b><br> <%= @approval.recommendation.accomplishments %></div>
-
-<hr>
-
-<h4>To date the following associates have approved this recommendation:</h4>
-<ul>
-	<% @approval.recommendation.approvals.each do |approval| %>
-		<li><%= approval.email %>  - <b>Submitted on:</b> <%= approval.created_at.strftime("%d %b. %Y")%> 
-			<% if approval.upload.exists?%>
-				- <%= link_to "Attachment", approval.upload.url %>
-			<% end %>
-		</li>
+  	 <% if @approval.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@approval.errors.count, "error") %> prohibited this approval from being saved:</h2>
+	      <ul>
+	      <% @approval.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
 	<% end %>
-</ul>
 
-<hr>
+	<p><b>Associate:</b> <%= @approval.recommendation.nominee %></p>
+	<p><b>Award:</b> <%= @approval.recommendation.award.name %></p>
+	<p><b>Job Title:</b> <%= @approval.recommendation.title %></p>
+	<p><b>Department:</b> <%= @approval.recommendation.department %></p>	
+	<div><b>Summary:</b><br> <%= @approval.recommendation.summary %></div>
+	<div><b>Accomplishments:</b><br> <%= @approval.recommendation.accomplishments %></div>
 
-	<script type="text/javascript">
-	$(document).ready(function() {
-	    $('#next_approver_email_field').hide();
+	<hr>
 
-	    $('#approval_checked').change(function() {
-	        $('#next_approver_email_field').show();
-	    });
-	
-		$('#approval_denied').change(function() {
-	        $('#next_approver_email_field').hide();
-	    });
-	});
-	</script>
+	<h4>To date the following associates have approved this recommendation:</h4>
+	<ul>
+		<% @approval.recommendation.approvals.each do |approval| %>
+			<li><%= approval.email %>  - <b>Submitted on:</b> <%= approval.created_at.strftime("%d %b. %Y")%> 
+				<% if approval.upload.exists?%>
+					- <%= link_to "Attachment", approval.upload.url %>
+				<% end %>
+			</li>
+		<% end %>
+	</ul>
+
+	<hr>
+
+
 
 	<div class="field approve">
-		<h4>Approve?</h4>
+		<h4>This recommendation is awaiting your response to approve or decline.</h4>
 		<%= f.radio_button( :approved, "1", :id => "approval_checked") %> Approve<br>
 		<%= f.radio_button( :approved, "0", :id => "approval_denied") %> Decline
 	</div>
@@ -69,7 +57,6 @@
 	
 	<div class="field">
 		Attachment<br>
-		
 			<div class="fileupload fileupload-new" data-provides="fileupload">
 				<div class="input-append">
 			    	<div class="uneditable-input span3">
@@ -83,8 +70,6 @@
 						</span>
 			    </div>
 	       </div>
-		
-		
 	</div>
 	
 	<div class="field">
@@ -96,4 +81,19 @@
 	    <%= f.submit "Submit" %>  
     </div>
 	<% end %>
+	
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#next_approver_email_field').hide();
+
+		    $('#approval_checked').change(function() {
+		        $('#next_approver_email_field').show();
+		    });
+	
+			$('#approval_denied').change(function() {
+		        $('#next_approver_email_field').hide();
+		    });
+		});
+	</script>
 </div>
