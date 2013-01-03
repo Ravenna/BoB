@@ -32,7 +32,7 @@
 		<% if current_user.present? %>
 			<li>
 				<% if @my_recs.present? %>
-					<%= link_to "My Rec's", recs_path%></li>
+					<%= link_to "My Rec's", recs_path%>
 				<% end %>
 					<% if @approval_value.present? %>
 						<%= link_to "In-Box", inbox_path %>
