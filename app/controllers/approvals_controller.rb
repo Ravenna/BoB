@@ -17,6 +17,11 @@ class ApprovalsController < ApplicationController
   # GET /approvals/1.json
   def show
     @approval = Approval.find(params[:id])
+    @recommendation = @approval.recommendation
+    @approvals = @recommendation.approvals.find(:all, :order => "created_at ASC")
+    @rec_user = User.find(@recommendation.user_id)
+    
+    
 
     
     respond_to do |format|

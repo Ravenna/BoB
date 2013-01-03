@@ -20,19 +20,47 @@
 	<p><b>Department:</b> <%= @approval.recommendation.department %></p>	
 	<div><b>Summary:</b><br> <%= @approval.recommendation.summary %></div>
 	<div><b>Accomplishments:</b><br> <%= @approval.recommendation.accomplishments %></div>
+	<div><b>Original Recommender:</b> <%= @rec_user.email  %></div>
+	
 
 	<hr>
 
 	<h4>To date the following associates have approved this recommendation:</h4>
-	<ul>
-		<% @approval.recommendation.approvals.each do |approval| %>
-			<li><%= approval.email %>  - <b>Submitted on:</b> <%= approval.created_at.strftime("%d %b. %Y")%> 
-				<% if approval.upload.exists?%>
-					- <%= link_to "Attachment", approval.upload.url %>
+	
+	
+		<table cellspacing="5" class="table table-striped">
+			<tr>
+				<th>Email</th>
+				<th>Approved</th>
+				<th>Declined</th>
+				<th>SMT?</th>
+				<th>Created</th>
+				<th>Attachment</th>
+				<th>Comments</th>
+			</tr>
+			<% @approvals.each do |approval|%>
+			<tr>
+				<td class="first"><%= approval.email %></td>
+				<% if approval.approved == true %>
+					<td>&radic;</td>
+					<td></td>
+				<% else %>
+				 	<td></td>
+					<td>&radic;</td>
 				<% end %>
-			</li>
-		<% end %>
-	</ul>
+				<td><%= approval.recommendation.user.smt %></td>
+				<td><%= approval.created_at.strftime("%d %b. %Y") %></td>
+				<td>
+						<% if approval.upload.exists?%>
+						 <%= link_to image_tag("document.png"), approval.upload.url %>
+						<% end %>
+					
+				</td>
+				<td><%= approval.info %></td>	
+			</tr>
+			<% end %>
+		</table>
+
 
 	<hr>
 
@@ -76,7 +104,9 @@
 		Notes/Comments<br>
 		<%= f.text_area :info %> 
 	</div>
-	
+	<div class="field">
+		#SOME NOTE
+	</div>
     <div class="actions">
 	    <%= f.submit "Submit" %>  
     </div>

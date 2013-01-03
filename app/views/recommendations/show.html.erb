@@ -33,10 +33,11 @@
 		<table cellspacing="5" class="table table-striped">
 			<tr>
 				<th>Email</th>
-				<th>Approved |</th>
+				<th>Approved</th>
 				<th>Declined</th>
 				<th>SMT?</th>
 				<th>Created</th>
+				<th>Attachment</th>
 				<th>Comments</th>
 			</tr>
 			<% @approvals.each do |approval|%>
@@ -51,6 +52,11 @@
 				<% end %>
 				<td><%= approval.recommendation.user.smt %></td>
 				<td><%= approval.created_at %></td>
+				<td>
+						<% if approval.upload.exists?%>
+						 <%= link_to image_tag("document.png"), approval.upload.url %>
+						<% end %>
+				</td>
 				<td><%= approval.info %></td>	
 			</tr>
 			<% end %>
