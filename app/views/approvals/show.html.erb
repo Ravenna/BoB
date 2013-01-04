@@ -20,7 +20,8 @@
 	<p><b>Department:</b> <%= @approval.recommendation.department %></p>	
 	<div><b>Summary:</b><br> <%= @approval.recommendation.summary %></div>
 	<div><b>Accomplishments:</b><br> <%= @approval.recommendation.accomplishments %></div>
-	<div>Attachments<br>
+	<p>&nbsp;</p>
+	<div><b>Attachments</b><br>
 	<!-- View and delete asset attachments -->
 	<% @recommendation.assets.each do |asset| %>
 		<% unless asset.new_record? %>
@@ -31,6 +32,7 @@
 		<% end %>
 	<% end 	%>
 	</div>
+	<p>&nbsp;</p>
 	
 	<div><b>Original Recommender:</b> <%= @rec_user.email  %></div>
 	
@@ -119,6 +121,7 @@
 	</div>
 	<div class="field">
 		<i>Please select “submit” ONLY after you have finished entering all of your comments and attached any optional documentation you’d like to include with your approval.  Not finished yet?  Simply close this window, and come back at a later time to complete your approval.  Thank you.</i>
+		<p>&nbsp;</p>
 	</div>
     <div class="actions">
 	    <%= f.submit "Submit" %>  
