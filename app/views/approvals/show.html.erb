@@ -20,7 +20,6 @@
 	<p><b>Department:</b> <%= @approval.recommendation.department %></p>	
 	<div><b>Summary:</b><br> <%= @approval.recommendation.summary %></div>
 	<div><b>Accomplishments:</b><br> <%= @approval.recommendation.accomplishments %></div>
-	<p>&nbsp;</p>
 	<div><b>Attachments</b><br>
 	<!-- View and delete asset attachments -->
 	<% @recommendation.assets.each do |asset| %>
@@ -32,7 +31,6 @@
 		<% end %>
 	<% end 	%>
 	</div>
-	<p>&nbsp;</p>
 	
 	<div><b>Original Recommender:</b> <%= @rec_user.email  %></div>
 	
