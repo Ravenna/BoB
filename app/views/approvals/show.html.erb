@@ -20,12 +20,24 @@
 	<p><b>Department:</b> <%= @approval.recommendation.department %></p>	
 	<div><b>Summary:</b><br> <%= @approval.recommendation.summary %></div>
 	<div><b>Accomplishments:</b><br> <%= @approval.recommendation.accomplishments %></div>
+	<div>Attachments<br>
+	<!-- View and delete asset attachments -->
+	<% @recommendation.assets.each do |asset| %>
+		<% unless asset.new_record? %>
+				<div id="asset_<%= asset.id %>">
+					<%= asset.asset_file_name %> | 
+					<%= link_to "Delete Attachment", destroy_asset_path(asset.id), :method => :delete, :confirm => "Are you sure?", :remote => true %>
+				</div>
+		<% end %>
+	<% end 	%>
+	</div>
+	
 	<div><b>Original Recommender:</b> <%= @rec_user.email  %></div>
 	
 
 	<hr>
 
-	<h4>To date the following associates have approved this recommendation:</h4>
+	<h4>To date the following associates have been asked to approve recommendation:</h4>
 	
 	
 		<table cellspacing="5" class="table table-striped">
@@ -33,7 +45,6 @@
 				<th>Email</th>
 				<th>Approved</th>
 				<th>Declined</th>
-				<th>SMT?</th>
 				<th>Created</th>
 				<th>Attachment</th>
 				<th>Comments</th>
@@ -44,11 +55,13 @@
 				<% if approval.approved == true %>
 					<td>&radic;</td>
 					<td></td>
-				<% else %>
+				<% elsif approval.approved == false %>
 				 	<td></td>
 					<td>&radic;</td>
+				<% else %>
+					<td></td>
+					<td></td>
 				<% end %>
-				<td><%= approval.recommendation.user.smt %></td>
 				<td><%= approval.created_at.strftime("%d %b. %Y") %></td>
 				<td>
 						<% if approval.upload.exists?%>

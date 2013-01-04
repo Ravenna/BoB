@@ -92,7 +92,8 @@ class ApplicationController < ActionController::Base
      ExceptionNotifier::Notifier
        .exception_notification(request.env, exception)
        .deliver
-     render :status => 500
+     #render :status => 500
+     redirect_to root_path, notice: 'The Page you were looking for does not exist.'
    end
   
 end
