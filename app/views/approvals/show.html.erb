@@ -25,8 +25,8 @@
 	<% @recommendation.assets.each do |asset| %>
 		<% unless asset.new_record? %>
 				<div id="asset_<%= asset.id %>">
-					<%= asset.asset_file_name %> | 
-					<%= link_to "Delete Attachment", destroy_asset_path(asset.id), :method => :delete, :confirm => "Are you sure?", :remote => true %>
+					<%= link_to asset.asset_file_name, asset.url %> | 
+					<%#= link_to "Delete Attachment", destroy_asset_path(asset.id), :method => :delete, :confirm => "Are you sure?", :remote => true %>
 				</div>
 		<% end %>
 	<% end 	%>
