@@ -1,7 +1,7 @@
 <%= form_for [@category, @award, @recommendation],  :html => { :multipart => true}  do |f| %>
   <% if @recommendation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@recommendation.errors.count, "error") %> prohibited this recommendation from being saved:</h2>
+    <div id="error_explanation" class="alert alert-error alert-block">
+      <h4><%= pluralize(@recommendation.errors.count, "error") %> prohibited this recommendation from being saved:</h4>
 
       <ul>
       <% @recommendation.errors.full_messages.each do |msg| %>
@@ -183,7 +183,7 @@
 <hr>
 
   <div class="actions">
-	<p>You can come back to this Recommendation at any time before you submit a supervisor's email address.  Simply hit save and the Recommendation will appear under My Recs</p>
+	<p>You can come back to this Recommendation at any time before you submit a supervisor's email address.  Simply click the save/submit button and the Recommendation will be saved under "My Recs"</p>
     <%= f.submit "Save/Submit" %>
   </div>
 <% end %>

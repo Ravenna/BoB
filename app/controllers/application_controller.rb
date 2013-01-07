@@ -85,7 +85,7 @@ class ApplicationController < ActionController::Base
   
   protected
   def render_not_found(exception)
-     render :status => 404
+     render :status => 404, error: 'There was an error on the Page you were trying to access. The site administrator has been notified.'
    end
 
    def render_error(exception)
@@ -93,7 +93,7 @@ class ApplicationController < ActionController::Base
        .exception_notification(request.env, exception)
        .deliver
      #render :status => 500
-     redirect_to root_path, notice: 'The Page you were looking for does not exist.'
+     redirect_to root_path, error: 'The Page you were looking for does not exist.'
    end
   
 end

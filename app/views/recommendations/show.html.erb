@@ -42,7 +42,7 @@
 			</tr>
 			<% @approvals.each do |approval|%>
 			<tr>
-				<td class="first"><%= approval.email %></td>
+				<td class="first" id="<%= approval.id %>"><%= approval.email %></td>
 				<% if approval.approved == true %>
 					<td>&radic;</td>
 					<td></td>

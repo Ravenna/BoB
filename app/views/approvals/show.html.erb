@@ -4,8 +4,8 @@
 
 <%= form_for :approval, :url => { :action => "update" }, :method => :put, :html => { :multipart => true } do |f| %>
   	 <% if @approval.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@approval.errors.count, "error") %> prohibited this approval from being saved:</h2>
+	    <div id="error_explanation" clas="alert alert-error alert-block">
+	      <h4><%= pluralize(@approval.errors.count, "error") %> prohibited this approval from being saved:</h4>
 	      <ul>
 	      <% @approval.errors.full_messages.each do |msg| %>
 	        <li><%= msg %></li>
@@ -25,8 +25,7 @@
 	<% @recommendation.assets.each do |asset| %>
 		<% unless asset.new_record? %>
 				<div id="asset_<%= asset.id %>">
-					<%= link_to asset.asset_file_name, asset.url %> | 
-					<%#= link_to "Delete Attachment", destroy_asset_path(asset.id), :method => :delete, :confirm => "Are you sure?", :remote => true %>
+					<%= link_to asset.asset_file_name, asset.asset.url %> 
 				</div>
 		<% end %>
 	<% end 	%>
@@ -122,7 +121,7 @@
 		<p>&nbsp;</p>
 	</div>
     <div class="actions">
-	    <%= f.submit "Submit" %>  
+	    <%= f.submit "Submit", :id => "approval-submit", :disabled => "disabled" %>  
     </div>
 	<% end %>
 	
@@ -132,12 +131,23 @@
 		    $('#next_approver_email_field').hide();
 
 		    $('#approval_checked').change(function() {
-		        $('#next_approver_email_field').show();
-		    });
-	
-			$('#approval_denied').change(function() {
-		        $('#next_approver_email_field').hide();
-		    });
+		        $('#next_approver_email_field').toggle();
+		    });	
 		});
 	</script>
+	
+	<% unless current_user.smt == true %>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('input#approval_next_approver_email').keyup(function() {
+			        if ($(this).val() !== "") {
+			            $('.actions input').removeAttr('disabled');
+			        } else {
+			            $('.actions input').attr('disabled', 'true');
+			        }
+			    });
+		});
+	</script>
+		
+	<% end %>
 </div>

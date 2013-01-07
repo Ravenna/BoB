@@ -17,16 +17,12 @@ class ApprovalsController < ApplicationController
   # GET /approvals/1.json
   def show
     @approval = Approval.find(params[:id])
-    @recommendation = @approval.recommendation
+    @recommendation = Recommendation.find(@approval.recommendation_id)
     @approvals = @recommendation.approvals.find(:all, :order => "created_at ASC")
     @rec_user = User.find(@recommendation.user_id)
-    
-    
 
-    
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @approval }
     end
   end
 
@@ -54,10 +50,8 @@ class ApprovalsController < ApplicationController
     respond_to do |format|
       if @approval.save
         format.html { redirect_to @approval, notice: 'Approval was successfully created.' }
-        format.json { render json: @approval, status: :created, location: @approval }
       else
         format.html { render action: "show" }
-        format.json { render json: @approval.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -70,10 +64,8 @@ class ApprovalsController < ApplicationController
     respond_to do |format|
       if @approval.update_attributes(params[:approval])
         format.html { redirect_to root_path, notice: 'Thanks for Approving/Declining the Recommendation' }
-        format.json { head :ok }
       else
         format.html { render action: "show" }
-        format.json { render json: @approval.errors, status: :unprocessable_entity }
       end
     end
   end

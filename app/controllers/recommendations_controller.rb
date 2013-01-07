@@ -64,14 +64,15 @@ class RecommendationsController < ApplicationController
   def create
     @recommendation = Recommendation.new(params[:recommendation])
     @recommendation.user_id = current_user.id
-
-
     respond_to do |format|
       if @recommendation.save
         format.html { redirect_to thankyou_path, notice: 'Recommendation was successfully created.' }
       else
-        format.html { render action: "new"  }
-        format.json { render json: @recommendation.errors, status: :unprocessable_entity }
+          format.html{
+            6.times {@recommendation.assets.build} if @recommendation.assets.blank?
+            render action: "new"
+          }
+        
         
       end
     end
@@ -85,10 +86,8 @@ class RecommendationsController < ApplicationController
     respond_to do |format|
       if @recommendation.update_attributes(params[:recommendation])
         format.html { redirect_to recs_path, notice: 'Recommendation was successfully updated.' }
-        format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @recommendation.errors, status: :unprocessable_entity }
       end
     end
   end
