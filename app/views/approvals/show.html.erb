@@ -2,17 +2,7 @@
 
 <h3>You have been asked to review the following recommendation!</h3>
 
-<%= form_for :approval, :url => { :action => "update" }, :method => :put, :html => { :multipart => true } do |f| %>
-  	 <% if @approval.errors.any? %>
-	    <div id="error_explanation" clas="alert alert-error alert-block">
-	      <h4><%= pluralize(@approval.errors.count, "error") %> prohibited this approval from being saved:</h4>
-	      <ul>
-	      <% @approval.errors.full_messages.each do |msg| %>
-	        <li><%= msg %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	<% end %>
+
 
 	<p><b>Associate:</b> <%= @approval.recommendation.nominee %></p>
 	<p><b>Award:</b> <%= @approval.recommendation.award.name %></p>
@@ -78,7 +68,17 @@
 
 
 	<hr>
-
+	<%= form_for :approval, :url => { :action => "update" }, :method => :put, :html => { :multipart => true } do |f| %>
+	  	 <% if @approval.errors.any? %>
+		    <div id="error_explanation" clas="alert alert-error alert-block">
+		      <h4><%= pluralize(@approval.errors.count, "error") %> prohibited this approval from being saved:</h4>
+		      <ul>
+		      <% @approval.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		<% end %>
 
 
 	<div class="field approve">
