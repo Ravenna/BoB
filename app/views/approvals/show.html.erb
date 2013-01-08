@@ -143,12 +143,16 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('input#approval_next_approver_email').keyup(function() {
-			        if ($(this).val() !== "") {
-			            $('.actions input').removeAttr('disabled');
-			        } else {
-			            $('.actions input').attr('disabled', 'true');
-			        }
-			    });
+			    if ($(this).val() !== "") {
+		            $('.actions input').removeAttr('disabled');
+				} else {
+		            $('.actions input').attr('disabled', 'true');
+		        }
+			 });
+			
+			$("#approval_denied").change(function() {
+				$('.actions input').removeAttr('disabled');
+			});
 		});
 	</script>
 		
