@@ -48,13 +48,16 @@
 			<% @approvals.each do |approval|%>
 			<tr>
 				<td class="first" id="<%= approval.id %>"><%= approval.email %></td>
-				<% if approval.approved == true %>
-					<td>&radic;</td>
-					<td></td>
-				<% else %>
-				 	<td></td>
-					<td>&radic;</td>
-				<% end %>
+					<% if approval.approved == true %>
+						<td>&radic;</td>
+						<td></td>
+					<% elsif approval.approved == false %>
+					 	<td></td>
+						<td>&radic;</td>
+					<% else %>
+						<td></td>
+						<td></td>
+					<% end %>
 				<td><%= approval.recommendation.user.smt %></td>
 				<td><%= approval.created_at %></td>
 				<td>
