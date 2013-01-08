@@ -133,8 +133,8 @@
 		<% @recommendation.assets.each do |asset| %>
 			<% unless asset.new_record? %>
 					<div id="asset_<%= asset.id %>">
-						<%= asset.asset_file_name %> | 
-						<%= link_to "Delete Attachment", destroy_asset_path(asset.id), :method => :delete, :confirm => "Are you sure?", :remote => true %>
+						<%= asset.asset_file_name %> 
+						<%= link_to "Delete", destroy_asset_path(asset.id), :method => :delete, :confirm => "Are you sure?", :remote => true, :class => "btn btn-danger btn-small" %>
 					</div>
 			<% end %>
 		<% end 	%>
@@ -171,11 +171,10 @@
   		<div class="field">
 			<p id="not_super">Nominees Supervisors' Email: </p>
 			<p id="super">Enter Your Supervisor's Email</p>
-			<ul>
+			
 				<%= f.fields_for :approvals do |f| %>
-					<li><%= f.text_field :email %></li>
+					<p><%= f.text_field :email %></p>
 				<% end %>
-			</ul>
 			<br>If no Supervisor email is provided, recommendation will be saved without moving up the chain of approval.<br><br>
 		</div>
 </fieldset>

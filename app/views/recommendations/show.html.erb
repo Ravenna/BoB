@@ -10,15 +10,20 @@
 <p><b>Accomplishments:</b><br> <%= @recommendation.accomplishments %></p>
 <p><b>Supervisor:</b> <%= @recommendation.supervisor%></p>
 
+<p><b>Attachments</b></p>
+<ul class="asset-list">	
 	<!-- View and delete asset attachments -->
-	<% @recommendation.assets.each do |asset| %>
-		<% unless asset.new_record? %>
-				<div id="asset_<%= asset.id %>">
-					<%= asset.asset_file_name %> | 
-					<%= link_to "Delete Attachment", destroy_asset_path(asset.id), :method => :delete, :confirm => "Are you sure?", :remote => true %>
-				</div>
-		<% end %>
-	<% end 	%>
+	<% if @recommendation.assets %>
+		<% @recommendation.assets.each do |asset| %>
+			<li id="asset_<%= asset.id %>">
+				<%= link_to asset.asset_file_name, asset.asset.url %>  
+				<%= link_to "Delete", destroy_asset_path(asset.id), :method => :delete, :confirm => "Are you sure?", :remote => true, :class => "btn btn-danger btn-small" %>
+			</li>
+		<% end 	%>
+	<% else %>
+		<li>No attachments were added to this recommendation!</li>
+	<% end %>
+</ul>
 
 <p><b>Award:</b> <%= @recommendation.award.name  %></p>
 

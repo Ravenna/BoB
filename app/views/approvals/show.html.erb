@@ -17,21 +17,24 @@
 	<p><b>Associate:</b> <%= @approval.recommendation.nominee %></p>
 	<p><b>Award:</b> <%= @approval.recommendation.award.name %></p>
 	<p><b>Job Title:</b> <%= @approval.recommendation.title %></p>
-	<p><b>Department:</b> <%= @approval.recommendation.department %></p>	
+	<p><b>Department:</b> <%= @approval.recommendation.department %></p>
+	<div class="field"><b>Original Recommender:</b> <%= @rec_user.email  %></div>	
 	<div><b>Summary:</b><br> <%= @approval.recommendation.summary %></div>
 	<div><b>Accomplishments:</b><br> <%= @approval.recommendation.accomplishments %></div>
-	<div><b>Attachments</b><br>
+	<p><b>Attachments</b><p>
 	<!-- View and delete asset attachments -->
-	<% @recommendation.assets.each do |asset| %>
-		<% unless asset.new_record? %>
-				<div id="asset_<%= asset.id %>">
-					<%= link_to asset.asset_file_name, asset.asset.url %> 
-				</div>
-		<% end %>
-	<% end 	%>
-	</div>
+	<ul class="asset-list">
+	<% if @recommendation.assets %>	
+		<% @recommendation.assets.each do |asset| %>
+			<li id="asset_<%= asset.id %>">
+				<%= link_to asset.asset_file_name, asset.asset.url %> 
+			</li>		
+		<% end 	%>
+	<% else %>
+		<li>No attachments were added to this recommendation!</li>
+	<% end %>
+	</ul>
 	
-	<div><b>Original Recommender:</b> <%= @rec_user.email  %></div>
 	
 
 	<hr>

@@ -70,6 +70,7 @@ class RecommendationsController < ApplicationController
       else
           format.html{
             6.times {@recommendation.assets.build} if @recommendation.assets.blank?
+            @recommendation.approvals.build
             render action: "new"
           }
         
