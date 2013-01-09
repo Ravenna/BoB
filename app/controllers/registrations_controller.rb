@@ -22,6 +22,16 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
   
+  def destroy
+     @user  = User.find(params[:id]).destroy
+     respond_to do |format|
+       format.html { 
+          redirect_to accounts_list_path, notice: 'User was successfully deleted' 
+        }
+    end
+     
+  end
+  
   protected
       def after_update_path_for(resource)
         user_path(resource)
