@@ -44,3 +44,5 @@ fieldset{margin-bottom:30px;}
 .field{padding-bottom:10px;}
 
 .asset-list li{padding-bottom:5px;}
+
+td.user-list-edit form, td.user-list-edit form div{display:inline-block; margin-bottom:0px;}

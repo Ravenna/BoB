@@ -18,7 +18,7 @@
 			<td class="email"><%= user.email %></td>
 			<td class="admin"><%= user.admin %></yd>
 			<td class="smt"><%= user.smt %></yd>
-			<td class="edit">
+			<td class="edit user-list-edit">
 				<%= link_to "Edit", edit_user_path(user), :class => "btn" %>
 				<%= button_to "Delete", { :controller => "registrations", :action => "destroy", :id => user.id }, :method => 'delete', :confirm => "Are you sure?", :class => "btn btn-danger" %> 
 			</td>
