@@ -138,7 +138,7 @@ class PagesController < ApplicationController
   end
   
   def admin_recommendations    
-    @recommendations = Recommendation.all
+    @recommendations = Recommendation.order("nominee ASC")
     @category = Category.find(1)
     
   end 

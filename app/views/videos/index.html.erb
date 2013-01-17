@@ -1,6 +1,6 @@
 <h1>Listing videos</h1>
 
-<p><%= link_to "Back to Admin", admin_path %></p>
+<p><%= link_to "Back to Admin", admin_path, :class => "btn" %></p>
 
 <table>
   <tr>
@@ -16,12 +16,12 @@
     <td class="first"><%= video.name %></td>
    
  
-    <td><%= link_to 'Edit', edit_video_path(video) %></td>
-    <td><%= link_to 'Destroy', video, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Edit', edit_video_path(video), :class => "btn" %></td>
+    <td><%= link_to 'Destroy', video, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<h3><%= link_to 'New Video', new_video_path %></h3>
+<h3><%= link_to 'New Video', new_video_path, :class => "btn" %></h3>

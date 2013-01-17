@@ -3,11 +3,12 @@ body{
 	background:#000 url(eb-bg.jpg) no-repeat top center;
 }
 
-a{color:#3f4519 !important;}
+a{color:#3f4519;}
 a:hover{
 	text-decoration:underline;
-	color:#3f4519 !important;
+	color:#3f4519;
 }
+
 .logo{padding:30px 0 0 0;}
 
 #top{
@@ -26,7 +27,13 @@ a:hover{
 	background-color:#3f4519;
 }
 
-.alert{width:100%;}
+.alert{width:85%;}
+.alert-success{
+	border-color:#3f4519;
+	color:#3f4519;
+	background-color:#ccc;
+}
+
 .container{
 	position:relative;
 }
@@ -79,3 +86,14 @@ fieldset{margin-bottom:30px;}
 .asset-list li{padding-bottom:5px;}
 
 td.user-list-edit form, td.user-list-edit form div{display:inline-block; margin-bottom:0px;}
+
+.vid-list a{
+	display:block;
+	float:left;
+	width:300px;
+	height:200px;
+	padding:10px;
+}
+
+.home #page_body {text-align:center;}
+.home .limiter{background-color:#999;}
