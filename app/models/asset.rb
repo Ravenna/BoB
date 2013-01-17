@@ -8,8 +8,8 @@ class Asset < ActiveRecord::Base
        :fog_public       => true,
        :fog_credentials  => {
          :provider           => 'Rackspace',
-         :rackspace_username => 'eddiebauer',
-         :rackspace_api_key  => ' f50bcf8a4533d44b5af848dd99d7e3d8'
+         :rackspace_username => ENV['RACK_USER'],
+         :rackspace_api_key  => ENV['CLOUD_API']
        }
   
        
