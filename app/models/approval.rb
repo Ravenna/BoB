@@ -3,12 +3,14 @@ class Approval < ActiveRecord::Base
   class ApproverEmailValidator < ActiveModel::EachValidator
 
      def validate_each(approval, attribute, value)
-       approval.errors[attribute] << "must be a valid eddiebauer.com e-mail address!" unless is_valid_email?(value)
+       approval.errors[attribute] << "must be a valid e-mail address!" unless is_valid_email?(value)
      end
 
     protected
          def is_valid_email?(address)
-           true
+           email_regex = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
+           (address =~ email_regex)
+           #true
          end
 
    end # End Approver Validator

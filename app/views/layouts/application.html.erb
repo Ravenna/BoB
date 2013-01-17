@@ -17,6 +17,9 @@
 	<div class=" container interior">
 <% end %>
 
+<div class="logo"><%= link_to (image_tag "eb-2012-logo.png"), root_url%></div>
+
+
 <ul id="utility-nav" class="">
 		<% if user_signed_in? %>
 		   <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
@@ -42,6 +45,7 @@
 			</li>
 	<% else %><% end %> 
 </ul>
+
 
 	<div id="top" class="clearfix">	
 		
