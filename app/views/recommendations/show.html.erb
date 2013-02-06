@@ -58,7 +58,11 @@
 						<td></td>
 						<td></td>
 					<% end %>
-				<td><%= approval.recommendation.user.smt %></td>
+				<td>
+					<% user = User.find_by_email(approval.email) %>
+					<%= user.smt %>
+					
+				</td>
 				<td><%= approval.created_at %></td>
 				<td>
 						<% if approval.upload.exists?%>

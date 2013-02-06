@@ -139,7 +139,13 @@
 		});
 	</script>
 	
-	<% unless current_user.smt == true %>
+	<% if current_user.smt == true %>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				 $('.actions input').removeAttr('disabled');
+			});
+		</script>
+	<% else %>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('input#approval_next_approver_email').keyup(function() {
