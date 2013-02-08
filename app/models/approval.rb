@@ -27,7 +27,7 @@ belongs_to :recommendation
 
 
 #VALIDATIONS 
-  validates :next_approver_email, :approver_email => { :if => :recently_approved? } 
+  validates :next_approver_email, :approver_email => { :if => :needs_next_approver? } 
   validates :email, :approver_email => true
   
 #CALLBACKS 
@@ -37,6 +37,10 @@ belongs_to :recommendation
  
 
 attr_accessor :next_approver_email
+
+  def needs_next_approver?
+    recently_approved? && !approval_user_smt?
+  end 
 
   def recommendation_present?
     recommendation.present?
