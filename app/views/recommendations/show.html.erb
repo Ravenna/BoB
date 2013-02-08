@@ -44,6 +44,7 @@
 				<th>Created</th>
 				<th>Attachment</th>
 				<th>Comments</th>
+				<th></th>
 			</tr>
 			<% @approvals.each do |approval|%>
 			<tr>
@@ -69,7 +70,8 @@
 						 <%= link_to image_tag("document.png"), approval.upload.url %>
 						<% end %>
 				</td>
-				<td><%= approval.info %></td>	
+				<td><%= approval.info %></td>
+				<td><%= link_to "View it", approval, :class => "btn btn-primary"%></td>	
 			</tr>
 			<% end %>
 		</table>
