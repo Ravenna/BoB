@@ -25,7 +25,7 @@
 	<% end %>
 	</ul>
 	
-	
+<!-- End Reco Info -->	
 
 	<hr>
 
@@ -66,7 +66,7 @@
 			<% end %>
 		</table>
 
-
+<!-- End Previous Approvals -->
 	<hr>
 	<%= form_for :approval, :url => { :action => "update" }, :method => :put, :html => { :multipart => true } do |f| %>
 	  	 <% if @approval.errors.any? %>
@@ -91,6 +91,10 @@
 
 	<% if current_user.smt == true %>
 		<h2>With your approval, the recommendation process is complete and this recommendation will move on to the Best of Bauer Academy for voting.</h2>
+			<div class="field hide" 
+				Supervisor Email Address:<br />
+				<%= f.text_field :next_approver_email, :value => "Karl.Weiss@EddieBauer.Com" %>
+			</div>
 	<% else%>
 		<div class="field" id="next_approver_email_field">
 		Supervisor Email Address:<br />

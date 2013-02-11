@@ -22,12 +22,12 @@ attr_accessor :next_approver_email
 has_attached_file :upload
 
 #ASSOCIATIONS
-belongs_to :user
-belongs_to :recommendation
+  belongs_to :user
+  belongs_to :recommendation
 
 
 #VALIDATIONS 
-  validates :next_approver_email, :approver_email => { :if => :needs_next_approver? } 
+  validates :next_approver_email, :approver_email => { :if => :recently_approved? } 
   validates :email, :approver_email => true
   
 #CALLBACKS 
@@ -35,20 +35,18 @@ belongs_to :recommendation
   before_save :create_next_approval, :if => :recently_approved?
   after_create :approval_notification
  
-
-attr_accessor :next_approver_email
-
-  def needs_next_approver?
-    recently_approved? && !approval_user_smt?
+ 
+  
+ 
+  def recently_approved?
+     self.approved_changed? && self.approved?
   end 
 
   def recommendation_present?
     recommendation.present?
   end
 
-  def recently_approved?
-     self.approved_changed? && self.approved?
-  end
+  
   
   def create_next_approval
     #logger.debug "Approval attributes hash: #{self.attributes.inspect}"

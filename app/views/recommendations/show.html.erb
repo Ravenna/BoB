@@ -31,6 +31,8 @@
 
 <p><b>Current Inbox Awaiting Approval:</b> <% unless @approvals.blank?  %><%= @approvals.last.email %> <% end %></p>
 
+
+<!-- END RECO INFO LISTING -->
 <p>&nbsp;</p>
 
 <% if current_user.present? && current_user.admin == true %>
