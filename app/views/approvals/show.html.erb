@@ -91,9 +91,9 @@
 
 	<% if current_user.smt == true %>
 		<h2>With your approval, the recommendation process is complete and this recommendation will move on to the Best of Bauer Academy for voting.</h2>
-			<div class="field hide" 
+			<div class="field hide">
 				Supervisor Email Address:<br />
-				<%= f.text_field :next_approver_email, :value => "Karl.Weiss@EddieBauer.Com" %>
+				<%= f.text_field :next_approver_email, :value => "tj@ravennainteractive.com" %>
 			</div>
 	<% else%>
 		<div class="field" id="next_approver_email_field">
