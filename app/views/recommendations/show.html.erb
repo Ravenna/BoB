@@ -73,7 +73,7 @@
 						<% end %>
 				</td>
 				<td><%= approval.info %></td>
-				<td><%= link_to "View it", approval, :class => "btn btn-primary"%></td>	
+				<td class="view-it-link"><%= link_to "View it", approval, :class => "btn btn-primary"%></td>	
 			</tr>
 			<% end %>
 		</table>
@@ -94,7 +94,11 @@
 
 
 <% end %>
-
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("table td.view-it-link:last").show();
+	})
+</script>
 
 <%#= link_to 'Back', admin_recommendations_path %>
 </div>
