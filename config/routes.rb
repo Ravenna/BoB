@@ -37,4 +37,6 @@ Bob::Application.routes.draw do
   match 'question' => "questions#create", :via => :post
   
   root :to => 'pages#home'
+  
+  match '/3487347/categories/:category_id/awards/:id' => "awards#show"
 end

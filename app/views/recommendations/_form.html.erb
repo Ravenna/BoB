@@ -55,7 +55,6 @@
 <fieldset>
 	<legend>Award and Summary Info</legend>  
   	<div class="field">
-		<% if @award.present? %>
 			You are recommending this 
 				<% if @award.store_award? %>
 						store
@@ -65,27 +64,18 @@
 						associate
 				<% end %> 
 		
-		for the following award: 
-			<h4><%= @award.name %></h4>
-		<div><%= @award.info.html_safe %></div>
-	
-		<%= f.hidden_field( :award_id, :value => @award.id ) %>
-
-		<% else %>
-			You are recommending this  
-				<% if @recommendation.award.store_award? %>
-					store
-				<% elsif @recommendation.award.director_award? %>
-					associate or store
-				<% else %>
-					associate
-				<% end %>
 			for the following award: 
-				<h4><%= @recommendation.award.name %></h4>
-			<div><%= @recommendation.award.info %></div>
-			<%= f.hidden_field( :award_id ) %>
+			<h4><%= @award.name %></h4>
+			<div><%= @award.info.html_safe %></div>
+		
+		
+		<% if params[:action] == "edit" %>
+		<div>
+			  <%= f.collection_select(:award_id, Award.all, :id, :name, {:selected => @award.id}) %>
+				
+	    </div>
 		<% end %>
-		</div>
+	</div>
   
 	  <hr>
 

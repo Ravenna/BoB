@@ -12,4 +12,13 @@
 <% else %>		
 	<%= link_to "Recommend an Associate Now!", new_category_award_recommendation_path(@category, @award ), :class => "btn"%>	
 <% end %>
+
+<hr> 
+<h4>The following associates have been nominated for this award</h4>
+<ul>
+<% @recommendations.each do |rec| %>
+	<li><%= link_to rec.nominee,  category_award_recommendation_path(@category, @award, rec) %></li>
+<% end %>
+</ul>
+
 </div>

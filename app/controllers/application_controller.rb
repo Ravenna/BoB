@@ -84,16 +84,21 @@ class ApplicationController < ActionController::Base
   helper_method :mobile?
   
   protected
-  def render_not_found(exception)
-     render :status => 404, error: 'There was an error on the Page you were trying to access. The site administrator has been notified.'
-   end
+  
+  if Rails.env.production?
+    def render_not_found(exception)
+       render :status => 404, error: 'There was an error on the Page you were trying to access. The site administrator has been notified.'
+     end
 
-   def render_error(exception)
-     ExceptionNotifier::Notifier
-       .exception_notification(request.env, exception)
-       .deliver
-     #render :status => 500
-     redirect_to root_path, error: 'The Page you were looking for does not exist.'
+     def render_error(exception)
+       ExceptionNotifier::Notifier
+         .exception_notification(request.env, exception)
+         .deliver
+       #render :status => 500
+       redirect_to root_path, error: 'The Page you were looking for does not exist.'
+     end
    end
+  
+  
   
 end

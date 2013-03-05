@@ -17,6 +17,8 @@ class AwardsController < ApplicationController
   def show
     @award = Award.find(params[:id])
     @category = Category.find(params[:category_id])
+    @recommendations = @award.recommendations.find(:all, :order => "nominee ASC")
+    
 
     respond_to do |format|
       format.html # show.html.erb
