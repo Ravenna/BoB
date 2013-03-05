@@ -13,6 +13,8 @@
 	<%= link_to "Recommend an Associate Now!", new_category_award_recommendation_path(@category, @award ), :class => "btn"%>	
 <% end %>
 
+<% if request.fullpath.match %r{^/3487347} %>
+
 <hr> 
 <h4>The following associates have been nominated for this award</h4>
 <ul>
@@ -22,3 +24,5 @@
 </ul>
 
 </div>
+<% end %>
+
