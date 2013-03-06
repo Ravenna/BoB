@@ -74,6 +74,8 @@
 			  <%= f.collection_select(:award_id, Award.all, :id, :name, {:selected => @award.id}) %>
 				
 	    </div>
+		<% else %>
+			<%= f.hidden_field( :award_id, :value => @award.id ) %>
 		<% end %>
 	</div>
   
