@@ -24,8 +24,8 @@
 		<% if user_signed_in? %>
 		   <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 		<% else %>
-		    <li id="sign_up_in"><%= link_to "Sign up", new_user_registration_path %></li>
-			<li class="or">or </li>
+		    <li id="sign_up_in"><%#= link_to "Sign up", new_user_registration_path %></li>
+			<!--<li class="or">or </li>-->
 			<li><%= link_to "Sign in", new_user_session_path %></li>
 		<% end %>
 		<% if current_user.present? && current_user.admin == true %>
@@ -51,12 +51,12 @@
 		
 
 		<ul id="main_nav" class="nav nav-pills pull-left">
-			<!--<li><%#= link_to "Recommend Now!", location_path %></li>-->
-			<li><%= link_to "Overview & Timeline", overview_path%></li>
-			<li><%= link_to "Award Categories", awardcat_path%></li>
-			<li><%= link_to "Prizes", prizes_path%></li>		
-			<li><%= link_to "Photos & Video", photo_video_path%></li>
-			<li id="last"><%= link_to "Questions", question_path %></li>
+			<!--<li><%#= link_to "Recommend Now!", location_path %></li>
+			<li><%#= link_to "Overview & Timeline", overview_path%></li>
+			<li><%#= link_to "Award Categories", awardcat_path%></li>
+			<li><%#= link_to "Prizes", prizes_path%></li>		
+			<li><%#= link_to "Photos & Video", photo_video_path%></li>
+			<li id="last"><%#= link_to "Questions", question_path %></li>-->
 		</ul>
 		
 	</div>
