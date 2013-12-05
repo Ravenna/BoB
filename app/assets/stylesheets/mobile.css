@@ -58,7 +58,7 @@ form p{padding-bottom:10px;}
 
 
 /*Container */
-#container{width:320px; margin:0 auto 20px auto; border-t}
+#container{width:320px; margin:0 auto 20px auto; }
 .home{background:url(mobile_bg.jpg) repeat; min-height:480px;}
 .interior{background:url(mobile_bg.jpg) repeat; min-height:480px;}
 
