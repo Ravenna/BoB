@@ -2,7 +2,7 @@
 
 
 <% unless mobile? %>	
-<div id="rec_bar_arrow" class="pos3"><%= image_tag 'recommend_nav.png'%></div>
+<div id="rec_bar_arrow" class="pos3"><%= image_tag 'arrow.png'%></div>
 <%= render  'shared/recommend_timeline' %>
 
 <h3>Location</h3>
@@ -10,16 +10,16 @@
 <h4>Please select a location to begin the recommendation process</h4>
 <div id="location_buttons">
 
-<% @categories.each do |category| %>
-	<% if category.id == 3 || category.id == 4 %>
-	<% else %>
+	<% @categories.each do |category| %>
+		<% if category.id == 3 || category.id == 4 %>
+		<% else %>
 	
-	<p><%= link_to category.name, category, :class => "btn green-btn"%></p>
+		<p><%= link_to category.name, category, :class => "btn"%></p>
 
    
-	  </tr>
+		  </tr>
+		<% end %>
 	<% end %>
-<% end %>
 
 
 </div>
