@@ -17,7 +17,7 @@
 	<div class=" container interior">
 <% end %>
 
-<div class="logo"><%= link_to (image_tag "eb-2012-logo.png"), root_url%></div>
+<div class="logo"><%= link_to (image_tag "bob-logo-horiz.png", :width => '400px'), root_url %></div>
 
 
 <ul id="utility-nav" class="">
@@ -51,12 +51,12 @@
 		
 
 		<ul id="main_nav" class="nav nav-pills pull-left">
-			<!--<li><%#= link_to "Recommend Now!", location_path %></li>
-			<li><%#= link_to "Overview & Timeline", overview_path%></li>
-			<li><%#= link_to "Award Categories", awardcat_path%></li>
-			<li><%#= link_to "Prizes", prizes_path%></li>		
-			<li><%#= link_to "Photos & Video", photo_video_path%></li>
-			<li id="last"><%#= link_to "Questions", question_path %></li>-->
+			<li><%= link_to "Recommend Now!", location_path %></li>
+			<li><%= link_to "Overview & Timeline", overview_path%></li>
+			<li><%= link_to "Award Categories", awardcat_path%></li>
+			<li><%= link_to "Prizes", prizes_path%></li>		
+			<li><%= link_to "Photos & Video", photo_video_path%></li>
+			<li id="last"><%#= link_to "Questions", question_path %></li>
 		</ul>
 		
 	</div>
