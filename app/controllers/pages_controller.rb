@@ -114,7 +114,7 @@ class PagesController < ApplicationController
      @page = Page.find_by_name("Awards")            
 
      @award15 = Award.find(15)
-     # @award16 = Award.find(16)
+     @award24 = Award.find(24)
   end
   
   def admin

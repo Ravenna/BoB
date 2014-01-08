@@ -1,4 +1,4 @@
-<h1>Ask a Question</h1>
+<h3>Ask a Question</h3>
 <p>All Fields Required</p>
 <%= simple_form_for @question, :url => url_for(:action => 'create', :controller => 'questions'), :method => 'post' do |f| %>
     <%= f.input :name, :required => true %>
