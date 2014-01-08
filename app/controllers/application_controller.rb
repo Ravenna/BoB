@@ -65,14 +65,14 @@ class ApplicationController < ActionController::Base
   end
   
   
-  before_filter :prepare_for_mobile
+  # before_filter :prepare_for_mobile
   private  
   def mobile?
-    if session[:mobile_param]
-      session[:mobile_param] == "1"
-    else
-      request.user_agent =~ /Mobile|webOS/
-    end
+    #if session[:mobile_param]
+    #  session[:mobile_param] == "1"
+    #else
+    #  request.user_agent =~ /Mobile|webOS/
+    #end
   end
 
 
@@ -81,7 +81,7 @@ class ApplicationController < ActionController::Base
     #request.format = :mobile if mobile?
   end
 
-  helper_method :mobile?
+  # helper_method :mobile?
   
   protected
   
