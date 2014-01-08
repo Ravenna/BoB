@@ -105,3 +105,18 @@ td.user-list-edit form, td.user-list-edit form div{display:inline-block; margin-
 .home .limiter{background-color:#efe9e5;}
 
 .view-it-link{display:none;}
+
+
+#error_explanation{
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	padding:15px;
+	margin-bottom:10px;
+}
+#error_explanation h2{
+	font-size:16px;
+	line-height:16px;
+	margin:0px;
+	padding-bottom:5px;
+}

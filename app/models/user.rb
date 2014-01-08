@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :smt, :admin
   
+  validates  :email, uniqueness: true
+  
    has_many :recommendations
    has_many :approvals # the approvals this user needs to approve or has approved
    before_create :skip_confirmation!

@@ -49,7 +49,7 @@ has_attached_file :upload
   
   
   def create_next_approval
-    #logger.debug "Approval attributes hash: #{self.attributes.inspect}"
+    logger.debug "Approval attributes hash: #{self.attributes.inspect}"
     next_approval = self.recommendation.approvals.build(:email => self.next_approver_email)
     next_approval.save  if next_approver_email.present? && recently_approved?
   end 

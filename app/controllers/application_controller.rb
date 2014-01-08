@@ -77,8 +77,8 @@ class ApplicationController < ActionController::Base
 
 
   def prepare_for_mobile
-    session[:mobile_param] = params[:mobile] if params[:mobile]
-    request.format = :mobile if mobile?
+    #session[:mobile_param] = params[:mobile] if params[:mobile]
+    #request.format = :mobile if mobile?
   end
 
   helper_method :mobile?
