@@ -1,5 +1,4 @@
 class AccountsController < ApplicationController
-  before_filter :determine_format
   
   def edit
     @account = User.find(params[:id])

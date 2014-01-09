@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-  before_filter :determine_format
   
     before_filter :inbox_value, :if_recommendations
   # GET /award_categories

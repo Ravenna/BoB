@@ -2,20 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   
-  #unless Rails.application.config.consider_all_requests_local
-    rescue_from Exception,
-                :with => :render_error
-    rescue_from ActiveRecord::RecordNotFound,
-                :with => :render_not_found
-    rescue_from ActionController::RoutingError,
-                :with => :render_not_found
-    rescue_from ActionController::UnknownController,
-                :with => :render_not_found
-    rescue_from ActionController::UnknownAction,
-                :with => :render_not_found
-  #end
-  
- 
+
   
   
   
@@ -48,11 +35,11 @@ class ApplicationController < ActionController::Base
   end
   
 
-  def determine_format
-    request.format = :html if request.format == :mobile
-  end
+  #def determine_format
+   # request.format = :html if request.format == :mobile
+  #end
   
-  before_filter :set_request_format
+  #before_filter :set_request_format
 
   def set_request_format
     if mobile? 
@@ -68,11 +55,8 @@ class ApplicationController < ActionController::Base
   # before_filter :prepare_for_mobile
   private  
   def mobile?
-    #if session[:mobile_param]
-    #  session[:mobile_param] == "1"
-    #else
-    #  request.user_agent =~ /Mobile|webOS/
-    #end
+    false
+  
   end
 
 
@@ -81,7 +65,7 @@ class ApplicationController < ActionController::Base
     #request.format = :mobile if mobile?
   end
 
-  # helper_method :mobile?
+  helper_method :mobile?
   
   protected
   
