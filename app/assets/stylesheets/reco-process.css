@@ -99,6 +99,8 @@ td.user-list-edit form, td.user-list-edit form div{display:inline-block; margin-
 	background-color:#c1d82f;
 	background-image:none;
 	color:#5f6062;	
+	padding:20px 35px;
+	font-size:20px;
 }
 .green-btn{background-position:0 0 !important; }
 
