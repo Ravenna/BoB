@@ -1,6 +1,6 @@
 body{
 	padding-top:0px;
-	background:#5f6062 no-repeat;
+	background-color:#000 ;
 }
 
 a{color:#5f6062;}
@@ -10,7 +10,16 @@ a:hover{
 }
 .btn{margin-bottom:10px;}
 
-.logo{padding:30px 0 0 0; margin-left:-13px;}
+.top-bg{
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+}
+
+.top-bg img{width:100%;}
+
+.logo{padding:20px 0 20px 0;}
 
 #top{
 	background:#c1d82f;
@@ -44,17 +53,14 @@ a:hover{
 }
 
 #utility-nav{
-	position:absolute;
-	top:0px;
-	right:0px;
-	z-index:100;
+
 }
 
 #utility-nav li{
 	list-style-type:none;
-	background-color:#efe9e5;
-	padding:3px 10px;
+	padding:7px 10px 0 10px;
 	color:#5f6062;
+	float:right;
 }
 #utility-nav li a{color:#5f6062;}
 
