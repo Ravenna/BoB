@@ -65,7 +65,10 @@
 					<% end %>
 				<td>
 					<% user = User.find_by_email(approval.email) %>
-					<%= user.smt %>
+					
+					<% unless user.blank? %>
+						<%= user.smt %>
+				    <% end %>
 					
 				</td>
 				<td><%= approval.created_at %></td>
