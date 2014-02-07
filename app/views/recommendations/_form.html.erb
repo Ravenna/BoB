@@ -150,6 +150,17 @@
 
 <fieldset>
 	<legend>Approval Process</legend>
+		<% 	if @approvals.present? %>
+  			<div class="field">
+				<h5>Previous Approvers</h5>
+				<ul>
+					<% 	@approvals.each do |approval| %>
+						<li><%= approval.email %></li>
+					<% 	end %> 
+				</ul>
+			</div>
+		<%	end %>
+	
   		<div class="field">
 		    <b>Select the one that matches best: *</b><br />
 			<%= f.radio_button( :supervisor, "You ARE the nominee’s direct manager / supervisor", :id => "super_checked") %> 
@@ -158,14 +169,12 @@
 			<%= f.radio_button( :supervisor, "You ARE NOT the nominee’s direct manager / supervisor", :checked => true, :id => "super_false") %>
 			 You ARE NOT the nominee’s direct manager / supervisor
 		</div>
-
-
-  		<div class="field">
+		
+		<div class="field">
 			<p id="not_super">Nominees Supervisors' Email: </p>
 			<p id="super">Enter Your Supervisor's Email</p>
-			
 				<%= f.fields_for :approvals do |f| %>
-					<p><%= f.text_field :email %></p>
+					<%= f.text_field :email if f.object.id.nil? %>
 				<% end %>
 			<br>If no Supervisor email is provided, recommendation will be saved without moving up the chain of approval.<br><br>
 		</div>
