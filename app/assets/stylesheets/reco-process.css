@@ -19,11 +19,10 @@ a:hover{
 
 .top-bg img{width:100%;}
 
-.logo{padding:20px 0 20px 0;}
+.logo{}
 
 #top{
-	background:#c1d82f;
-	margin-top:20px;
+	background:#c3d600;
 	position:relative;
 }
 .nav{margin-bottom:0px;}
@@ -110,8 +109,8 @@ td.user-list-edit form, td.user-list-edit form div{display:inline-block; margin-
 }
 .green-btn{background-position:0 0 !important; }
 
-.home #page_body {text-align:center;}
-.home .limiter{background-color:#efe9e5;}
+.home #page_body {text-align:center; margin-top:0px;}
+.home .limiter{padding:0px;}
 
 .view-it-link{display:none;}
 
