@@ -9,9 +9,18 @@
   <%= csrf_meta_tags %>
 
 </head>
-<body>
+<% if @page.present? && @page.name == "Home" %>	
+	<body class="home-body">
+		<div class="top-bg"><%= image_tag('bob-banner-2014.jpg')%></div>
+		
+<% else %>
+	<body class="page-body">
+		<div class="container">
+			<div class="top-bg"><%= image_tag('BOB_Website_Header2.png', :class => "img-responsive")%></div>
+		</div>
+		
+<% end %>
 	
-	<div class="top-bg"><%= image_tag('bob-top-2013.jpg')%></div>
 
 <% if @page.present? && @page.name == "Home" %>	
 	<div class="container home" >
@@ -19,52 +28,48 @@
 	<div class=" container interior">
 <% end %>
 
-<div class="logo"><%= link_to (image_tag "bob-header.jpg"), "https://www.surveymonkey.com/s/GW2TCWC" %></div>
+<div class="logo"></div>
 
 
 
 
 
 	<div id="top" class="clearfix">	
-		<!--
-
+		
 		<ul id="main_nav" class="nav nav-pills pull-left">
-			<li><%#= link_to "Recommend Now!", location_path %></li>
-			<li><%#= link_to "Overview & Timeline", overview_path%></li>
-			<li><%#= link_to "Award Categories", awardcat_path%></li>
-			<li><%#= link_to "Prizes", prizes_path%></li>		
-			<li><%#= link_to "Photos & Video", photo_video_path%></li>
-			<li id="last"><%#= link_to "Questions", question_path %></li>
+			<li><%= link_to "Recommend Now!", location_path %></li>
+			<li><%= link_to "Overview & Timeline", overview_path%></li>
+			<li><%= link_to "Award Categories", awardcat_path%></li>
+			<li><%= link_to "Prizes", prizes_path%></li>		
+			<li><%= link_to "Photos & Video", photo_video_path%></li>
+			<li id="last"><%= link_to "Questions", question_path %></li>
 		</ul>
 		
 		<ul id="utility-nav" class="pull-right">
-				<%# if user_signed_in? %>
-				   <li> <%#= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-				<%# else %>
-				    <li id="sign_up_in"><%#= link_to "Sign up", new_user_registration_path %></li>
-					<!--<li class="or">or </li>
-					<li><%#= link_to "Sign in", new_user_session_path %></li>
-				<%# end %>
-				<%# if current_user.present? && current_user.admin == true %>
-					<li><%#= link_to "Admin", admin_path %></li>
-				<%# end %>
+				<% if user_signed_in? %>
+				   <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+				<% else %>
+				    <li id="sign_up_in"><%= link_to "Sign up", new_user_registration_path %></li>
+					<li class="or">or </li>
+					<li><%= link_to "Sign in", new_user_session_path %></li>
+				<% end %>
+				<% if current_user.present? && current_user.admin == true %>
+					<li><%= link_to "Admin", admin_path %></li>
+				<% end %>
 
-				<%# if current_user.present? %>
+				<% if current_user.present? %>
 					<li>
-						<%# if @my_recs.present? %>
-							<%#= link_to "My Rec's", recs_path%></li>
-						<%# end %>
-							<%# if @approval_value.present? %>
-								<li><%#= link_to "In-Box", inbox_path %></li>
-							<%# else %>
+						<% if @my_recs.present? %>
+							<%= link_to "My Rec's", recs_path%></li>
+						<% end %>
+							<% if @approval_value.present? %>
+								<li><%= link_to "In-Box", inbox_path %></li>
+							<% else %>
 
-							<%# end %>
+							<% end %>
 					</li>
-			<%# else %><%# end %> 
+			<% else %><% end %> 
 		</ul>
-		
-		-->
-		
 		
 	</div>
 

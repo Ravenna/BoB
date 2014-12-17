@@ -24,6 +24,7 @@ a:hover{
 #top{
 	background:#c3d600;
 	position:relative;
+	margin-top:286px;
 }
 .nav{margin-bottom:0px;}
 .nav a{color:#5f6062  !important;}
@@ -42,9 +43,22 @@ a:hover{
 	background-color:#5f6062;
 }
 
+.page-body{
+	background: #5f6062; /* Old browsers */
+	background: -moz-linear-gradient(top,  #5f6062 0%, #000000 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5f6062), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #5f6062 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #5f6062 0%,#000000 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #5f6062 0%,#000000 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #5f6062 0%,#000000 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5f6062', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+	
+}
+
 .container{
 	position:relative;
 }
+
 
 .limiter{
 	padding:30px;
@@ -109,7 +123,7 @@ td.user-list-edit form, td.user-list-edit form div{display:inline-block; margin-
 }
 .green-btn{background-position:0 0 !important; }
 
-.home #page_body {text-align:center; margin-top:0px;}
+.home #page_body {text-align:center; margin-top:0px; padding-top: 20px;}
 .home .limiter{padding:0px;}
 
 .view-it-link{display:none;}
