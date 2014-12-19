@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
       @store = @storecat.awards.order("name ASC")
 
       @grovecat = Category.find(5)
-      @grove = @storecat.awards.order("name ASC")
+      @grove = @grovecat.awards.order("name ASC")
 
       @category = Category.find(params[:id])
 
