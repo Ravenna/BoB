@@ -14,14 +14,20 @@
 	
 		<ul class="award_cat_list">
 	  	<% @corp.each do |award| %>
-			<li><%= link_to award.name, new_category_award_recommendation_path(@category, award) %></li>
+			<li><%= link_to award.name, new_category_award_recommendation_path(@category, award) %>
+					<span class="award-tagline">- <%= award.tagline %></span>
+				
+			</li>
 		<% end %>
 		</ul>
 	
 		<h4>STORE STATISTICAL AWARDS</h4>
 		<ul class="award_cat_list">		
 			<% @store.each do |award| %>
-				<li><%= link_to award.name, new_category_award_recommendation_path(@category, award) %></li>
+				<li><%= link_to award.name, new_category_award_recommendation_path(@category, award) %>
+							<span class="award-tagline">- <%= award.tagline %></span>
+					
+				</li>
 			<% end %>
 		</ul>
 
@@ -31,10 +37,20 @@
 		<h2>Brand Awards</h2>
 		<ul class="award_cat_list">
 	  	<% @corp.each do |award| %>
-			<li><%= link_to award.name, new_category_award_recommendation_path(@category, award) %></li>
+			<li><%= link_to award.name, new_category_award_recommendation_path(@category, award) %> <span class="award-tagline">- <%= award.tagline %></span>
+			</li>
 		<% end %>
 		</ul>
 
+	<% elsif @category.id == 5 %>
+
+		<h2>Brand Awards</h2>
+		<ul class="award_cat_list">
+	  	<% @grove.each do |award| %>
+			<li><%= link_to award.name, new_category_award_recommendation_path(@category, award) %> <span class="award-tagline">- <%= award.tagline %></span>
+			</li>
+		<% end %>
+		</ul>
 	<% end %>
 
 

@@ -17,6 +17,10 @@
     <%= f.text_field :name %>
   </div>
   <div class="control-group">
+    <%= f.label :tagline, :class => "control" %>
+    <%= f.text_field :tagline %>
+  </div>
+  <div class="control-group">
    Categories<br />
 <% for category in Category.find(:all)%>
 	<label class="checkbox inline">

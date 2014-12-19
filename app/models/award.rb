@@ -1,7 +1,7 @@
 class Award < ActiveRecord::Base
     has_and_belongs_to_many :categories
     has_many :recommendations
-    attr_accessible :name, :info, :category_ids
+    attr_accessible :name, :info, :tagline,  :category_ids
     
     validates :name, :categories, :presence => true
     
