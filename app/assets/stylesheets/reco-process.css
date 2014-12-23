@@ -11,10 +11,9 @@ a:hover{
 .btn{margin-bottom:10px;}
 
 .top-bg{
-	position:absolute;
-	top:0px;
-	left:0px;
-	right:0px;
+	background: url('bob-banner-2015.jpg') no-repeat;
+ 	background-size: cover;
+  min-height: 360px;
 }
 
 .top-bg img{width:100%;}
@@ -24,7 +23,6 @@ a:hover{
 #top{
 	background:#c3d600;
 	position:relative;
-	margin-top:286px;
 }
 .nav{margin-bottom:0px;}
 .nav a{color:#5f6062  !important;}
