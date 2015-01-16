@@ -72,6 +72,6 @@ Bob::Application.configure do
    config.middleware.use ExceptionNotifier,
      :email_prefix => "[BoB Error Report] ",
      :sender_address => %{"BoB" <bestofbauer@bestofbauer.com>},
-     :exception_recipients => %w{}
+     :exception_recipients => %w{errors@ravennainteractive.com}
 
 end
