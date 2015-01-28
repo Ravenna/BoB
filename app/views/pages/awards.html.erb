@@ -32,6 +32,13 @@
 			<li><%= link_to "Best Product Wins", category_award_path(@cat4, @award15) %></li>
 			<li><%= link_to "Emerging Leader", category_award_path(@cat4, @award24) %></li>
 		</ul>
+		
+		<h4>GROVEPORT STATISTICAL AWARDS (OPEN TO GROVEPORT DIVISION)</h4>
+			<ul class="award_cat_list">		
+				<% @grove.each do |award| %>
+					<li><%= link_to award.name, category_award_path(award, :category_id => @groveCat) %></li>
+				<% end %>
+			</ul>
 
 
 </div>

@@ -108,6 +108,9 @@ class PagesController < ApplicationController
      @storecat = Category.find(3)
      @store = @storecat.awards.order("name ASC")
      
+     @groveCat = Category.find(5)
+     @grove = @groveCat.awards.order("name ASC")
+     
      @cat4 = Category.find(4)
      @page = Page.find_by_name("Awards")            
 
