@@ -63,7 +63,7 @@ Bob::Application.configure do
   config.action_mailer.smtp_settings = {
      :address              => "smtp.gmail.com",
      :port                 => 587,
-     :domain               => 'eb-bob.herokuapp.com',
+     :domain               => 'www.bestofbauer.com',
      :user_name            => 'bestofbauer@bestofbauer.com',
      :password             => 'ravenna_bob1',
      :authentication       => :plain,
